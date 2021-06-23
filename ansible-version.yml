@@ -1,0 +1,6 @@
+- name: Check the ansible version
+  hosts: '{{ servers }}'
+  tasks:
+    - name: Display the ansible version
+      debug:
+        msg: 'ansible version: {{ ansible_version.full }}'
