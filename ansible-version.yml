@@ -1,5 +1,5 @@
 - name: Check the ansible version
-  hosts: local
+  hosts: localhost
   tasks:
     - name: Display the ansible version
       debug:
