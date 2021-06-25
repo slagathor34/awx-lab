@@ -9,7 +9,7 @@
         name: network-instance
         project: "{{ gcp_project }}"
         auth_kind: "{{ gcp_cred_kind }}"
-        state: present
+        state: absent
       register: network
 
     - name: create an IPv4 public IP Address
@@ -18,5 +18,5 @@
         region: us-west1
         project: "{{ gcp_project }}"
         auth_kind: "{{ gcp_cred_kind }}"
-        state: present
+        state: absent
       register: address
