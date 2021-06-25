@@ -1,10 +1,10 @@
-- name: Create a GCP instance
+- name: Delete a GCP instance
   hosts: localhost
   vars:
      gcp_project: o365-cloud-security
      gcp_cred_kind: serviceaccount
   tasks:
-    - name: create a  VPC network
+    - name: Delete a  VPC network
       gcp_compute_network:
         name: network-instance
         project: "{{ gcp_project }}"
@@ -12,7 +12,7 @@
         state: absent
       register: network
 
-    - name: create an IPv4 public IP Address
+    - name: Delete IPv4 public IP Address
       gcp_compute_address:
         name: address-instance
         region: us-west1
