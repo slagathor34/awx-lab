@@ -1,13 +1,22 @@
-- name: Create GCP VPC
+- name: Create a GCP instance
   hosts: localhost
   vars:
-    gcp_project: o365-cloud-security
-    gcp_cred_kind: serviceaccount
+     gcp_project: o365-cloud-security
+     gcp_cred_kind: serviceaccount
   tasks:
-    - name: Create VPC
+    - name: create a  VPC network
       gcp_compute_network:
-        name: test-vpc
+        name: network-instance
         project: "{{ gcp_project }}"
         auth_kind: "{{ gcp_cred_kind }}"
-        state: absent
+        state: present
       register: network
+
+    - name: create an IPv4 public IP Address
+      gcp_compute_address:
+        name: address-instance
+        region: us-west1
+        project: "{{ gcp_project }}"
+        auth_kind: "{{ gcp_cred_kind }}"
+        state: present
+      register: address
