@@ -9,6 +9,7 @@
         name: network-instance
         project: "{{ gcp_project }}"
         auth_kind: "{{ gcp_cred_kind }}"
+        auto_create_subnetworks: 'true'
         state: present
       register: network
 
