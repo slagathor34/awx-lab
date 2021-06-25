@@ -9,5 +9,5 @@
         name: test-vpc
         project: "{{ gcp_project }}"
         auth_kind: "{{ gcp_cred_kind }}"
-        state: present
+        state: absent
       register: network
