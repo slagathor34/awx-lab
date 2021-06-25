@@ -1,0 +1,13 @@
+- name: Create GCP VPC
+  host: localhost
+  vars:
+    gcp_project:
+    gcp_cred_kind: serviceaccount
+  tasks:
+    - name: Create VPC
+      gcp_compute_network:
+        name: test-vpc
+        project: "{{ gcp_project }}"
+        auth_kind: "{{ gcp_cred_kind }}"
+        state: present
+      register: network
