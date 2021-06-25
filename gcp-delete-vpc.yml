@@ -1,5 +1,5 @@
 - name: Create GCP VPC
-  host: localhost
+  hosts: localhost
   vars:
     gcp_project:
     gcp_cred_kind: serviceaccount
