@@ -4,17 +4,6 @@
      gcp_project: o365-cloud-security
      gcp_cred_kind: serviceaccount
   tasks:
-    - name: create a disk mapped from RHEL8 image
-      gcp_compute_disk:
-        name: disk-instance
-        size_gb: 50
-        source_image: projects/rhel-cloud/global/images/rhel-8-v20190905
-        zone: us-central1-a
-        project: "{{ gcp_project }}"
-        auth_kind: "{{ gcp_cred_kind }}"
-        state: present
-      register: disk
-
     - name: create a  VPC network
       gcp_compute_network:
         name: network-instance
