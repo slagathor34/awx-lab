@@ -1,7 +1,7 @@
 - name: Create GCP VPC
   hosts: localhost
   vars:
-    gcp_project:
+    gcp_project: o365-cloud-security
     gcp_cred_kind: serviceaccount
   tasks:
     - name: Create VPC
