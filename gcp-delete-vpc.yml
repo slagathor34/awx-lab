@@ -1,13 +1,33 @@
-- name: Create GCP VPC
+- name: Create a GCP instance
   hosts: localhost
   vars:
-    gcp_project: o365-cloud-security
-    gcp_cred_kind: GCP_AUTH_KIND
+     gcp_project: o365-cloud-security
+     gcp_cred_kind: serviceaccount
   tasks:
-    - name: Create VPC
-      gcp_compute_network:
-        name: test-vpc
+    - name: create a disk mapped from RHEL8 image
+      gcp_compute_disk:
+        name: disk-instance
+        size_gb: 50
+        source_image: projects/rhel-cloud/global/images/rhel-8-v20190905
+        zone: us-central1-a
         project: "{{ gcp_project }}"
         auth_kind: "{{ gcp_cred_kind }}"
-        state: absent
+        state: present
+      register: disk
+
+    - name: create a  VPC network
+      gcp_compute_network:
+        name: network-instance
+        project: "{{ gcp_project }}"
+        auth_kind: "{{ gcp_cred_kind }}"
+        state: present
       register: network
+
+    - name: create an IPv4 public IP Address
+      gcp_compute_address:
+        name: address-instance
+        region: us-central1
+        project: "{{ gcp_project }}"
+        auth_kind: "{{ gcp_cred_kind }}"
+        state: present
+      register: address
