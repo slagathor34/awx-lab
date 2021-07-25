@@ -1,9 +1,13 @@
-- name: Create a Project
-  google.cloud.gcp_resourcemanager_project:
-    name: New Sample Project
-    id: brainstormestest-{{ 1000000 | random }}
-    auth_kind: serviceaccount
-    parent:
-      type: organization
-      id: {{ org_id }}
-    state: present
+- name: Create a GCP instance
+  hosts: localhost
+  vars:
+     gcp_cred_kind: serviceaccount
+  tasks:
+    - name: New Sample Project
+      google.cloud.gcp_resourcemanager_project: 
+      id: brainstormestest-{{ 1000000 | random }}
+      auth_kind: serviceaccount
+      parent:
+        type: organization
+        id: {{ org_id }}
+      state: present
