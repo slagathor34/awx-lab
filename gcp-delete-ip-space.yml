@@ -1,0 +1,14 @@
+- name: Delete a GCP IP Space
+  hosts: localhost
+  vars:
+     gcp_project: o365-cloud-security
+     gcp_cred_kind: serviceaccount
+  tasks:
+    - name: Delete an IPv4 public IP Address
+      gcp_compute_address:
+        name: "{{ address_instance }}"
+        region: "{{ region }}"
+        project: "{{ gcp_project }}"
+        auth_kind: "{{ gcp_cred_kind }}"
+        state: absent
+      register: address
