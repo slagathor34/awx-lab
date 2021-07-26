@@ -11,12 +11,3 @@
         auth_kind: "{{ gcp_cred_kind }}"
         state: absent
       register: network
-
-    - name: Delete IPv4 public IP Address
-      gcp_compute_address:
-        name: "{{ address_instance }}"
-        region: us-west1
-        project: "{{ gcp_project }}"
-        auth_kind: "{{ gcp_cred_kind }}"
-        state: absent
-      register: address
