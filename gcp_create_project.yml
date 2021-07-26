@@ -4,7 +4,7 @@
      gcp_cred_kind: serviceaccount
   tasks:
     - name: New Sample Project
-      google.cloud.gcp_resourcemanager_project: 
+      gcp_resourcemanager_project: 
       id: brainstormestest-{{ 1000000 | random }}
       auth_kind: serviceaccount
       parent:
