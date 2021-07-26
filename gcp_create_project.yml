@@ -9,5 +9,5 @@
       auth_kind: serviceaccount
       parent:
         type: organization
-        id: {{ org_id }}
+        id: "{{ org_id }}"
       state: present
