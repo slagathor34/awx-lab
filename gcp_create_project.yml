@@ -3,8 +3,10 @@
   tasks:
   - name: Create a GCP instance
     gcp_resourcemanager_project:
+      name: New Project
       id: brainstormestest-{{ 1000000 | random }}
       auth_kind: serviceaccount
+      service_account_file: "/tmp/auth.pem"
       parent:
         type: organization
         id: "{{ org_id }}"
