@@ -1,5 +1,4 @@
 - name: Create a GCP instance
-  hosts: localhost
   tasks:
   - name: Create a GCP instance
     gcp_resourcemanager_project:
