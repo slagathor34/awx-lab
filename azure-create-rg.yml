@@ -3,7 +3,7 @@
   connection: local
 
   tasks:
-  - name: Create a Resource Group
+  - name: "PLAY: Create a Resource Group"
     azure_rm_resourcegroup:
       name: "{{ rg_name }}"
       location: "{{ region }}"
@@ -11,3 +11,46 @@
       tags:
           testing: testing
           delete: never
+  
+  - name: "PLAY: Create a virtual network"
+    azure_rm_virtualnetwork:
+      resource_group: "{{ rg_name }}"
+      name: "{{ vnet_name }}"
+      address_prefixes_cidr:
+          - "10.1.0.0/16"
+          - "172.100.0.0/16"
+      dns_servers:
+          - "127.0.0.1"
+          - "127.0.0.2"
+      tags:
+          testing: testing
+          delete: on-exit
+  
+  - name: "PLAY: Create a Management Subnet"
+    azure_rm_subnet:
+        resource_group: "{{ rg_name }}"
+        virtual_network_name: "{{ vnet_name }}"
+        name: App-name-mgmt
+        address_prefix_cidr: "10.1.0.0/24"
+
+  - name: "PLAY: Create a Presentation Subnet"
+    azure_rm_subnet:
+        resource_group: "{{ rg_name }}"
+        virtual_network_name: "{{ vnet_name }}"
+        name: App-name-Presentation
+        address_prefix_cidr: "10.2.0.0/24"
+  
+  - name: "PLAY: Create a Application Subnet"
+    azure_rm_subnet:
+        resource_group: "{{ rg_name }}"
+        virtual_network_name: "{{ vnet_name }}"
+        name: App-name-Application
+        address_prefix_cidr: "10.3.0.0/24"
+  
+  - name: "PLAY: Create a Data Layer Subnet"
+    azure_rm_subnet:
+        resource_group: "{{ rg_name }}"
+        virtual_network_name: "{{ vnet_name }}"
+        name: App-name-Data
+        address_prefix_cidr: "10.4.0.0/24"
+  
