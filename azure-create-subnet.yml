@@ -1,0 +1,32 @@
+---
+- hosts: localhost
+  connection: local
+
+  tasks:
+  - name: Create a Management Subnet
+  azure_rm_subnet:
+    resource_group: myResourceGroup
+    virtual_network_name: myVirtualNetwork
+    name: App-name-mgmt
+    address_prefix_cidr: "10.1.0.0/24"
+  
+  - name: Create a Presentation Subnet
+  azure_rm_subnet:
+    resource_group: myResourceGroup
+    virtual_network_name: myVirtualNetwork
+    name: App-name-Presentation
+    address_prefix_cidr: "10.2.0.0/24"
+  
+  - name: Create a Application Subnet
+  azure_rm_subnet:
+    resource_group: myResourceGroup
+    virtual_network_name: myVirtualNetwork
+    name: App-name-Application
+    address_prefix_cidr: "10.3.0.0/24"
+  
+  - name: Create a Data Layer Subnet
+  azure_rm_subnet:
+    resource_group: myResourceGroup
+    virtual_network_name: myVirtualNetwork
+    name: App-name-Data
+    address_prefix_cidr: "10.4.0.0/24"

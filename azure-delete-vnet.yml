@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  connection: local
+
+  tasks:
+  - name: Delete a new vNet
+    azure_rm_resourcegroup:
+      name: testsecret
+      location: westus
+      state: absent
+      tags:
+          testing: testing
+          delete: never
