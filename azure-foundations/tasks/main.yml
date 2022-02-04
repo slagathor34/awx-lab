@@ -1,2 +1,7 @@
 ---
 # tasks file for azure-foundations
+# Create Resource Group
+# Create or use existing vNet
+# Create 4 subnets with NSG names
+# Create Gateways and transit devices
+# Create 
