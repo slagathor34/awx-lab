@@ -1,6 +1,6 @@
 - name: Create a GCP instance
   gcp_resourcemanager_project:
-    gcp_cred_kind: serviceaccount
+    name: New Project
     id: brainstormestest-{{ 1000000 | random }}
     auth_kind: serviceaccount
     parent:
