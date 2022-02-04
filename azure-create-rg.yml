@@ -5,8 +5,8 @@
   tasks:
   - name: Create a Resource Group
     azure_rm_resourcegroup:
-      name: testsecret
-      location: westus
+      name: "{{ rg_name }}"
+      location: "{{ region }}"
       state: present
       tags:
           testing: testing
