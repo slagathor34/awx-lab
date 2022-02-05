@@ -1,0 +1,11 @@
+- name: Create network interface card
+  azure_rm_networkinterface:
+    name: "{{ vnic_name}}"
+    resource_group: "{{ rg_name }}"
+    virtual_network_name: "{{ vnet_name }}"
+    subnet_name: subnet01
+    public_ip: no 
+    state: present 
+  register: network_interface 
+  tags: 
+    - recipe2

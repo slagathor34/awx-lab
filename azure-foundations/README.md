@@ -18,8 +18,9 @@ end
 | rgname | Resource Group Name | StormWatch | All roles |
 | vnet_name | Name of the Virtual Network | StormvNet1 | VirtualNetwork, Subnets |
 | App-name | Name of the Application | Spandex | Subnets |
+| vnic_name | Name of the virtual NIC | 
 
 Todo
 - [ ] Address service peering requirements
 - [ ] Finish other base functions
-- [ ] Start planning for Desired State Configuraiton 
+- [ ] Start planning for Desired State Configuration
