@@ -1,7 +1,7 @@
 ---
 - azure_rm_securitygroup:
       resource_group: {{ rg_name }}
-      name: Remote Access - SSH
+      name: app_name_mgmt
       purge_rules: yes
       rules:
           - name: DenySSH
