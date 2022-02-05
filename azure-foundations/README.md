@@ -19,3 +19,7 @@ end
 | vnet_name | Name of the Virtual Network | StormvNet1 | VirtualNetwork, Subnets |
 | App-name | Name of the Application | Spandex | Subnets |
 
+Todo
+- [ ] Address service peering requirements
+- [ ] Finish other base functions
+- [ ] Start planning for Desired State Configuraiton 
