@@ -1,23 +1,27 @@
 ---
-- azure_rm_securitygroup:
-      resource_group: {{ rg_name }}
-      name: app_name_mgmt
-      purge_rules: yes
+- name: "Create mgmt NSG"
+  azure_rm_securitygroup:
+    resource_group: {{ rg_name }}
+    name: app_name_mgmt
+    purge_rules: yes
 
-- azure_rm_securitygroup:
-      resource_group: {{ rg_name }}
-      name: app_name_presentation
-      purge_rules: yes
+- name: "Create Presentation Layer NSG"
+  azure_rm_securitygroup:
+    resource_group: {{ rg_name }}
+    name: app_name_presentation
+    purge_rules: yes
 
-- azure_rm_securitygroup:
-      resource_group: {{ rg_name }}
-      name: app_name_application
-      purge_rules: yes
+- name: "Create Application Layer NSG"
+  azure_rm_securitygroup:
+    resource_group: {{ rg_name }}
+    name: app_name_application
+    purge_rules: yes
 
-- azure_rm_securitygroup:
-      resource_group: {{ rg_name }}
-      name: app_name_data
-      purge_rules: yes
+- name: "Create Data Layer NSG"
+  azure_rm_securitygroup:
+    resource_group: {{ rg_name }}
+    name: app_name_data
+    purge_rules: yes
 
 - name: "PLAY: Create a Management Subnet"
   azure_rm_subnet:
