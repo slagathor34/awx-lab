@@ -7,8 +7,8 @@
     - ResourceGroup
     - VirtualNetwork
     - Subnets
-    #- NSG
-    #- StorageAccount
+    - NSG
+    - StorageAccount
     #- IaaS
     #- vNIC
     #- Services

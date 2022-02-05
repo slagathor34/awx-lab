@@ -1,0 +1,11 @@
+---
+- name: Create a storage account
+  azure_rm_storageaccount:
+     resource_group: "{{ rg_name }}"
+     name: "{{ storage_account_name }}"
+     type: Standard_RAGRS 
+     location: "{{ region }}"
+     tags:
+       - env: testing 
+  tags: 
+    - BlueShift
