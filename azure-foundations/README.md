@@ -5,6 +5,10 @@ graph TB
   Node1[ResourceGroup] --> Node2[VirtualNetwork]
   Node2[VirtualNetwork] --> Node3[Subnets]
   Node3[Subnets] --> Node4[NSG]
+  Node4[Subnets] --> Node5[StorageAccount]
+  Node5[StorageAccount] --> Node6[IaaS]
+  Node6[IaaS] --> Node7[vNIC]
+  Node7[vNIC] --> Node8[Services]
 end
 ```
 
