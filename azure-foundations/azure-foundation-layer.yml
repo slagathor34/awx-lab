@@ -1,0 +1,9 @@
+---
+- name: Lay down foundational Azure Resource Group
+  hosts: localhost
+
+  roles:
+    - ResourceGroup
+    - VirtualNetwork
+    - Subnet
+    - NSG
