@@ -3,7 +3,7 @@
     name: "{{ vnic_name}}"
     resource_group: "{{ rg_name }}"
     virtual_network_name: "{{ vnet_name }}"
-    subnet_name: subnet01
+    subnet_name: "{{ subnet_name }}"
     public_ip: no 
     state: present 
   register: network_interface 

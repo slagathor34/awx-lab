@@ -1,0 +1,16 @@
+---
+- name: Create a VM with managed disk
+  azure_rm_virtualmachine:
+    resource_group: "{{ rg_name }}"
+    name: "{{ vm-managed-disk }}"
+    admin_username: adminUser
+    availability_set: avs-managed-disk
+    managed_disk_type: Standard_LRS
+    storage_account: "{{ storage_account }}"
+    ssh_public_key: "{{ ssh_public_key_vault }}"
+    image:
+      offer: CoreOS
+      publisher: CoreOS
+      sku: Stable
+      version: latest
+    vm_size: "{{ az_vm_size }}"

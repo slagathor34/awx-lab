@@ -20,7 +20,7 @@ end
 | App-name | Name of the Application | Spandex | Subnets |
 | vnic_name | Name of the virtual NIC | 
 
-Todo
+## Todo
 - [ ] Address service peering requirements
 - [ ] Finish other base functions
 - [ ] Start planning for Desired State Configuration
