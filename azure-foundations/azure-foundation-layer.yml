@@ -8,3 +8,7 @@
     - VirtualNetwork
     - Subnets
     - NSG
+    #- StorageAccount
+    #- IaaS
+    #- vNIC
+    #- Services
