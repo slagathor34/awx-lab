@@ -1,4 +1,7 @@
+# Azure BlueShift Role
+
 ## Role Workflow
+
 ```mermaid
 graph TB
   subgraph "Azure Foundational Role"
@@ -12,7 +15,8 @@ graph TB
 end
 ```
 
-## Used Variables 
+## Used Variables
+
 | Variable Name | Description | Example | Used In Role |
 | :--- | :--- | :--- | :--- |
 | rgname | Resource Group Name | StormWatch | All roles |
@@ -21,6 +25,7 @@ end
 | vnic_name | Name of the virtual NIC | 
 
 ## Todo
+
 - [ ] Address service peering requirements
 - [ ] Finish other base functions
 - [ ] Start planning for Desired State Configuration
