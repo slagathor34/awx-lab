@@ -1,7 +1,6 @@
 ## Role Workflow
 ```mermaid
 graph TB
-
   subgraph "Azure Foundational Role"
   Node1[ResourceGroup] --> Node2[VirtualNetwork]
   Node2[VirtualNetwork] --> Node3[Subnets]
