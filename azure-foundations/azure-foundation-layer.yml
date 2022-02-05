@@ -6,5 +6,6 @@
   roles:
     - ResourceGroup
     - VirtualNetwork
-    - Subnets
     #- NSG
+    - Subnets
+    
