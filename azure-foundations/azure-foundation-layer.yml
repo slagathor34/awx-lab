@@ -1,6 +1,7 @@
 ---
-- name: Lay down foundational Azure Resource Group
+- name: Create Foundational Azure Resource Group
   hosts: localhost
+  connection: local
 
   roles:
     - ResourceGroup
