@@ -1,0 +1,28 @@
+---
+- name: "PLAY: Create a Management Subnet"
+  azure_rm_subnet:
+    resource_group: "{{ rg_name }}"
+    virtual_network_name: "{{ vnet_name }}"
+    name: App-name-mgmt
+    address_prefix_cidr: "10.1.0.0/24"
+
+- name: "PLAY: Create a Presentation Subnet"
+  azure_rm_subnet:
+    resource_group: "{{ rg_name }}"
+    virtual_network_name: "{{ vnet_name }}"
+    name: App-name-Presentation
+    address_prefix_cidr: "10.1.1.0/24"
+  
+- name: "PLAY: Create a Application Subnet"
+  azure_rm_subnet:
+    resource_group: "{{ rg_name }}"
+    virtual_network_name: "{{ vnet_name }}"
+    name: App-name-Application
+    address_prefix_cidr: "10.1.2.0/24"
+  
+- name: "PLAY: Create a Data Layer Subnet"
+  azure_rm_subnet:
+    resource_group: "{{ rg_name }}"
+    virtual_network_name: "{{ vnet_name }}"
+    name: App-name-Data
+    address_prefix_cidr: "10.1.3.0/24"
