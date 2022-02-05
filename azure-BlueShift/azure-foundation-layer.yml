@@ -10,5 +10,6 @@
     - NSG
     - StorageAccount
     #- IaaS
-    #- vNIC
+    #- vNICz
+    #- PaaS
     #- Services
