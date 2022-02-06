@@ -20,7 +20,6 @@
             access: Allow
             priority: 101
             direction: Inbound
-            state: absent
           
           - name: 'AllowMultiplePorts'
             protocol: Tcp
@@ -32,4 +31,3 @@
               - 443
             access: Allow
             priority: 102
-            state: absent
