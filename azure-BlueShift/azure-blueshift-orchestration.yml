@@ -16,7 +16,7 @@
   tags: [CreateNSG, all]
 
 - include: StorageAccount/tasks/main.yml
-  tags: [CreateRG, all]
+  tags: [CreateStorageAccount, all]
 
 - include: IaaS/tasks/main.yml
   tags: [CreateIaaS, all]
