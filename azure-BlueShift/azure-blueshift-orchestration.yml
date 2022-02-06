@@ -4,7 +4,7 @@
   connection: local
 
   tasks:
-    - import_playbook: ResourceGroup/tasks/main.yml
+    - include: ResourceGroup/tasks/main.yml
       tags: [CreateRG, all]
 
     - include: VirtualNetwork/tasks/main.yml
