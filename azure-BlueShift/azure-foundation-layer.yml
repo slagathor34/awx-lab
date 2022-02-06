@@ -3,6 +3,10 @@
   hosts: localhost
   connection: local
 
+  pre_tasks:
+    - debug:
+        msg: "Executing Pre Tasks"
+
   roles:
     #- Common
     - ResourceGroup
@@ -14,3 +18,7 @@
     #- PaaS
     #- Services
     #- Application
+
+  post_tasks:
+    - debug:
+        msg: "Executing Post Tasks"
