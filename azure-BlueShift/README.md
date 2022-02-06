@@ -26,7 +26,6 @@ end
 | vnic_name | Name of the virtual NIC | Spandex-vnic | vNIC |
 | storage_account_name | Name of the storage account | App-SA | StorageAccount |
 
-
 ## Todo
 
 - [ ] Address service peering requirements
