@@ -1,4 +1,19 @@
 ---
+- name: Create network interface card
+  azure_rm_networkinterface:
+    name: "{{ vnic_name }}"
+    resource_group: "{{ rg_name }}"
+    virtual_network_name: "{{ vnet_name }}"
+    subnet_name: subnet01
+    security_group_name: "{{ nsg_name }}"
+    public_ip: no 
+    state: present 
+  register: network_interface 
+
+- name: Show private ip
+  debug:
+    msg: "{{network_interface.ip_configuration.private_ip_address}}"
+
 - name: Create a VM with managed disk
   azure_rm_virtualmachine:
     resource_group: "{{ rg_name }}"
