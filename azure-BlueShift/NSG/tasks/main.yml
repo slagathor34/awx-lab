@@ -1,6 +1,6 @@
 ---
 - azure_rm_securitygroup:
-      resource_group: {{ rg_name }}
+      resource_group: "{{ rg_name }}"
       name: app_name_mgmt
       purge_rules: yes
       rules:
