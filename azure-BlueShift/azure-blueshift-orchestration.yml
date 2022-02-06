@@ -2,8 +2,15 @@
 - name: Create Foundational Azure BlueShift Resource Creation
   hosts: localhost
   connection: local
+   
+  pre_tasks:
+    - debug:
+        msg: "Pre Tasks for Orchestration"
 
   tasks:
+    - include: Common/tasks/main.yml
+      tags: [Common, all]
+
     - include: ResourceGroup/tasks/main.yml
       tags: [CreateRG, all]
 
@@ -33,3 +40,7 @@
 
     - include: Closeout/tasks/main.yml
       tags: [Closeout, all]
+  
+  post_tasks:
+    - debug:
+        msg: "Post Tasks for Orchestration."
