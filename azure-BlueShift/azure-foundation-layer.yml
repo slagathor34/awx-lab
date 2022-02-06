@@ -4,6 +4,7 @@
   connection: local
 
   roles:
+    #- Common
     - ResourceGroup
     - VirtualNetwork
     - Subnets

@@ -5,6 +5,7 @@
 ```mermaid
 graph LR
   subgraph "Azure Foundational Role"
+  Node0[Common] --> Node1[ResourceGroup];
   Node1[ResourceGroup] --> Node2[VirtualNetwork];
   Node2[VirtualNetwork] --> Node3[Subnets];
   Node3[Subnets] --> Node4[NSG];
@@ -13,6 +14,8 @@ graph LR
   Node5[StorageAccount] --> Node7[PaaS];
   Node6[IaaS] --> Node8[Services];
   Node7[PaaS] --> Node8[Services];
+  Node8[Services] --> Node9[Application];
+  Node9[Application] --> Node10[Closeout];
 end
 ```
 
