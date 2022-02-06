@@ -11,7 +11,7 @@ graph LR
   Node4[NSG] --> Node5[StorageAccount];
   Node5[StorageAccount] --> Node6[IaaS];
   Node5[StorageAccount] --> Node7[PaaS];
-  Node6[IaaS] --> Node7[Services];
+  Node6[IaaS] --> Node8[Services];
   Node7[PaaS] --> Node8[Services];
 end
 ```
