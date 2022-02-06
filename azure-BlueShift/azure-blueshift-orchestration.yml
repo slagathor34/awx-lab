@@ -3,32 +3,33 @@
   hosts: localhost
   connection: local
 
-- import_playbook: ResourceGroup/tasks/main.yml
-  tags: [CreateRG, all]
+  tasks:
+    - import_playbook: ResourceGroup/tasks/main.yml
+      tags: [CreateRG, all]
 
-- include: VirtualNetwork/tasks/main.yml
-  tags: [CreateVnet, all]
+    - include: VirtualNetwork/tasks/main.yml
+      tags: [CreateVnet, all]
 
-- include: Subnets/tasks/main.yml
-  tags: [CreateSubnets, all]
+    - include: Subnets/tasks/main.yml
+      tags: [CreateSubnets, all]
 
-- include: NSG/tasks/main.yml
-  tags: [CreateNSG, all]
+    - include: NSG/tasks/main.yml
+      tags: [CreateNSG, all]
 
-- include: StorageAccount/tasks/main.yml
-  tags: [CreateStorageAccount, all]
+    - include: StorageAccount/tasks/main.yml
+      tags: [CreateStorageAccount, all]
 
-- include: IaaS/tasks/main.yml
-  tags: [CreateIaaS, all]
+    - include: IaaS/tasks/main.yml
+      tags: [CreateIaaS, all]
 
-- include: PaaS/tasks/main.yml
-  tags: [CreatePaaS, all]
+    - include: PaaS/tasks/main.yml
+      tags: [CreatePaaS, all]
 
-- include: Services/tasks/main.yml
-  tags: [CreateServices, all]
+    - include: Services/tasks/main.yml
+      tags: [CreateServices, all]
 
-- include: Application/tasks/main.yml
-  tags: [CreateApplication, all]
+    - include: Application/tasks/main.yml
+      tags: [CreateApplication, all]
 
-- include: Closeout/tasks/main.yml
-  tags: [Closeout, all]
+    - include: Closeout/tasks/main.yml
+      tags: [Closeout, all]
