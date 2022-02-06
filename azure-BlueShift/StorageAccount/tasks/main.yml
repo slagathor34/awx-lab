@@ -5,7 +5,3 @@
      name: "{{ storage_account_name }}"
      type: Standard_RAGRS 
      location: "{{ region }}"
-     tags:
-       - env: testing 
-  tags: 
-    - BlueShift
