@@ -3,23 +3,32 @@
   hosts: localhost
   connection: local
 
-  pre_tasks:
-    - debug:
-        msg: "Executing Pre Tasks"
+- include: ResourceGroup/tasks/main.yml
+  tags: [CreateRG, all]
 
-  roles:
-    - Common
-    - ResourceGroup
-    - VirtualNetwork
-    - Subnets
-    - NSG
-    - StorageAccount
-    #- IaaS
-    #- PaaS
-    - Services
-    - Application
-    - Closeout
+- include: VirtualNetwork/tasks/main.yml
+  tags: [CreateVnet, all]
 
-  post_tasks:
-    - debug:
-        msg: "Executing Post Tasks"
+- include: Subnets/tasks/main.yml
+  tags: [CreateSubnets, all]
+
+- include: NSG/tasks/main.yml
+  tags: [CreateNSG, all]
+
+- include: StorageAccount/tasks/main.yml
+  tags: [CreateRG, all]
+
+- include: IaaS/tasks/main.yml
+  tags: [CreateIaaS, all]
+
+- include: PaaS/tasks/main.yml
+  tags: [CreatePaaS, all]
+
+- include: Services/tasks/main.yml
+  tags: [CreateServices, all]
+
+- include: Application/tasks/main.yml
+  tags: [CreateApplication, all]
+
+- include: Closeout/tasks/main.yml
+  tags: [Closeout, all]

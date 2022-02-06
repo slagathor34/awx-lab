@@ -1,0 +1,17 @@
+---
+- name: Create Foundational Azure Resource Group
+  hosts: localhost
+  connection: local
+
+  roles:
+      - Common
+      - ResourceGroup
+      - VirtualNetwork
+      - Subnets
+      - NSG
+      - StorageAccount
+      #- IaaS
+      #- PaaS
+      - Services
+      - Application
+      - Closeout
