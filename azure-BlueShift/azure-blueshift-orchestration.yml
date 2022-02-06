@@ -3,7 +3,7 @@
   hosts: localhost
   connection: local
 
-- include: ResourceGroup/tasks/main.yml
+- import_playbook: ResourceGroup/tasks/main.yml
   tags: [CreateRG, all]
 
 - include: VirtualNetwork/tasks/main.yml
