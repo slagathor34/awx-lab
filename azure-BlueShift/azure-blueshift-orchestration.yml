@@ -8,7 +8,7 @@
         msg: "Executing Pre Tasks"
 
   roles:
-    #- Common
+    - Common
     - ResourceGroup
     - VirtualNetwork
     - Subnets
@@ -16,8 +16,9 @@
     - StorageAccount
     #- IaaS
     #- PaaS
-    #- Services
-    #- Application
+    - Services
+    - Application
+    - Closeout
 
   post_tasks:
     - debug:
