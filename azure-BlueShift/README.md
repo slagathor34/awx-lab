@@ -113,14 +113,16 @@ flowchart LR
 
 ### Ansible Tower
 
+#### Ansible Tower Role Orchestration Execution Using Tags
 ![Ansible Tower Role Orchestration With Tags](/img/Azure-BlueShift-Role-Orchestration-Tag-Tower.png)
 
+#### Ansible Tower Full Azure BlueShift Role
 ![Ansible Tower Full Role](/img/Azure-BlueShift-Role-Tower.png)
 
+#### Ansible Tower Full Role Job Output
 ![Ansible Tower Job Output](/img/Ansible-Tower-Job-Output.png)
 
-![Azure BlueShift Role Orchestration Tag By Tower](/img/Azure-BlueShift-Role-Orchestration-Tag-Tower.png)
-
+#### Ansible Tower Job Submission from Manage IQ
 ![](/img/Ansible-Tower-Job_submission-MIQ.png)
 
 ### Manage IQ
