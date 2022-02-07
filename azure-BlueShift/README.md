@@ -38,14 +38,19 @@ flowchart LR
 ## Process Execution
 
 ```mermaid
-sequenceDiagram
-    participant AnsibleTower
-    participant ManageIQ
-    ManageIQ-->>AnsibleTower: 
-    loop Healthcheck
-        AnsibleTower->>Azure: Fight tech waste!
+mermaid
+sequenceDiagram 
+    Developer->>ManageIQ: Please give me a platform?
+    loop Budgetcheck
+        ManageIQ->>ManageIQ: Fight tech waste!
     end
-    Note right of ManageIQ: Check chargeback <br/>utilization
+    ManageIQ-->>AnsibleTower: Lay Down Foundation
+    ManageIQ->>Puppet Foreman/AzureDSC: Configure Service Layer (IaaS)
+    ManageIQ-->>AnsibleTower: Configure Service Layer (PaaS - OpenShift/K8)
+    Compliance Scan-->>ManageIQ: Return Score
+    ManageIQ-->>ServiceNow: Final Callback Values
+    ServiceNow-->>ManageIQ: Deployed, CMDB Update Confirmed
+    ManageIQ->>Developer: Done
 ```
 
 ## BlueShift Subroles
