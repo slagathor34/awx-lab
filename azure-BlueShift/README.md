@@ -116,7 +116,7 @@ Orchestration Tag: **CreateStorageAccount**
 - [x] Builds an Azure Storage Account
 - [x] Sets the default access
 - [ ] Set up private endpoint 
-- [ ] Set up threst protection
+- [ ] Set up threat protection
 
 ### IaaS
 
