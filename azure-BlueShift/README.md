@@ -48,7 +48,7 @@ flowchart LR
 
 ---
 - [x] Assigns subnets for each area
-- [ ]
+- [x] Creates initial NSG's for setup
 
 
 ### NSG
