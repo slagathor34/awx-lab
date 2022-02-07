@@ -95,6 +95,8 @@ Orchestration Tag: **CreateIaaS**
 
 - [ ] Lays down a Virtual Maachine inside of the Subnets
 - [ ] Creates vNIC and public/private IP addresses
+- [ ] Install required extensions
+- [ ] Constrain with Desired State
 - [ ] Applys NSG
 
 
