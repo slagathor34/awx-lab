@@ -227,7 +227,7 @@ Orchestration Tag: **Closeout**
 
 ### BlueShift Azure Standard Resource Group
 
-![BlueShift Azure Resource Group](/img/BSC_RG_Framework.png)
+![BlueShift Azure Resource Group](/img/Az_RG_Framework.png)
 
 ### Ansible Tower
 
