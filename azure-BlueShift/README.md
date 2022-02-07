@@ -35,7 +35,7 @@ flowchart LR
 
 ---
 
-Orchestration Tag: Common
+Orchestration Tag: **Common**
 
 - [ ] Tasks that involve setup
 - [ ] Get KeyVault Values
@@ -45,7 +45,7 @@ Orchestration Tag: Common
 
 ---
 
-Orchestration Tag: CreateRG
+Orchestration Tag: **CreateRG**
 
 - [x] Created with 1 region
 - [ ] Need to create based on tags
@@ -54,7 +54,7 @@ Orchestration Tag: CreateRG
 
 ---
 
-Orchestration Tag: CreateVnet
+Orchestration Tag: **CreateVnet**
 
 - [x] Sets up CIDR range
 - [ ] Also sets up base for peering
@@ -63,7 +63,7 @@ Orchestration Tag: CreateVnet
 
 ---
 
-Orchestration Tag: CreateSubnets
+Orchestration Tag: **CreateSubnets**
 
 - [x] Assigns subnets for each area
 - [x] Creates initial NSG's for setup
@@ -73,7 +73,7 @@ Orchestration Tag: CreateSubnets
 
 ---
 
-Orchestration Tag: CreateNSG
+Orchestration Tag: **CreateNSG**
 
 - [x] Creates and updates existing Network Security Groups
 
@@ -82,7 +82,7 @@ Orchestration Tag: CreateNSG
 
 ---
 
-Orchestration Tag: CreateStorageAccount
+Orchestration Tag: **CreateStorageAccount**
 
 - [x] Builds an Azure Storage Account
 - [x] Sets the default access
@@ -91,7 +91,7 @@ Orchestration Tag: CreateStorageAccount
 
 ---
 
-Orchestration Tag: CreateIaaS
+Orchestration Tag: **CreateIaaS**
 
 - [ ] Lays down a Virtual Maachine inside of the Subnets
 - [ ] Creates vNIC and public/private IP addresses
@@ -102,7 +102,7 @@ Orchestration Tag: CreateIaaS
 
 ---
 
-Orchestration Tag: CreatePaaS
+Orchestration Tag: **CreatePaaS**
 
 - [ ] Sets up platform in each subnet
 
@@ -110,7 +110,7 @@ Orchestration Tag: CreatePaaS
 
 ---
 
-Orchestration Tag: CreateServices
+Orchestration Tag: **CreateServices**
 
 - [ ] Load balancers
 - [ ] Key Vaults
@@ -124,7 +124,7 @@ Orchestration Tag: CreateServices
 
 ---
 
-Orchestration Tag: CreateApplication
+Orchestration Tag: **CreateApplication**
 
 - [ ] Get code from Repository
 - [ ] Install in correct location
@@ -135,7 +135,7 @@ Orchestration Tag: CreateApplication
 
 ---
 
-Orchestration Tag: Closeout
+Orchestration Tag: **Closeout**
 
 - [ ] Test release
 - [ ] Report on performance
