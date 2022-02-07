@@ -35,33 +35,33 @@ flowchart LR
 #### Resource Group
 
 ---
-- Created with 1 region
+- [x] Created with 1 region
 - [ ] Need to create based on tags
 
 ### Virtual Network
 
 ---
-- Sets up CIDR range
+- [x] Sets up CIDR range
 - [ ] Also sets up base for peering
 
 ### Subnets
 
 ---
-- [ ] Assigns subnets for each area
-- [ ] 
+- [x] Assigns subnets for each area
+- [ ]
 
 
 ### NSG
 
 ---
-- [ ] Creates and updates existing Network Security Groups
+- [x] Creates and updates existing Network Security Groups
 
 
 ### Storage Account
 
 ---
-- [ ] Builds an Azure Storage Account
-- [ ] Sets the default access
+- [x] Builds an Azure Storage Account
+- [x] Sets the default access
 
 ### IaaS
 
@@ -85,7 +85,7 @@ flowchart LR
 - [ ] Application Gateways
 - [ ] Site Recovery
 - [ ] Observability, Monitoring, Metrics
-- [ ] Middleware and Integration Platforms 
+- [ ] Middleware and Integration Platforms
 
 ### Application
 
