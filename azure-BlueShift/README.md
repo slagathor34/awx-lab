@@ -41,9 +41,9 @@ flowchart LR
 sequenceDiagram
     participant AnsibleTower
     participant ManageIQ
-    AnsibleTower->>ManageIQ: 
+    ManageIQ-->>AnsibleTower: 
     loop Healthcheck
-        ManageIQ->>ManageIQ: Fight tech waste!
+        AnsibleTower->>Azure: Fight tech waste!
     end
     Note right of ManageIQ: Check chargeback <br/>utilization
 ```
