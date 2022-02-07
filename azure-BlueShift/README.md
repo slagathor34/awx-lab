@@ -37,7 +37,7 @@ flowchart LR
 
 ## Manage IQ and Ansible Tower Configurations
 
-![](/img/BSC_Azure_Cloud_BSC Azure_Resource_Group_Base_framework.png)
+![BlueShift Azure Resource Group](/img/BSC_RG_Framework.png)
 
 ### Ansible Tower
 
