@@ -178,6 +178,8 @@ Orchestration Tag: **CreateServices**
 - [ ] Gateway API
 - [ ] Application Gateways
 - [ ] Site Recovery
+- [ ] Message Queues
+- [ ] EventBus/Logic
 - [ ] Observability, Monitoring, Metrics
 - [ ] Middleware and Integration Platforms
 
