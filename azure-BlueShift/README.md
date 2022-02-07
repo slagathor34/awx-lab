@@ -100,11 +100,11 @@ Orchestration Tag: **CreateStorageAccount**
 
 Orchestration Tag: **CreateIaaS**
 
-- [ ] Lays down a Virtual Maachine inside of the Subnets
-- [ ] Creates vNIC and public/private IP addresses
-- [ ] Install required extensions
+- [x] Lays down a Virtual Maachine inside of the Subnets
+- [x] Creates vNIC and public/private IP addresses
+- [x] Install required extensions
 - [ ] Constrain with Desired State
-- [ ] Applys NSG
+- [x] Applys NSG
 
 
 ### PaaS
