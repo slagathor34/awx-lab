@@ -19,6 +19,7 @@ flowchart LR
   Node8[Services] --> Node9[Application]
   Node9[Application] --> Node10[Closeout]
   end
+end
 ```
 
 ## Used Variables
