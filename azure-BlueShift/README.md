@@ -107,6 +107,9 @@ Orchestration Tag: **CreateIaaS**
 Orchestration Tag: **CreatePaaS**
 
 - [ ] Sets up platform in each subnet
+- [ ] Collect all REST API's for handoff to Shared Services
+- [ ] Plumb Ingress points to gateways and Load Balancers
+- [ ] Configure NAT for WAF connection
 
 ### Services
 
