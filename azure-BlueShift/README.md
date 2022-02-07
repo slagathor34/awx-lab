@@ -25,6 +25,76 @@ flowchart LR
   end
 ```
 
+### Common
+
+---
+- [ ] Tasks that involve setup 
+- [ ] Get KeyVault Values
+- [ ] Set up packages for delivery
+
+#### Resource Group
+
+---
+- Created with 1 region
+- [ ] Need to create based on tags
+
+### Virtual Network
+
+---
+- Sets up CIDR range
+- [ ] Also sets up base for peering
+
+### Subnets
+
+---
+- [ ] Assigns subnets for each area
+- [ ] 
+
+
+### NSG
+
+---
+- [ ] Creates and updates existing Network Security Groups
+
+
+### Storage Account
+
+---
+- [ ] Builds an Azure Storage Account
+- [ ] Sets the default access
+
+### IaaS
+
+---
+- [ ] Lays down a Virtual Maachine inside of the Subnets
+- [ ] Creates vNIC and public/private IP addresses
+- [ ] Applys NSG
+
+
+### PaaS
+
+---
+- [ ] Sets up platform in each subnet
+
+### Services
+
+---
+- [ ] Load balancers
+- [ ] Key Vaults
+- [ ] Gateway API
+- [ ] Application Gateways
+- [ ] Site Recovery
+- [ ] Observability, Monitoring, Metrics
+- [ ] Middleware and Integration Platforms 
+
+### Application
+
+---
+
+### Closeout
+
+---
+
 ## Used Variables
 
 | Variable Name | Description | Example | Used In Role |
@@ -37,42 +107,43 @@ flowchart LR
 
 ## Manage IQ and Ansible Tower Configurations
 
+### BlueShift Azure Standard Resource Group
+
 ![BlueShift Azure Resource Group](/img/BSC_RG_Framework.png)
 
 ### Ansible Tower
 
 ![Ansible Tower Role Orchestration With Tags](/img/Azure-BlueShift-Role-Orchestration-Tag-Tower.png)
+
 ![Ansible Tower Full Role](/img/Azure-BlueShift-Role-Tower.png)
-![](/img/Ansible-Tower-Job-Output.png)
-![](/img/Azure-BlueShift-Role-Orchestration-Tag-Tower.png)
+
+![Ansible Tower Job Output](/img/Ansible-Tower-Job-Output.png)
+
+![Azure BlueShift Role Orchestration Tag By Tower](/img/Azure-BlueShift-Role-Orchestration-Tag-Tower.png)
+
 ![](/img/Ansible-Tower-Job_submission-MIQ.png)
 
 ### Manage IQ
 
 ![](/img/ManageIQ-Ansible-Tower-Full-Role-Job-Template.png)
+
 ![](/img/ManageIQ-Ansible-Tower-Service-Catalog-Item-BSFull-Detail-Order-Survey.png)
+
 ![](/img/ManageIQ-Ansible-Tower-Service-Catalog-Item-BSFull-Detail-Order.png)
+
 ![](/img/ManageIQ-Ansible-Tower-Service-Catalog-Item-BSFull-Edit-Config.png)
+
 ![](/img/ManageIQ-Ansible-Tower-Service-Catalog-Item-BSFull.png)
+
 ![](/img/MIQ-Provisioned-Services.png)
+
+![](/img/Azure-vnet-MIQ.png)
 
 ### Azure Output
 
-![](/img/Azure-provisioned-rg-detailed.png)
 ![](/img/Azure-provisioned-rg.png)
-![](/img/Azure-vnet-MIQ.png)
 
-
-
-
-
-
-
-
-
-
-
-
+![](/img/Azure-provisioned-rg-detailed.png)
 
 ## Todo
 
