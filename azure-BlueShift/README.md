@@ -39,6 +39,35 @@ flowchart LR
 
 ![Ansible Tower Role Orchestration With Tags](/img/Azure-BlueShift-Role-Orchestration-Tag-Tower.png)
 
+![Ansible Tower Full Role](/img/Azure-BlueShift-Role-Tower.png)
+
+![](/img/Ansible-Tower-Job-Output.png)
+![](/img/Ansible-Tower-Job_submission-MIQ.png)
+![](/img/Azure-BlueShift-Role-Orchestration-Tag-Tower.png)
+![](/img/Azure-provisioned-rg-detailed.png)
+![](/img/Azure-provisioned-rg.png)
+![](/img/Azure-vnet-MIQ.png)
+![](/img/BSC Azure Cloud  - BSC Azure Resource Group Base framework.png)
+![](/img/ManageIQ-Ansible-Tower-Full-Role-Job-Template.png)
+![](/img/ManageIQ-Ansible-Tower-Service-Catalog-Item-BSFull-Detail-Order-Survey.png)
+![](/img/ManageIQ-Ansible-Tower-Service-Catalog-Item-BSFull-Detail-Order.png)
+![](/img/ManageIQ-Ansible-Tower-Service-Catalog-Item-BSFull-Edit-Config.png)
+![](/img/ManageIQ-Ansible-Tower-Service-Catalog-Item-BSFull.png)
+![](/img/MIQ-Provisioned-Services.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Todo
 
 - [ ] Address service peering requirements
