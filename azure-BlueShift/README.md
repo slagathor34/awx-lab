@@ -37,7 +37,7 @@ flowchart LR
 
 ## Ansible Tower Configuration
 
-![Ansible Tower Role Orchestration With Tags](./img/Azure-BlueShift-Role-Orchestration-Tag-Tower.png)
+![Ansible Tower Role Orchestration With Tags](/img/Azure-BlueShift-Role-Orchestration-Tag-Tower.png)
 
 ## Todo
 
