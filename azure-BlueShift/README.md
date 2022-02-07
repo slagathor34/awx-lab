@@ -10,10 +10,12 @@ graph LR
   Node2[VirtualNetwork] --> Node3[Subnets];
   Node3[Subnets] --> Node4[NSG];
   Node4[NSG] --> Node5[StorageAccount];
+  subgraph services;
   Node5[StorageAccount] --> Node6[IaaS];
   Node5[StorageAccount] --> Node7[PaaS];
   Node6[IaaS] --> Node8[Services];
   Node7[PaaS] --> Node8[Services];
+  end;
   Node8[Services] --> Node9[Application];
   Node9[Application] --> Node10[Closeout];
 end
