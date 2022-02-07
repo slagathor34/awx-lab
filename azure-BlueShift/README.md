@@ -38,7 +38,6 @@ flowchart LR
 ## Process Execution
 
 ```mermaid
-mermaid
 sequenceDiagram 
     Developer->>ManageIQ: Please give me a platform?
     loop Budgetcheck
