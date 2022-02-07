@@ -36,6 +36,17 @@ flowchart LR
   end
 ```
 
+```mermaid
+sequenceDiagram
+    participant AnsibleTower
+    participant ManageIQ
+    AnsibleTower->>ManageIQ: 
+    loop Healthcheck
+        ManageIQ->>ManageIQ: Fight tech waste!
+    end
+    Note right of ManageIQ: Check chargeback <br/>utilization
+```
+
 ### Common
 
 ---
