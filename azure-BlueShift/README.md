@@ -35,19 +35,17 @@ flowchart LR
 | vnic_name | Name of the virtual NIC | Spandex-vnic | vNIC |
 | storage_account_name | Name of the storage account | App-SA | StorageAccount |
 
-## Ansible Tower Configuration
+## Manage IQ and Ansible Tower Configurations
 
 ![Ansible Tower Role Orchestration With Tags](/img/Azure-BlueShift-Role-Orchestration-Tag-Tower.png)
 
 ![Ansible Tower Full Role](/img/Azure-BlueShift-Role-Tower.png)
 
+### Ansible Tower
 ![](/img/Ansible-Tower-Job-Output.png)
 ![](/img/Ansible-Tower-Job_submission-MIQ.png)
-![](/img/Azure-BlueShift-Role-Orchestration-Tag-Tower.png)
-![](/img/Azure-provisioned-rg-detailed.png)
-![](/img/Azure-provisioned-rg.png)
-![](/img/Azure-vnet-MIQ.png)
-![](/img/BSC Azure Cloud  - BSC Azure Resource Group Base framework.png)
+
+### Manage IQ
 ![](/img/ManageIQ-Ansible-Tower-Full-Role-Job-Template.png)
 ![](/img/ManageIQ-Ansible-Tower-Service-Catalog-Item-BSFull-Detail-Order-Survey.png)
 ![](/img/ManageIQ-Ansible-Tower-Service-Catalog-Item-BSFull-Detail-Order.png)
@@ -55,6 +53,12 @@ flowchart LR
 ![](/img/ManageIQ-Ansible-Tower-Service-Catalog-Item-BSFull.png)
 ![](/img/MIQ-Provisioned-Services.png)
 
+### Azure Output
+![](/img/Azure-BlueShift-Role-Orchestration-Tag-Tower.png)
+![](/img/Azure-provisioned-rg-detailed.png)
+![](/img/Azure-provisioned-rg.png)
+![](/img/Azure-vnet-MIQ.png)
+![](/img/BSC Azure Cloud  - BSC Azure Resource Group Base framework.png)
 
 
 
