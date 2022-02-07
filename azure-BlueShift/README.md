@@ -35,13 +35,17 @@ flowchart LR
 
 ---
 
-- [ ] Tasks that involve setup 
+Orchestration Tag: Common
+
+- [ ] Tasks that involve setup
 - [ ] Get KeyVault Values
 - [ ] Set up packages for delivery
 
 #### Resource Group
 
 ---
+
+Orchestration Tag: CreateRG
 
 - [x] Created with 1 region
 - [ ] Need to create based on tags
@@ -50,12 +54,16 @@ flowchart LR
 
 ---
 
+Orchestration Tag: CreateVnet
+
 - [x] Sets up CIDR range
 - [ ] Also sets up base for peering
 
 ### Subnets
 
 ---
+
+Orchestration Tag: CreateSubnets
 
 - [x] Assigns subnets for each area
 - [x] Creates initial NSG's for setup
@@ -65,6 +73,8 @@ flowchart LR
 
 ---
 
+Orchestration Tag: CreateNSG
+
 - [x] Creates and updates existing Network Security Groups
 
 
@@ -72,12 +82,16 @@ flowchart LR
 
 ---
 
+Orchestration Tag: CreateStorageAccount
+
 - [x] Builds an Azure Storage Account
 - [x] Sets the default access
 
 ### IaaS
 
 ---
+
+Orchestration Tag: CreateIaaS
 
 - [ ] Lays down a Virtual Maachine inside of the Subnets
 - [ ] Creates vNIC and public/private IP addresses
@@ -88,11 +102,15 @@ flowchart LR
 
 ---
 
+Orchestration Tag: CreatePaaS
+
 - [ ] Sets up platform in each subnet
 
 ### Services
 
 ---
+
+Orchestration Tag: CreateServices
 
 - [ ] Load balancers
 - [ ] Key Vaults
@@ -106,6 +124,8 @@ flowchart LR
 
 ---
 
+Orchestration Tag: CreateApplication
+
 - [ ] Get code from Repository
 - [ ] Install in correct location
 - [ ] Set up application to start correctly
@@ -114,6 +134,8 @@ flowchart LR
 ### Closeout
 
 ---
+
+Orchestration Tag: Closeout
 
 - [ ] Test release
 - [ ] Report on performance
