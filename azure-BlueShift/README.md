@@ -28,6 +28,7 @@ flowchart LR
 ### Common
 
 ---
+
 - [ ] Tasks that involve setup 
 - [ ] Get KeyVault Values
 - [ ] Set up packages for delivery
@@ -35,18 +36,21 @@ flowchart LR
 #### Resource Group
 
 ---
+
 - [x] Created with 1 region
 - [ ] Need to create based on tags
 
 ### Virtual Network
 
 ---
+
 - [x] Sets up CIDR range
 - [ ] Also sets up base for peering
 
 ### Subnets
 
 ---
+
 - [x] Assigns subnets for each area
 - [x] Creates initial NSG's for setup
 
@@ -54,18 +58,21 @@ flowchart LR
 ### NSG
 
 ---
+
 - [x] Creates and updates existing Network Security Groups
 
 
 ### Storage Account
 
 ---
+
 - [x] Builds an Azure Storage Account
 - [x] Sets the default access
 
 ### IaaS
 
 ---
+
 - [ ] Lays down a Virtual Maachine inside of the Subnets
 - [ ] Creates vNIC and public/private IP addresses
 - [ ] Applys NSG
@@ -74,11 +81,13 @@ flowchart LR
 ### PaaS
 
 ---
+
 - [ ] Sets up platform in each subnet
 
 ### Services
 
 ---
+
 - [ ] Load balancers
 - [ ] Key Vaults
 - [ ] Gateway API
@@ -91,9 +100,18 @@ flowchart LR
 
 ---
 
+- [ ] Get code from Repository
+- [ ] Install in correct location
+- [ ] Set up application to start correctly
+- [ ] Ensure all tools are installed and ready for production release
+
 ### Closeout
 
 ---
+
+- [ ] Test release
+- [ ] Report on performance
+- [ ] Update ServiceNow/CMDB
 
 ## Used Variables
 
@@ -114,46 +132,59 @@ flowchart LR
 ### Ansible Tower
 
 #### Ansible Tower Role Orchestration Execution Using Tags
+
 ![Ansible Tower Role Orchestration With Tags](/img/Azure-BlueShift-Role-Orchestration-Tag-Tower.png)
 
 #### Ansible Tower Full Azure BlueShift Role
+
 ![Ansible Tower Full Role](/img/Azure-BlueShift-Role-Tower.png)
 
 #### Ansible Tower Full Role Job Output
+
 ![Ansible Tower Job Output](/img/Ansible-Tower-Job-Output.png)
 
 #### Ansible Tower Job Submission from Manage IQ
+
 ![](/img/Ansible-Tower-Job_submission-MIQ.png)
 
 ### Manage IQ
 
 #### Ansible Tower Template Connected To Manage IQ
+
 ![](/img/ManageIQ-Ansible-Tower-Full-Role-Job-Template.png)
 
 #### Manage IQ Service Catalog Item Configuration
+
 ![](/img/ManageIQ-Ansible-Tower-Service-Catalog-Item-BSFull-Edit-Config.png)
 
 #### Manage IQ Service Catalog Full Screen Order
+
 ![](/img/ManageIQ-Ansible-Tower-Service-Catalog-Item-BSFull.png)
 
 #### Manage IQ Service Catalog Item Screen Order Detailed
+
 ![](/img/ManageIQ-Ansible-Tower-Service-Catalog-Item-BSFull-Detail-Order.png)
 
 #### Manage IQ Survey for Azure BlueShift Service Order
+
 ![](/img/ManageIQ-Ansible-Tower-Service-Catalog-Item-BSFull-Detail-Order-Survey.png)
 
 #### Manage IQ Provisioned Service
+
 ![](/img/MIQ-Provisioned-Services.png)
 
 #### Manage IQ - Available Resource For Service Addition And Tracking
+
 ![](/img/Azure-vnet-MIQ.png)
 
 ### Azure Output
 
 #### Azure Resource Group Created
+
 ![](/img/Azure-provisioned-rg.png)
 
 #### Azure Resource Group Details
+
 ![](/img/Azure-provisioned-rg-detailed.png)
 
 ## Todo
