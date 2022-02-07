@@ -2,9 +2,14 @@
 
 This role is used to create a standardized resource group inside of the Azure Landing Zone of target. Two files exist to control this role: 
 
-- azure-blueshift-role.yml - Create the entire standard Azure BlueShift Resource Group
+- azure-blueshift-role.yml - Create the entire standard Azure BlueShift Resource Group. 
 
-- azure-blueshift-orchestration.yml - Created to trigger instances of the role without running through all roles
+- azure-blueshift-orchestration.yml - Created to trigger instances of the role without running through all roles using tags. 
+
+Example tag execution: 
+
+
+ansible-playbook azure-blueshift-orchestration.yml --tags CreateRG
 
 ## Role Workflow
 
@@ -86,6 +91,8 @@ Orchestration Tag: **CreateStorageAccount**
 
 - [x] Builds an Azure Storage Account
 - [x] Sets the default access
+- [ ] Set up private endpoint 
+- [ ] Set up threst protection
 
 ### IaaS
 
