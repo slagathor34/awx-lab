@@ -50,7 +50,7 @@ sequenceDiagram
 ```
 
 ## BlueShift Subroles
----
+
 Roles that combined to create the standard Azure BlueShift resource group.
 
 ### Common
