@@ -37,6 +37,8 @@ flowchart LR
 
 ## Manage IQ and Ansible Tower Configurations
 
+![](/img/BSC_Azure_Cloud_BSC Azure_Resource_Group_Base_framework.png)
+
 ### Ansible Tower
 
 ![Ansible Tower Role Orchestration With Tags](/img/Azure-BlueShift-Role-Orchestration-Tag-Tower.png)
@@ -59,7 +61,6 @@ flowchart LR
 ![](/img/Azure-provisioned-rg-detailed.png)
 ![](/img/Azure-provisioned-rg.png)
 ![](/img/Azure-vnet-MIQ.png)
-![](/img/BSC Azure Cloud  - BSC Azure Resource Group Base framework.png)
 
 
 
