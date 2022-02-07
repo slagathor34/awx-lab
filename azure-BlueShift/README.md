@@ -125,24 +125,33 @@ flowchart LR
 
 ### Manage IQ
 
+#### Ansible Tower Template Connected To Manage IQ
 ![](/img/ManageIQ-Ansible-Tower-Full-Role-Job-Template.png)
 
-![](/img/ManageIQ-Ansible-Tower-Service-Catalog-Item-BSFull-Detail-Order-Survey.png)
-
-![](/img/ManageIQ-Ansible-Tower-Service-Catalog-Item-BSFull-Detail-Order.png)
-
+#### Manage IQ Service Catalog Item Configuration
 ![](/img/ManageIQ-Ansible-Tower-Service-Catalog-Item-BSFull-Edit-Config.png)
 
+#### Manage IQ Service Catalog Full Screen Order
 ![](/img/ManageIQ-Ansible-Tower-Service-Catalog-Item-BSFull.png)
 
+#### Manage IQ Service Catalog Item Screen Order Detailed
+![](/img/ManageIQ-Ansible-Tower-Service-Catalog-Item-BSFull-Detail-Order.png)
+
+#### Manage IQ Survey for Azure BlueShift Service Order
+![](/img/ManageIQ-Ansible-Tower-Service-Catalog-Item-BSFull-Detail-Order-Survey.png)
+
+#### Manage IQ Provisioned Service
 ![](/img/MIQ-Provisioned-Services.png)
 
+#### Manage IQ - Available Resource For Service Addition And Tracking
 ![](/img/Azure-vnet-MIQ.png)
 
 ### Azure Output
 
+#### Azure Resource Group Created
 ![](/img/Azure-provisioned-rg.png)
 
+#### Azure Resource Group Details
 ![](/img/Azure-provisioned-rg-detailed.png)
 
 ## Todo
