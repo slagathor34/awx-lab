@@ -79,6 +79,7 @@ Orchestration Tag: **CreateRG**
 
 - [x] Created with 1 region
 - [ ] Need to create based on tags
+- [ ] Create reginal pair
 
 ### Virtual Network
 
