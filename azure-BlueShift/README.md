@@ -40,7 +40,10 @@ flowchart LR
 
 ---
 
+Example execution:
+
 ansible-playbook azure-blueshift-orchestration.yml --tags Common
+
 Orchestration Tag: **Common**
 
 - [ ] Tasks that involve setup
@@ -52,6 +55,7 @@ Orchestration Tag: **Common**
 ---
 
 Example Execution:
+
 ansible-playbook azure-blueshift-orchestration.yml --tags **CreateRG**
 
 Orchestration Tag: **CreateRG**
@@ -64,6 +68,7 @@ Orchestration Tag: **CreateRG**
 ---
 
 Example Execution:
+
 ansible-playbook azure-blueshift-orchestration.yml --tags **CreateVnet**
 
 Orchestration Tag: **CreateVnet**
@@ -76,7 +81,9 @@ Orchestration Tag: **CreateVnet**
 ---
 
 Example Execution:
+
 ansible-playbook azure-blueshift-orchestration.yml --tags **CreateSubnets**
+
 Orchestration Tag: **CreateSubnets**
 
 - [x] Assigns subnets for each area
@@ -88,7 +95,9 @@ Orchestration Tag: **CreateSubnets**
 ---
 
 Example Execution:
+
 ansible-playbook azure-blueshift-orchestration.yml --tags **CreateNSG**
+
 Orchestration Tag: **CreateNSG**
 
 - [x] Creates and updates existing Network Security Groups
@@ -99,7 +108,9 @@ Orchestration Tag: **CreateNSG**
 ---
 
 Example Execution:
+
 ansible-playbook azure-blueshift-orchestration.yml --tags **CreateStorageAccount**
+
 Orchestration Tag: **CreateStorageAccount**
 
 - [x] Builds an Azure Storage Account
@@ -112,7 +123,9 @@ Orchestration Tag: **CreateStorageAccount**
 ---
 
 Example Execution:
+
 ansible-playbook azure-blueshift-orchestration.yml --tags **CreateIaaS**
+
 Orchestration Tag: **CreateIaaS**
 
 - [x] Lays down a Virtual Maachine inside of the Subnets
@@ -127,7 +140,9 @@ Orchestration Tag: **CreateIaaS**
 ---
 
 Example Execution:
+
 ansible-playbook azure-blueshift-orchestration.yml --tags **CreatePaaS**
+
 Orchestration Tag: **CreatePaaS**
 
 - [ ] Sets up platform in each subnet
@@ -140,7 +155,9 @@ Orchestration Tag: **CreatePaaS**
 ---
 
 Example Execution:
+
 ansible-playbook azure-blueshift-orchestration.yml --tags **CreateServices**
+
 Orchestration Tag: **CreateServices**
 
 - [ ] Load balancers
@@ -156,7 +173,9 @@ Orchestration Tag: **CreateServices**
 ---
 
 Example Execution:
+
 ansible-playbook azure-blueshift-orchestration.yml --tags **CreateApplication**
+
 Orchestration Tag: **CreateApplication**
 
 - [ ] Get code from Repository
@@ -169,7 +188,9 @@ Orchestration Tag: **CreateApplication**
 ---
 
 Example Execution:
+
 ansible-playbook azure-blueshift-orchestration.yml --tags **Closeout**
+
 Orchestration Tag: **Closeout**
 
 - [ ] Test release
