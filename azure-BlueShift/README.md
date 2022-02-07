@@ -1,13 +1,12 @@
 # Azure BlueShift Role
 
-This role is used to create a standardized resource group inside of the Azure Landing Zone of target. Two files exist to control this role: 
+This role is used to create a standardized resource group inside of the Azure Landing Zone of target. Two files exist to control this role:
 
-- azure-blueshift-role.yml - Create the entire standard Azure BlueShift Resource Group. 
+- azure-blueshift-role.yml - Create the entire standard Azure BlueShift Resource Group.
 
-- azure-blueshift-orchestration.yml - Created to trigger instances of the role without running through all roles using tags. 
+- azure-blueshift-orchestration.yml - Created to trigger instances of the role without running through all roles using tags.
 
-Example tag execution: 
-
+Example tag execution:
 
 ansible-playbook azure-blueshift-orchestration.yml --tags CreateRG
 
@@ -107,7 +106,6 @@ Orchestration Tag: **CreateSubnets**
 - [x] Assigns subnets for each area
 - [x] Creates initial NSG's for setup
 
-
 ### NSG
 
 ---
@@ -119,7 +117,6 @@ ansible-playbook azure-blueshift-orchestration.yml --tags **CreateNSG**
 Orchestration Tag: **CreateNSG**
 
 - [x] Creates and updates existing Network Security Groups
-
 
 ### Storage Account
 
@@ -133,7 +130,7 @@ Orchestration Tag: **CreateStorageAccount**
 
 - [x] Builds an Azure Storage Account
 - [x] Sets the default access
-- [ ] Set up private endpoint 
+- [ ] Set up private endpoint
 - [ ] Set up threat protection
 
 ### IaaS
@@ -151,7 +148,6 @@ Orchestration Tag: **CreateIaaS**
 - [x] Install required extensions
 - [ ] Constrain with Desired State
 - [x] Applys NSG
-
 
 ### PaaS
 
