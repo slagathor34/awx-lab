@@ -22,14 +22,14 @@ flowchart LR
     Node4[NSG] --> Node5[StorageAccount]
   end
   
-  subgraph Services
+  subgraph Services - Hand off from ICS to Shared Services
     Node5[StorageAccount] --> Node6[IaaS]
     Node5[StorageAccount] --> Node7[PaaS]
     Node6[IaaS] --> Node8[Services]
     Node7[PaaS] --> Node8[Services]
   end
   
-  subgraph Applications
+  subgraph Applications - ICS support of Shared Services establishing 
     Node8[Services] --> Node9[Application]
     Node9[Application] --> Node10[Closeout]
   end
@@ -62,7 +62,7 @@ Roles that combined to create the standard Azure BlueShift resource group.
 
 Example execution:
 
-ansible-playbook azure-blueshift-orchestration.yml --tags Common
+ansible-playbook azure-blueshift-orchestration.yml --tags **Common**
 
 Orchestration Tag: **Common**
 
