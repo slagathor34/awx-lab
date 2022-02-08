@@ -30,9 +30,12 @@ flowchart LR
       Node7[PaaS] --> Node8[Services]
     end
   end
-  subgraph Applications 
-    Node8[Services] --> Node9[Application]
-    Node9[Application] --> Node10[Closeout]
+  
+  subgraph Shared Services CI/CD Pipeline
+    subgraph Applications 
+      Node8[Services] --> Node9[Application]
+      Node9[Application] --> Node10[Closeout]
+    end
   end
 ```
 
