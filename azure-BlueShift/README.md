@@ -31,9 +31,9 @@ flowchart LR
     end
   end
   
-  subgraph Shared Services CI/CD Pipeline
+  subgraph Shared Services
     subgraph Applications 
-      Node8[Services] --> Node9[Application]
+      Node8[Services] -- CI/CD Pipeline --> Node9[Application]
       Node9[Application] --> Node10[Closeout]
     end
   end
