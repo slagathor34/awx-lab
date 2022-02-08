@@ -22,14 +22,14 @@ flowchart LR
     Node4[NSG] --> Node5[StorageAccount]
   end
   
-  subgraph Services - Hand off from ICS to Shared Services
+  subgraph Services
     Node5[StorageAccount] --> Node6[IaaS]
     Node5[StorageAccount] --> Node7[PaaS]
     Node6[IaaS] --> Node8[Services]
     Node7[PaaS] --> Node8[Services]
   end
   
-  subgraph Applications - ICS support of Shared Services establishing 
+  subgraph Applications 
     Node8[Services] --> Node9[Application]
     Node9[Application] --> Node10[Closeout]
   end
