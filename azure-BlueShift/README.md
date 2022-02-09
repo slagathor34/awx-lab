@@ -12,6 +12,8 @@ ansible-playbook azure-blueshift-orchestration.yml --tags CreateRG
 
 ## Role Workflow
 
+Each subrole listed below is a standalone function that can be called independantly in a catalog item. Services provided by Manage IQ are made up of catalog items that are executed in the desired order.
+
 ```mermaid
 flowchart LR
   subgraph ICS Handoff to Shared Services
