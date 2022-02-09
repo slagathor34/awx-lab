@@ -1,5 +1,5 @@
 ---
-- name: Create a GCP instance
+- name: Create a GCP VPC
   hosts: localhost
   vars:
      gcp_project: o365-cloud-security
