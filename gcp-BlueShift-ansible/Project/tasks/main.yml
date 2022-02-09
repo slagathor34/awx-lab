@@ -1,9 +1,10 @@
 ---
-- name: Create a Resource Group
-  azure_rm_resourcegroup:
-    name: "{{ rg_name }}"
-    location: "{{ region }}"
+- name: Create a GCP instance
+  gcp_resourcemanager_project:
+    name: New Project
+    id: brainstormestest-{{ 1000000 | random }}
+    auth_kind: serviceaccount
+    parent:
+      type: organization
+      id: "{{ org_id }}"
     state: present
-    tags:
-      testing: testing
-      delete: never
