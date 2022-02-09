@@ -1,9 +1,9 @@
 ---
-- name: Create Foundational Azure BlueShift Resource Creation
+- name: Create Foundational GCP BlueShift Resource Creation
   hosts: localhost
   connection: local
   # Below is UTF-16 Base64 encoding for:
-    #   Invoke-Expression -Command ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/ansible/ansible/devel/examples/scripts/ConfigureRemotingForAnsible.ps1')); Enable-WSManCredSSP -Role Server -Force
+  #   Invoke-Expression -Command ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/ansible/ansible/devel/examples/scripts/ConfigureRemotingForAnsible.ps1')); Enable-WSManCredSSP -Role Server -Force
     winrm_enable_script: SQBuAHYAbwBrAGUALQBFAHgAcAByAGUAcwBzAGkAbwBuACAALQBDAG8AbQBtAGEAbgBkACAAKAAoAE4AZQB3AC0ATwBiAGoAZQBjAHQAIABTAHkAcwB0AGUAbQAuAE4AZQB0AC4AVwBlAGIAQwBsAGkAZQBuAHQAKQAuAEQAbwB3AG4AbABvAGEAZABTAHQAcgBpAG4AZwAoACcAaAB0AHQAcABzADoALwAvAHIAYQB3AC4AZwBpAHQAaAB1AGIAdQBzAGUAcgBjAG8AbgB0AGUAbgB0AC4AYwBvAG0ALwBhAG4AcwBpAGIAbABlAC8AYQBuAHMAaQBiAGwAZQAvAGQAZQB2AGUAbAAvAGUAeABhAG0AcABsAGUAcwAvAHMAYwByAGkAcAB0AHMALwBDAG8AbgBmAGkAZwB1AHIAZQBSAGUAbQBvAHQAaQBuAGcARgBvAHIAQQBuAHMAaQBiAGwAZQAuAHAAcwAxACcAKQApADsAIABFAG4AYQBiAGwAZQAtAFcAUwBNAGEAbgBDAHIAZQBkAFMAUwBQACAALQBSAG8AbABlACAAUwBlAHIAdgBlAHIAIAAtAEYAbwByAGMAZQA=
    
   pre_tasks:
@@ -14,16 +14,16 @@
     - include: Common/tasks/main.yml
       tags: [Common, all]
 
-    - include: ResourceGroup/tasks/main.yml
+    - include: Projects/tasks/main.yml
       tags: [CreateRG, all]
 
-    - include: VirtualNetwork/tasks/main.yml
+    - include: VPC/tasks/main.yml
       tags: [CreateVnet, all]
 
     - include: Subnets/tasks/main.yml
       tags: [CreateSubnets, all]
 
-    - include: NSG/tasks/main.yml
+    - include: Firewalls/tasks/main.yml
       tags: [CreateNSG, all]
 
     - include: StorageAccount/tasks/main.yml
