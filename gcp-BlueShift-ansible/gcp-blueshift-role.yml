@@ -1,5 +1,5 @@
 ---
-- name: Create Full Foundational Azure BlueShift Resource Group
+- name: Create Full Foundational GCP BlueShift Resource Group
   hosts: localhost
   connection: local
   # Below is UTF-16 Base64 encoding for:
@@ -8,10 +8,10 @@
 
   roles:
       - Common
-      - ResourceGroup
-      - VirtualNetwork
+      - Project
+      - VPC
       - Subnets
-      - NSG
+      - Firewalls
       - StorageAccount
       #- IaaS
       #- PaaS

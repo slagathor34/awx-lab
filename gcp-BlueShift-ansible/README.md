@@ -82,23 +82,23 @@ Orchestration Tag: **Common**
 
 Example Execution:
 
-ansible-playbook gcp-blueshift-orchestration.yml --tags **CreateRG**
+ansible-playbook gcp-blueshift-orchestration.yml --tags **CreateProject**
 
-Orchestration Tag: **CreateRG**
+Orchestration Tag: **CreateProject**
 
 - [x] Created with 1 region
 - [ ] Need to create based on tags
 - [ ] Create reginal pair
 
-### Virtual Network
+### VPC
 
 ---
 
 Example Execution:
 
-ansible-playbook gcp-blueshift-orchestration.yml --tags **CreateVnet**
+ansible-playbook gcp-blueshift-orchestration.yml --tags **CreateVPC**
 
-Orchestration Tag: **CreateVnet**
+Orchestration Tag: **CreateVPC**
 
 - [x] Sets up CIDR range
 - [ ] Also sets up base for peering
@@ -116,15 +116,15 @@ Orchestration Tag: **CreateSubnets**
 - [x] Assigns subnets for each area
 - [x] Creates initial NSG's for setup
 
-### NSG
+### Firewalls
 
 ---
 
 Example Execution:
 
-ansible-playbook gcp-blueshift-orchestration.yml --tags **CreateNSG**
+ansible-playbook gcp-blueshift-orchestration.yml --tags **CreateFirewalls**
 
-Orchestration Tag: **CreateNSG**
+Orchestration Tag: **CreateFirewalls**
 
 - [x] Creates and updates existing Network Security Groups
 

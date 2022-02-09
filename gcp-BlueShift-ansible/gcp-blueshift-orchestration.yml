@@ -14,17 +14,17 @@
     - include: Common/tasks/main.yml
       tags: [Common, all]
 
-    - include: Projects/tasks/main.yml
-      tags: [CreateRG, all]
+    - include: Project/tasks/main.yml
+      tags: [CreateProject, all]
 
     - include: VPC/tasks/main.yml
-      tags: [CreateVnet, all]
+      tags: [CreateVPC, all]
 
     - include: Subnets/tasks/main.yml
       tags: [CreateSubnets, all]
 
-    - include: Firewalls/tasks/main.yml
-      tags: [CreateNSG, all]
+    - include: Firewall/tasks/main.yml
+      tags: [CreateFirewall, all]
 
     - include: StorageAccount/tasks/main.yml
       tags: [CreateStorageAccount, all]
