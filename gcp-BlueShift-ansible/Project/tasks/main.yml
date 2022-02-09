@@ -1,0 +1,9 @@
+---
+- name: Create a Resource Group
+  azure_rm_resourcegroup:
+    name: "{{ rg_name }}"
+    location: "{{ region }}"
+    state: present
+    tags:
+      testing: testing
+      delete: never

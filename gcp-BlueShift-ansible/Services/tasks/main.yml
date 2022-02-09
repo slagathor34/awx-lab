@@ -1,0 +1,10 @@
+---
+# Load balancers
+# Key Vaults
+# Gateway API
+# Application Gateways
+# Site Recovery
+# Observability, Monitoring, Metrics
+# Middleware and Integration Platforms
+- debug:
+    msg: "This is the Services Layer Deployment"

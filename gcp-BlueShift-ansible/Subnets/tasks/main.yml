@@ -1,0 +1,56 @@
+---
+- name: "Create mgmt NSG"
+  azure_rm_securitygroup:
+    resource_group: "{{ rg_name }}"
+    name: app_name_mgmt
+    purge_rules: yes
+
+- name: "Create Presentation Layer NSG"
+  azure_rm_securitygroup:
+    resource_group: "{{ rg_name }}"
+    name: app_name_presentation
+    purge_rules: yes
+
+- name: "Create Application Layer NSG"
+  azure_rm_securitygroup:
+    resource_group: "{{ rg_name }}"
+    name: app_name_application
+    purge_rules: yes
+
+- name: "Create Data Layer NSG"
+  azure_rm_securitygroup:
+    resource_group: "{{ rg_name }}"
+    name: app_name_data
+    purge_rules: yes
+
+- name: "PLAY: Create a Management Subnet"
+  azure_rm_subnet:
+    resource_group: "{{ rg_name }}"
+    virtual_network_name: "{{ vnet_name }}"
+    name: App-name-mgmt
+    security_group_name: app_name_mgmt
+    address_prefix_cidr: "10.1.0.0/24"
+
+- name: "PLAY: Create a Presentation Subnet"
+  azure_rm_subnet:
+    resource_group: "{{ rg_name }}"
+    virtual_network_name: "{{ vnet_name }}"
+    name: App-name-Presentation
+    security_group_name: app_name_presentation
+    address_prefix_cidr: "10.1.1.0/24"
+  
+- name: "PLAY: Create a Application Subnet"
+  azure_rm_subnet:
+    resource_group: "{{ rg_name }}"
+    virtual_network_name: "{{ vnet_name }}"
+    name: App-name-Application
+    security_group_name: app_name_application
+    address_prefix_cidr: "10.1.2.0/24"
+  
+- name: "PLAY: Create a Data Layer Subnet"
+  azure_rm_subnet:
+    resource_group: "{{ rg_name }}"
+    virtual_network_name: "{{ vnet_name }}"
+    name: App-name-Data
+    security_group_name: app_name_data
+    address_prefix_cidr: "10.1.3.0/24"
