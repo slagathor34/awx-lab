@@ -8,13 +8,4 @@
 
   roles:
       - Common
-      - ResourceGroup
-      - VirtualNetwork
-      - Subnets
-      - NSG
-      - StorageAccount
-      #- IaaS
-      #- PaaS
-      - Services
-      - Application
       - Closeout
