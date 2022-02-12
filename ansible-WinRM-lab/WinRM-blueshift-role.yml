@@ -1,5 +1,6 @@
 ---
 - name: Create Full Foundational Azure BlueShift Resource Group
+  hosts: all
   gather_facts: true
 
   # Below is UTF-16 Base64 encoding for:
