@@ -1,5 +1,5 @@
 ---
-- name: Create Full Foundational Azure BlueShift Resource Group
+- name: Manage Windows DSC BlueShift Resource Creation
   hosts: all
   gather_facts: true
 
@@ -9,4 +9,5 @@
 
   roles:
       - Common
+      - WinDSC
       - Closeout
