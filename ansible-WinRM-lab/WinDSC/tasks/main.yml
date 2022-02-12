@@ -1,3 +1,7 @@
 ---
-- debug:
-    msg: "This is for the final closeout of the role."
+- name: Create file with multiple attributes
+  win_dsc:
+    resource_name: File
+    DestinationPath: C:\ansible\dsc
+    Ensure: Present
+    Type: Directory
