@@ -1,0 +1,8 @@
+---
+# KeyVault Retrieval
+# Add variables where no good common place exists
+- debug:
+    msg: "Common layer for set up of actions to be used in the role."
+
+- name: Example from an Ansible Playbook
+  win_ping:
