@@ -5,3 +5,9 @@
     DestinationPath: C:\ansible\dsc
     Ensure: Present
     Type: Directory
+
+- name: ENSURE SMB1 is not Deployed
+  win_dsc:
+    resource_name: WindowsFeature
+    Name: SMB1
+    Ensure: Absent
