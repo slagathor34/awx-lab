@@ -69,6 +69,12 @@ ansible-galaxy install jborean93.win_openssh
 ```
 ## Ansible Role Structure
 
+``` mermaid
+flowchart LR
+
+
+```
+
 ## Execution Workflow
 
 ## Ansible Tower Setup
