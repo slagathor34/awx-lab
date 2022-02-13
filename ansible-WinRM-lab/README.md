@@ -98,4 +98,11 @@ flowchart LR
 - [ ] Remove extra software
 - [ ] Setup scheduled updates
 
+## WinModules
+
+- [ ] Firewall rules
+- [ ] Load Balancer Configured
+- [ ] Windows cmd or PowerShell scripts ran
+- [ ] 
+
 ## Configuration Files
