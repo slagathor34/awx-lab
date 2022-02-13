@@ -10,4 +10,5 @@
   roles:
       - Common
       - WinDSC
+      # - WinModule
       - Closeout
