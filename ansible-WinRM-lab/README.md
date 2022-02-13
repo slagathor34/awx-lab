@@ -31,7 +31,7 @@ winrm set winrm/config/service '@{AllowUnencrypted="true"}'
 
 ```
 - name: install the Win32-OpenSSH service
-  win_chIcolatey:
+  win_chocolatey:
     name: openssh
     package_params: /SSHServerFeature
     state: present
