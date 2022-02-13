@@ -17,6 +17,12 @@
     name: xWebAdministration
     state: present
 
+- name: Delete IIS Default Website
+  win_dsc:
+    resource_name: xWebsite
+    Ensure: Absent
+    Name: Detault Web Site
+
 - name: Create IIS Website with Binding and Authentication options
   win_dsc:
     resource_name: xWebsite
