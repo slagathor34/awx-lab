@@ -10,7 +10,7 @@ $selector_set = @{
     Transport = "HTTPS"
 }
 $value_set = @{
-    CertificateThumbprint = "BE9ADBE76B3399B05E8662ABD3530D671B14DDEB"
+    CertificateThumbprint = $thumbprint
 }
 
 New-WSManInstance -ResourceURI "winrm/config/Listener" -SelectorSet $selector_set -ValueSet $value_set
@@ -29,6 +29,43 @@ winrm set winrm/config/service '@{AllowUnencrypted="true"}'
 
 ## OpenSSH for Windows
 
+```
+- name: install the Win32-OpenSSH service
+  win_chIcolatey:
+    name: openssh
+    package_params: /SSHServerFeature
+    state: present
+```
+
+```
+# Make sure the role has been downloaded first
+ansible-galaxy install jborean93.win_openssh
+
+# main.yml
+- name: install Win32-OpenSSH service
+  hosts: windows
+  gather_facts: no
+  roles:
+  - role: jborean93.win_openssh
+    opt_openssh_setup_service: True
+```
+
+```
+- name: set the default shell to PowerShell
+  win_regedit:
+    path: HKLM:\SOFTWARE\OpenSSH
+    name: DefaultShell
+    data: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+    type: string
+    state: present
+
+# Or revert the settings back to the default, cmd
+- name: set the default shell to cmd
+  win_regedit:
+    path: HKLM:\SOFTWARE\OpenSSH
+    name: DefaultShell
+    state: absent
+```
 ## Ansible Role Structure
 
 ## Execution Workflow
