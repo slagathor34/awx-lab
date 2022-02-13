@@ -103,6 +103,6 @@ flowchart LR
 - [ ] Firewall rules
 - [ ] Load Balancer Configured
 - [ ] Windows cmd or PowerShell scripts ran
-- [ ] 
+- [ ] PowerShell modules
 
 ## Configuration Files
