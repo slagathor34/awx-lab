@@ -30,7 +30,8 @@ winrm set winrm/config/service '@{AllowUnencrypted="true"}'
 ## OpenSSH for Windows
 
 ```
-- name: install the Win32-OpenSSH service
+# Install OpenSSH with Chocolatey package manager
+- name: Install the Win32-OpenSSH service
   win_chocolatey:
     name: openssh
     package_params: /SSHServerFeature
@@ -42,7 +43,7 @@ winrm set winrm/config/service '@{AllowUnencrypted="true"}'
 ansible-galaxy install jborean93.win_openssh
 
 # main.yml
-- name: install Win32-OpenSSH service
+- name: Install Win32-OpenSSH service
   hosts: windows
   gather_facts: no
   roles:
@@ -51,7 +52,7 @@ ansible-galaxy install jborean93.win_openssh
 ```
 
 ```
-- name: set the default shell to PowerShell
+- name: Set the default shell to PowerShell
   win_regedit:
     path: HKLM:\SOFTWARE\OpenSSH
     name: DefaultShell
@@ -60,7 +61,7 @@ ansible-galaxy install jborean93.win_openssh
     state: present
 
 # Or revert the settings back to the default, cmd
-- name: set the default shell to cmd
+- name: Set the default shell to cmd
   win_regedit:
     path: HKLM:\SOFTWARE\OpenSSH
     name: DefaultShell
