@@ -21,7 +21,7 @@
   win_dsc:
     resource_name: xWebsite
     Ensure: Absent
-    Name: Detault Web Site
+    Name: Default Web Site
 
 - name: Create IIS Website with Binding and Authentication options
   win_dsc:
