@@ -16,8 +16,8 @@ ansible app -m shell -a "ssh-keygen -q -b 2048 -t rsa -N '' -C 'creating SSH' -f
 ---
 - name: Exchange Keys between servers
   become: yes
-  become_user: weblogic
-  hosts: app
+  become_user: "{{ user_name }}"
+  hosts: all
   tasks:
     - name: SSH KeyGen command
       shell: > 
@@ -46,7 +46,7 @@ ansible app -m shell -a "ssh-keygen -q -b 2048 -t rsa -N '' -C 'creating SSH' -f
 ---
 - name: Exchange Keys between servers
   become: yes
-  become_user: weblogic
+  become_user: "{{ user_name }}"
   hosts: app
   tasks:
     - name: SSH KeyGen command
