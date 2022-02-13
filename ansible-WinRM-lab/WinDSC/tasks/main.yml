@@ -13,12 +13,12 @@
     Ensure: Absent
 
 - name: Setup the xWebAdministration module
-  ansible.windows.win_psmodule:
+  win_psmodule:
     name: xWebAdministration
     state: present
 
 - name: Create IIS Website with Binding and Authentication options
-  ansible.windows.win_dsc:
+  win_dsc:
     resource_name: xWebsite
     Ensure: Present
     Name: DSC Website
