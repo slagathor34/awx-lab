@@ -9,5 +9,5 @@
 - name: ENSURE SMB1 is not Deployed
   win_dsc:
     resource_name: WindowsFeature
-    Name: SMB1
+    Name: FS-SMB1
     Ensure: Absent
