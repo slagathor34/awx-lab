@@ -77,7 +77,7 @@ flowchart LR
       Node1[WinDSC] --> Node2[WinModule]
       Node2[WinModule] --> Node3[Services]
       Node3[Services] --> Node4[Integration]
-      Node4[NSG] --> Node5[StorageAccount]
+      Node4[Integrations] --> Node5[Application]
     end
   end
 
