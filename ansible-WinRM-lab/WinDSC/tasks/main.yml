@@ -6,7 +6,7 @@
     Ensure: Present
     Type: Directory
 
-- name: ENSURE SMB1 is not Deployed
+- name: Ensure SMB1 is not Deployed
   win_dsc:
     resource_name: WindowsFeature
     Name: FS-SMB1
@@ -15,7 +15,7 @@
 - name: Setup the xWebAdministration module
   win_psmodule:
     name: xWebAdministration
-    state: present
+    state: Present
 
 - name: Delete IIS Default Website
   win_dsc:
