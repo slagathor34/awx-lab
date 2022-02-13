@@ -104,4 +104,13 @@ flowchart LR
 
 ## Desired State Attributes
 
+- [ ] Install git
+- [ ] Install chocolatey
+- [ ] Install agents
+- [ ] SMB1 removed
+- [ ] Firewall defined
+- [ ] Application installed and configured
+- [ ] Remove extra software
+- [ ] Setup scheduled updates
+
 ## Configuration Files
