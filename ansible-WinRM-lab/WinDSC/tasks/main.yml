@@ -17,6 +17,11 @@
     name: xWebAdministration
     state: Present
 
+- name: Install CISDSC resource
+  win_psmodule:
+    name: CISDSC
+    state: Present
+
 - name: Delete IIS Default Website
   win_dsc:
     resource_name: xWebsite
