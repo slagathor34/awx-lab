@@ -24,7 +24,7 @@ ansible app -m shell -a "ssh-keygen -q -b 2048 -t rsa -N '' -C 'creating SSH' -f
 
   tasks:
   - name: Get a list of all users
-    shell: "getend passwd | awk -F: '$3 > 1000 {print $1}'"
+    shell: "getent passwd | awk -F: '$3 > 1000 {print $1}'"
     changed_when: false
     register: users
 
