@@ -1,0 +1,10 @@
+---
+- name: CIS DSC Scan
+  win_dsc:
+    resource_name: CIS_Microsoft_Windows_Server_2019_Member_Server_Release_20H
+    Name: CISDSC
+    Ensure: Present
+    cis2315AccountsRenameadministratoraccount: 'CISAdmin'
+    cis2316AccountsRenameguestaccount: 'CISGuest'
+    cis2375LegalNoticeCaption: 'Legal Notice'
+    cis2374LegalNoticeText: 'You shall not pass!'

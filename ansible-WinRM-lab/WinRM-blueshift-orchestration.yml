@@ -16,6 +16,9 @@
       
     - include: WinModule/tasks/main.yml
       tags: [WinModule, all]
+    
+    - include: CISDSC/tasks/main.yml
+      tags: [CISDSC, all]
 
     - include: Closeout/tasks/main.yml
       tags: [Closeout, all]
