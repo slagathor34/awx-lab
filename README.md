@@ -14,6 +14,45 @@ ansible app -m shell -a "ssh-keygen -q -b 2048 -t rsa -N '' -C 'creating SSH' -f
 
 ```
 ---
+- hosts: all
+  gather_facts: no
+  become: yes
+
+  vars:
+  - default_users: ['nobody']
+  - required_users: [''required_peeps']
+
+  tasks:
+  - name: Get a list of all users
+    shell: "getend passwd | awk -F: '$3 > 1000 {print $1}'"
+    changed_when: false
+    register: users
+
+  - name: Remove all users
+    user:
+      name: "{{ item }}"
+      state: absent
+      remove: yes
+    with_items: "{{ users.stdout_lines }}"
+    when: item not in default_users
+
+  - name: Add required users
+    user:
+      name: "{{ item }}"
+      state: present
+    with_item: "{{ required_users }}"
+
+  - name: Add SSH public keys
+    authorized_key:
+      user: "{{ item }}"
+      state: present
+      key: "{{ lookup('file', 'keys/{{ item }}') }}"
+    with_item: "{{ required_users }}"
+
+```
+
+```
+---
 - name: Exchange Keys between servers
   become: yes
   become_user: "{{ user_name }}"
@@ -40,7 +79,6 @@ ansible app -m shell -a "ssh-keygen -q -b 2048 -t rsa -N '' -C 'creating SSH' -f
       shell: "cat /tmp/remote-id_rsa.pub >> ~/.ssh/authorized_keys"
       register: addtoauth
 ```
-
 
 ```
 ---
