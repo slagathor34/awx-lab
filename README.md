@@ -142,7 +142,6 @@ ansible app -m shell -a "ssh-keygen -q -b 2048 -t rsa -N '' -C 'creating SSH' -f
 ```mermaid
 flowchart LR;
   node0[Client SSH] -- |Create Key Pairs| --> node1[Server SSH]
-end
 
 ```
 
