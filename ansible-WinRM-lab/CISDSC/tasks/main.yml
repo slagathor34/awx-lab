@@ -1,7 +1,7 @@
 ---
 - name: CIS DSC Scan
   win_dsc:
-    resource_name: CISDSC
+    #resource_name: CISDSC
     Name: CIS_Microsoft_Windows_Server_2019_Member_Server_Release_20H
     Ensure: Present
     cis2315AccountsRenameadministratoraccount: 'CISAdmin'
