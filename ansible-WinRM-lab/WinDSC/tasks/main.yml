@@ -52,3 +52,10 @@
     Name: 'Git'
     Ensure: 'Present'
     DependsOn: '[cChocoInstaller]installChoco'  
+
+- name: Install Notepad++
+  win_dsc:
+    resource_name: cChocoPackageInstaller
+    Name: 'notepadplusplus'
+    Ensure: 'Present'
+    DependsOn: '[cChocoInstaller]installChoco'  
