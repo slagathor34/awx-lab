@@ -6,10 +6,16 @@
     Ensure: Present
     Type: Directory
 
-- name: Ensure SMB1 is not Deployed
+- name: Ensure SMB1 is not deployed
   win_dsc:
     resource_name: WindowsFeature
     Name: FS-SMB1
+    Ensure: Absent
+
+- name: Ensure FTP is not deployed
+  win_dsc:
+    resource_name: WindowsFeatures
+    Name: FTP-Web-Server
     Ensure: Absent
 
 - name: Setup the xWebAdministration module
