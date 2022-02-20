@@ -40,3 +40,9 @@
       Basic: true
       Digest: false
       Windows: yes
+
+- name: Install Git
+  win_dsc:
+    Name: 'Git'
+    Ensure: 'Present'
+    DependsOn: '[cChocoInstaller]installChoco'  
