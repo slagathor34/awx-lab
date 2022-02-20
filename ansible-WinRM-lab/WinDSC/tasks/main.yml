@@ -15,7 +15,7 @@
 - name: Ensure FTP is not deployed
   win_dsc:
     resource_name: WindowsFeature
-    Name: FTP-Web-Server
+    Name: Web-Ftp-Server
     Ensure: Absent
 
 - name: Setup the xWebAdministration module
