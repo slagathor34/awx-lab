@@ -3,7 +3,6 @@
   win_dsc:
     resource_name: cChocoInstaller
     InstallDir: 'C:\choco'
-    Ensure: Present
 
 - name: Create file with multiple attributes
   win_dsc:
