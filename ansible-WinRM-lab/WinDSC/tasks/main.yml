@@ -43,6 +43,7 @@
 
 - name: Install Git
   win_dsc:
+    resource_name: cChoco
     Name: 'Git'
     Ensure: 'Present'
     DependsOn: '[cChocoInstaller]installChoco'  
