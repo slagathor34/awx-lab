@@ -1,9 +1,4 @@
 ---
-- name: Enable DSC Services
-  win_dsc:
-    resource_name: DSC-Service
-    Ensure: Present
-
 - name: Create file with multiple attributes
   win_dsc:
     resource_name: File
