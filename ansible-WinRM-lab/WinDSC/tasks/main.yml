@@ -58,4 +58,103 @@
     resource_name: cChocoPackageInstaller
     Name: 'notepadplusplus'
     Ensure: 'Present'
-    DependsOn: '[cChocoInstaller]installChoco'  
+    DependsOn: '[cChocoInstaller]installChoco'
+
+- name: Install Microsoft Edge
+  win_dsc:
+      resource_name: cChocoPackageInstaller
+      Name: 'microsoft-edge'
+      Ensure: 'Present'
+      DependsOn: '[cChocoInstaller]installChoco'
+
+- name: Install Sysinternals
+  win_dsc:
+      resource_name: cChocoPackageInstaller
+      Name: 'sysinternals'
+      Ensure: 'Present'
+      DependsOn: '[cChocoInstaller]installChoco'
+
+- name: Install Choco extensions
+  win_dsc:
+      resource_name: cChocoPackageInstaller
+      Name: 'chocolatey-core.extension'
+      Ensure: 'Present'
+      DependsOn: '[cChocoInstaller]installChoco'
+
+- name: Install VSCode
+  win_dsc:
+      resource_name: cChocoPackageInstaller
+      Name: 'vscode'
+      Ensure: 'Present'
+      DependsOn: '[cChocoInstaller]installChoco'
+
+- name: Install VSCode Python3 extensions
+  win_dsc:
+      resource_name: cChocoPackageInstaller
+      Name: 'vscode-python'
+      Ensure: 'Present'
+      DependsOn: '[cChocoInstaller]installChoco'
+
+- name: Install VSCode Python Test Adaptor
+  win_dsc:
+      resource_name: cChocoPackageInstaller
+      Name: 'vscode-python-test-adaptor'
+      Ensure: 'Present'
+      DependsOn: '[cChocoInstaller]installChoco'
+
+
+- name: Install VSCode Pylance
+  win_dsc:
+      resource_name: cChocoPackageInstaller
+      Name: 'vscode-pylance'
+      Ensure: 'Present'
+      DependsOn: '[cChocoInstaller]installChoco'
+
+- name: Install VSCode Intellicode
+  win_dsc:
+      resource_name: cChocoPackageInstaller
+      Name: 'vscode-intellicode'
+      Ensure: 'Present'
+      DependsOn: '[cChocoInstaller]installChoco'
+
+- name: Install Windows Terminal
+  win_dsc:
+      resource_name: cChocoPackageInstaller
+      Name: 'microsoft-windows-terminal'
+      Ensure: 'Present'
+      DependsOn: '[cChocoInstaller]installChoco'
+
+- name: Install 1Password
+  win_dsc:
+      resource_name: cChocoPackageInstaller
+      Name: '1password'
+      Ensure: 'Present'
+      DependsOn: '[cChocoInstaller]installChoco'
+
+- name: Install 1Password CLI
+  win_dsc:
+      resource_name: cChocoPackageInstaller
+      Name: 'op'
+      Ensure: 'Present'
+      DependsOn: '[cChocoInstaller]installChoco'
+
+- name: Install Atom
+  win_dsc:
+      resource_name: cChocoPackageInstaller
+      Name: 'atom'
+      Ensure: 'Present'
+      DependsOn: '[cChocoInstaller]installChoco'
+
+- name: Install Python3
+  win_dsc:
+      resource_name: cChocoPackageInstaller
+      Name: 'python3'
+      Ensure: 'Present'
+      DependsOn: '[cChocoInstaller]installChoco'
+
+- name: Install 'pip'
+  win_dsc:
+      resource_name: cChocoPackageInstaller
+      Name: 'pip'
+      Ensure: 'Present'
+      DependsOn: '[cChocoInstaller]installChoco'

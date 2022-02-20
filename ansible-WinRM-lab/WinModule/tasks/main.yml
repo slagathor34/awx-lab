@@ -13,7 +13,7 @@
   win_psmodule:
     name: cChoco
     state: Present
-    
+
 - name: Enable firewall for Domain, Public and Private profiles
   win_firewall:
     state: enabled
@@ -27,6 +27,26 @@
   win_firewall_rule:
     name: SMTP
     localport: 25
+    action: allow
+    direction: in
+    protocol: tcp
+    state: present
+    enabled: yes
+
+- name: Firewall rule to allow WinRM HTTP on TCP 5985
+  win_firewall_rule:
+    name: WinRM HTTP
+    localport: 5985
+    action: allow
+    direction: in
+    protocol: tcp
+    state: present
+    enabled: yes
+
+- name: Firewall rule to allow WinRM HTTPS on TCP 5986
+  win_firewall_rule:
+    name: WinRM HTTPS
+    localport: 5986
     action: allow
     direction: in
     protocol: tcp
