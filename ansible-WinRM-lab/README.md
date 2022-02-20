@@ -223,9 +223,9 @@ ansible-galaxy install jborean93.win_openssh
 flowchart LR
   subgraph Role Workflow
     subgraph Foundations
-      Node0[Common] --> Node1[WinDSC]
-      Node1[WinDSC] --> Node2[WinModule]
-      Node2[WinModule] --> Node3[Services]
+      Node0[Common] --> Node1[WinModule]
+      Node1[WinModule] --> Node2[WinDSC]
+      Node2[WinDSC] --> Node3[Services]
       Node3[Services] --> Node4[Integration]
       Node4[Integrations] --> Node5[Application]
     end

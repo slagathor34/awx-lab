@@ -1,4 +1,10 @@
 ---
+- name: cChoco cChocoInstaller
+  win_dsc:
+    resource_name: cChocoInstaller
+    InstallDir: 'C:\choco'
+    Ensure: Present
+
 - name: Create file with multiple attributes
   win_dsc:
     resource_name: File
@@ -43,7 +49,7 @@
 
 - name: Install Git
   win_dsc:
-    resource_name: cChoco
+    resource_name: cChocoPackageInstaller
     Name: 'Git'
     Ensure: 'Present'
     DependsOn: '[cChocoInstaller]installChoco'  
