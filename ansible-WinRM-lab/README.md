@@ -27,6 +27,156 @@ winrm set winrm/config/service/auth '@{Basic="true"}'
 winrm set winrm/config/service '@{AllowUnencrypted="true"}'
 ```
 
+## Secure WinRM configuration (Non-Domain)
+
+1. Enable Windows Remote Management service (WinRM)
+
+```
+Set-Service -Name "WinRM" -StartupType Automatic
+Start-Service -Name "WinRM"
+
+if (-not (Get-PSSessionConfiguration) -or (-not (Get-ChildItem WSMan:\localhost\Listener))) {
+    ## Use SkipNetworkProfileCheck to make available even on Windows Firewall public profiles
+    ## Use Force to not be prompted if we're sure or not.
+    Enable-PSRemoting -SkipNetworkProfileCheck -Force
+}
+```
+
+1. Enable Certificate Based Authentication
+
+```
+Set-Item -Path WSMan:\localhost\Service\Auth\Certificate -Value $true
+```
+
+1. Create a local user account
+
+```
+$testUserAccountName = 'ansibletestuser'
+$testUserAccountPassword = (ConvertTo-SecureString -String 'p@$$w0rd12' -AsPlainText -Force)
+if (-not (Get-LocalUser -Name $testUserAccountName -ErrorAction Ignore)) {
+    $newUserParams = @{
+        Name                 = $testUserAccountName
+        AccountNeverExpires  = $true
+        PasswordNeverExpires = $true
+        Password             = $testUserAccountPassword
+    }
+    $null = New-LocalUser @newUserParams
+}
+
+```
+
+1. Create the Client Certificate
+
+```
+## This is the public key generated from the Ansible server using:
+cat > openssl.conf << EOL
+distinguished_name = req_distinguished_name
+[req_distinguished_name]
+[v3_req_client]
+extendedKeyUsage = clientAuth
+subjectAltName = otherName:1.3.6.1.4.1.311.20.2.3;UTF8:ansibletestuser@localhost
+EOL
+export OPENSSL_CONF=openssl.conf
+openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -out cert.pem -outform PEM -keyout cert_key.pem -subj "/CN=ansibletestuser" -extensions v3_req_client
+rm openssl.conf 
+```
+
+1. Import the Client Certificate
+
+```
+$pubKeyFilePath = 'C:\cert.pem'
+
+## Import the public key into Trusted Root Certification Authorities and Trusted People
+$null = Import-Certificate -FilePath $pubKeyFilePath -CertStoreLocation 'Cert:\LocalMachine\Root'
+$null = Import-Certificate -FilePath $pubKeyFilePath -CertStoreLocation 'Cert:\LocalMachine\TrustedPeople'
+```
+
+1. Create the Server Certificate
+
+```
+$hostname = hostname
+$serverCert = New-SelfSignedCertificate -DnsName $hostName -CertStoreLocation 'Cert:\LocalMachine\My'
+```
+
+1. Create the Ansible WinRM Listener
+
+```
+## Find all HTTPS listners
+$httpsListeners = Get-ChildItem -Path WSMan:\localhost\Listener\ | where-object { $_.Keys -match 'Transport=HTTPS' }
+
+## If not listeners are defined at all or no listener is configured to work with
+## the server cert created, create a new one with a Subject of the computer's host name
+## and bound to the server certificate.
+if ((-not $httpsListeners) -or -not (@($httpsListeners).where( { $_.CertificateThumbprint -ne $serverCert.Thumbprint }))) {
+    $newWsmanParams = @{
+        ResourceUri = 'winrm/config/Listener'
+        SelectorSet = @{ Transport = "HTTPS"; Address = "*" }
+        ValueSet    = @{ Hostname = $hostName; CertificateThumbprint = $serverCert.Thumbprint }
+        # UseSSL = $true
+    }
+    $null = New-WSManInstance @newWsmanParams
+}
+```
+
+1. Map the Client Certificate to the Local User Account
+
+```
+$credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $testUserAccountName, $testUserAccountPassword
+
+## Find the cert thumbprint for the client certificate created on the Ansible host
+$ansibleCert = Get-ChildItem -Path 'Cert:\LocalMachine\Root' | Where-Object {$_.Subject -eq 'CN=ansibletestuser'}
+
+$params = @{
+	Path = 'WSMan:\localhost\ClientCertificate'
+	Subject = "$testUserAccountName@localhost"
+	URI = '*'
+	Issuer = $ansibleCert.Thumbprint
+  Credential = $credential
+	Force = $true
+}
+New-Item @params
+```
+
+1. Allow WinRm with User Account Control (UAC)
+
+```
+$newItemParams = @{
+    Path         = 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System'
+    Name         = 'LocalAccountTokenFilterPolicy'
+    Value        = 1
+    PropertyType = 'DWORD'
+    Force        = $true
+}
+$null = New-ItemProperty @newItemParams
+```
+
+1. Open Port 5986 on the Windows Firewall
+
+```
+ $ruleDisplayName = 'Windows Remote Management (HTTPS-In)'
+ if (-not (Get-NetFirewallRule -DisplayName $ruleDisplayName -ErrorAction Ignore)) {
+     $newRuleParams = @{
+         DisplayName   = $ruleDisplayName
+         Direction     = 'Inbound'
+         LocalPort     = 5986
+         RemoteAddress = 'Any'
+         Protocol      = 'TCP'
+         Action        = 'Allow'
+         Enabled       = 'True'
+         Group         = 'Windows Remote Management'
+     }
+     $null = New-NetFirewallRule @newRuleParams
+ }
+```
+
+1. Add the local user to the administrators group
+
+```
+Get-LocalUser -Name $testUserAccountName | Add-LocalGroupMember -Group 'Administrators'
+```
+
+1. Wrap up
+
 ## OpenSSH for Windows
 
 ```
