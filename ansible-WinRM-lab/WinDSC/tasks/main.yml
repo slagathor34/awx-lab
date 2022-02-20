@@ -14,7 +14,7 @@
 
 - name: Ensure FTP is not deployed
   win_dsc:
-    resource_name: WindowsFeatures
+    resource_name: WindowsFeature
     Name: FTP-Web-Server
     Ensure: Absent
 
