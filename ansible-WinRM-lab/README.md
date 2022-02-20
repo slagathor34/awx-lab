@@ -31,7 +31,7 @@ winrm set winrm/config/service '@{AllowUnencrypted="true"}'
 
 1. Enable Windows Remote Management service (WinRM)
 
-```
+```PowerShell
 Set-Service -Name "WinRM" -StartupType Automatic
 Start-Service -Name "WinRM"
 
@@ -42,15 +42,15 @@ if (-not (Get-PSSessionConfiguration) -or (-not (Get-ChildItem WSMan:\localhost\
 }
 ```
 
-2. Enable Certificate Based Authentication
+1. Enable Certificate Based Authentication
 
-```
+```PowerShell
 Set-Item -Path WSMan:\localhost\Service\Auth\Certificate -Value $true
 ```
 
-3. Create a local user account
+1. Create a local user account
 
-```
+```PowerShell
 $testUserAccountName = 'ansibletestuser'
 $testUserAccountPassword = (ConvertTo-SecureString -String 'p@$$w0rd12' -AsPlainText -Force)
 if (-not (Get-LocalUser -Name $testUserAccountName -ErrorAction Ignore)) {
@@ -65,10 +65,10 @@ if (-not (Get-LocalUser -Name $testUserAccountName -ErrorAction Ignore)) {
 
 ```
 
-4. Create the Client Certificate
+1. Create the Client Certificate in Linux on the Ansible system
 
-```
-## This is the public key generated from the Ansible server using:
+```bash
+## This is the public key generated from the Ansible system using:
 cat > openssl.conf << EOL
 distinguished_name = req_distinguished_name
 [req_distinguished_name]
@@ -81,9 +81,9 @@ openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -out cert.pem -outform PEM 
 rm openssl.conf 
 ```
 
-5. Import the Client Certificate
+1. Import the Client Certificate on the Windows Machine
 
-```
+```PowerShell
 $pubKeyFilePath = 'C:\cert.pem'
 
 ## Import the public key into Trusted Root Certification Authorities and Trusted People
@@ -91,16 +91,16 @@ $null = Import-Certificate -FilePath $pubKeyFilePath -CertStoreLocation 'Cert:\L
 $null = Import-Certificate -FilePath $pubKeyFilePath -CertStoreLocation 'Cert:\LocalMachine\TrustedPeople'
 ```
 
-6. Create the Server Certificate
+1. Create the Server Certificate in Windows
 
-```
+```PowerShell
 $hostname = hostname
 $serverCert = New-SelfSignedCertificate -DnsName $hostName -CertStoreLocation 'Cert:\LocalMachine\My'
 ```
 
-7. Create the Ansible WinRM Listener
+1. Create the Ansible WinRM Listener
 
-```
+```PowerShell
 ## Find all HTTPS listners
 $httpsListeners = Get-ChildItem -Path WSMan:\localhost\Listener\ | where-object { $_.Keys -match 'Transport=HTTPS' }
 
@@ -118,9 +118,9 @@ if ((-not $httpsListeners) -or -not (@($httpsListeners).where( { $_.CertificateT
 }
 ```
 
-8. Map the Client Certificate to the Local User Account
+1. Map the Client Certificate to the Local User Account
 
-```
+```PowerShell
 $credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $testUserAccountName, $testUserAccountPassword
 
 ## Find the cert thumbprint for the client certificate created on the Ansible host
@@ -137,9 +137,9 @@ $params = @{
 New-Item @params
 ```
 
-9. Allow WinRm with User Account Control (UAC)
+1. Allow WinRm with User Account Control (UAC)
 
-```
+```PowerShell
 $newItemParams = @{
     Path         = 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System'
     Name         = 'LocalAccountTokenFilterPolicy'
@@ -150,9 +150,9 @@ $newItemParams = @{
 $null = New-ItemProperty @newItemParams
 ```
 
-10. Open Port 5986 on the Windows Firewall
+1. Open Port 5986 on the Windows Firewall
 
-```
+```PowerShell
  $ruleDisplayName = 'Windows Remote Management (HTTPS-In)'
  if (-not (Get-NetFirewallRule -DisplayName $ruleDisplayName -ErrorAction Ignore)) {
      $newRuleParams = @{
@@ -169,13 +169,13 @@ $null = New-ItemProperty @newItemParams
  }
 ```
 
-11. Add the local user to the administrators group
+1. Add the local user to the administrators group
 
-```
+```PowerShell
 Get-LocalUser -Name $testUserAccountName | Add-LocalGroupMember -Group 'Administrators'
 ```
 
-12. Wrap up
+1. Wrap up
 
 ## OpenSSH for Windows
 
