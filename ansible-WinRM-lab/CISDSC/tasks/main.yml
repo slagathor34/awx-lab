@@ -1,9 +1,4 @@
 ---
-- name: Log Event Size
-  win_dsc:
-    resource_name: ComputerManagementDsc
-    
-
 - name: CIS DSC Scan
   win_dsc:
     resource_name: 'CISDSC'
