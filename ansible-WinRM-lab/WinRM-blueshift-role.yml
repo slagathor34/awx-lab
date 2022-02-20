@@ -9,6 +9,6 @@
 
   roles:
       - Common
+      - WinModule
       - WinDSC
-      # - WinModule
       - Closeout

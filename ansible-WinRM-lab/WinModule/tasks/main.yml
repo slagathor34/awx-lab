@@ -1,4 +1,19 @@
 ---
+- name: Setup the xWebAdministration module
+  win_psmodule:
+    name: xWebAdministration
+    state: Present
+
+- name: Install CISDSC resource
+  win_psmodule:
+    name: CISDSC
+    state: Present
+
+- name: Install Chocolatey
+  win_psmodule:
+    name: cChoco
+    state: Present
+    
 - name: Enable firewall for Domain, Public and Private profiles
   win_firewall:
     state: enabled
