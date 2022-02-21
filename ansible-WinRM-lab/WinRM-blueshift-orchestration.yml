@@ -20,6 +20,9 @@
     - include: CISDSC/tasks/main.yml
       tags: [CISDSC, all]
 
+    - include: Services/tasks/main.yml
+      tags: [Services, all]
+
     - include: Closeout/tasks/main.yml
       tags: [Closeout, all]
   

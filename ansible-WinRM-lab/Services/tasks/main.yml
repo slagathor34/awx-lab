@@ -6,3 +6,11 @@
 
 - name: Example from an Ansible Playbook
   win_ping:
+
+- name: Remove static record
+  win_dns_record:
+    name: "lab2"
+    type: "A"
+    value: '192.168.1.5'
+    state: Present
+    zone: "brainstormes.org"
