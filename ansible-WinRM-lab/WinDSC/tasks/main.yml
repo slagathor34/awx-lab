@@ -28,6 +28,12 @@
     resource_name: xWebsite
     Ensure: Absent
     Name: Default Web Site
+    
+- name: Ensure DNS is installed
+  win_dsc:
+    resource_name: WindowsFeature
+    Name: DNS
+    Ensure: Present
 
 - name: Create IIS Website with Binding and Authentication options
   win_dsc:
