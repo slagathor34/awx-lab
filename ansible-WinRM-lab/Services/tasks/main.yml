@@ -7,10 +7,10 @@
 - name: Example from an Ansible Playbook
   win_ping:
 
-- name: Remove static record
+- name: Create static record
   win_dns_record:
-    name: "lab2"
+    name: '{{ A_record_name }}'
     type: "A"
-    value: '192.168.1.5'
+    value: '{{ ip_address }}'
     state: Present
     zone: "brainstormes.org"
