@@ -10,7 +10,7 @@
 - name: Create static record
   win_dns_record:
     name: '{{ A_record_name }}'
-    type: "A"
+    type: '{{ record_type }}'
     value: '{{ ip_address }}'
-    state: Present
+    state: 'Present'
     zone: "brainstormes.org"
