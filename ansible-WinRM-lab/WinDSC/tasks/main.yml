@@ -46,7 +46,7 @@
       Digest: false
       Windows: yes
 
-- name: Install "{{ item }}" Software
+- name: Install Software
   win_dsc:
     resource_name: cChocoPackageInstaller
     Name: '{{ item }}'
