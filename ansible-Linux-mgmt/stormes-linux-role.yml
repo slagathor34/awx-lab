@@ -1,0 +1,7 @@
+---
+- name: Manage Windows DSC BlueShift Resource Creation
+  hosts: all
+  gather_facts: true
+
+  roles:
+      - Common

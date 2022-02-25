@@ -1,0 +1,31 @@
+---
+- name: Manage Ansible Windows Modules BlueShift Resource Creation
+  hosts: all
+  gather_facts: true
+   
+  pre_tasks:
+    - debug:
+        msg: "Pre Tasks for Orchestration"
+
+  tasks:
+    - include: Common/tasks/main.yml
+      tags: [Common, all]
+
+    - include: WinDSC/tasks/main.yml
+      tags: [WinDSC, all]
+      
+    - include: WinModule/tasks/main.yml
+      tags: [WinModule, all]
+    
+    - include: CISDSC/tasks/main.yml
+      tags: [CISDSC, all]
+
+    - include: Services/tasks/main.yml
+      tags: [Services, all]
+
+    - include: Closeout/tasks/main.yml
+      tags: [Closeout, all]
+  
+  post_tasks:
+    - debug:
+        msg: "Post Tasks for Orchestration."
