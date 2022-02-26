@@ -3,6 +3,7 @@
   hosts: localhost
   connection: local
   gather_facts: true
+  setup:
   collections:
     - azure.azcollection
 
