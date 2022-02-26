@@ -1,6 +1,7 @@
 ---
 - name: Manage Linux Resource Creation
   hosts: all
+  connection: local
   gather_facts: true
 
   roles:
