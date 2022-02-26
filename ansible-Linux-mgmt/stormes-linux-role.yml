@@ -4,6 +4,8 @@
   connection: local
   gather_facts: true
   setup:
+    gather_subset:
+      - 'all'
   collections:
     - azure.azcollection
 
