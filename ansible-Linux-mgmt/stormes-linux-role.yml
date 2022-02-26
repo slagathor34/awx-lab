@@ -1,5 +1,6 @@
 ---
 - name: Manage Linux Resource Creation
+  hosts: all
   setup:
     gather_subset:
       - 'all'
