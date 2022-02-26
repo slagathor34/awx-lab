@@ -1,7 +1,10 @@
 ---
-- name: Manage Windows DSC BlueShift Resource Creation
-  hosts: all
+- name: Manage Linux Resource Creation
+  hosts: localhost
+  connection: local
   gather_facts: true
+  collections:
+    - azure.azcollection
 
   roles:
       - Common

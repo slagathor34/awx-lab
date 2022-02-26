@@ -1,8 +1,23 @@
 ---
 # KeyVault Retrieval
 # Add variables where no good common place exists
-- debug:
-    msg: "Common layer for set up of actions to be used in the role."
+vars:
+    vault_uri: <key_vault_uri>
+    secret_name: <key_vault_secret_name>
 
-- name: Example from an Ansible Playbook
-  ping:
+tasks:
+
+  - name: Get latest version of a secret
+    azure_rm_keyvaultsecret_info:
+      vault_uri: "{{ vault_uri }}"
+      name: "{{ secret_name }}"
+    register: kvSecret
+
+  - name: Set secret fact
+    set_fact: secret_value="{{ kvSecret['secrets'][0]['secret'] }}"
+
+  - debug:
+      msg: "Common layer for set up of actions to be used in the role."
+
+  - name: Example from an Ansible Playbook
+    ping:
