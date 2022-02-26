@@ -1,7 +1,6 @@
 ---
 - name: Manage Linux Resource Creation
-  hosts: localhost
-  connection: local
+  hosts: all
   gather_facts: true
   setup:
     gather_subset:
