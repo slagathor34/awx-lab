@@ -1,7 +1,10 @@
 ---
-- name: Manage Ansible Windows Modules BlueShift Resource Creation
-  hosts: all
+- name: Manage Linux Resource Creation Orchestration
+  hosts: localhost
+  connection: local
   gather_facts: true
+  collections:
+    - azure.azcollection
    
   pre_tasks:
     - debug:
@@ -10,7 +13,7 @@
   tasks:
     - include: Common/tasks/main.yml
       tags: [Common, all]
-  
+
   post_tasks:
     - debug:
         msg: "Post Tasks for Orchestration."
