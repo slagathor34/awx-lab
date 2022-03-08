@@ -1,0 +1,120 @@
+---
+- name: Query information about Azure
+  hosts: all
+  gather_facts: no
+  vars:
+   rg: 1-7b72c7b6-playground-sandbox-2
+   region: eastus2
+
+  tasks:
+  - name: Get VM Size
+    shell: "az vm show -g {{ rg }} -n {{ansible_hostname}} --query 'hardwareProfile.vmSize'"
+    register: vm_size
+    delegate_to: localhost
+
+  - name: Store vm size as a fact
+    set_fact:
+     VM_Size: "{{ vm_size.stdout_lines[0] }}"
+
+  - name: Get cpu and memory information of VM
+    shell: "az vm list-sizes --location {{ region }} | grep -A1 -B1 {{ VM_Size }}| awk '{print $2}'"
+    register: out
+    delegate_to: localhost
+
+  - name: Get Public IP address of VM
+    shell: "az vm show -d -g {{ rg }} -n {{ansible_hostname}} --query publicIps -o tsv"
+    register: publicip
+    delegate_to: localhost
+
+  - name: Get Private IP address of VM
+    shell: "az vm show -d -g {{ rg }} -n {{ansible_hostname}} --query privateIps -o tsv"
+    register: privateip
+    delegate_to: localhost
+
+  - name: Get allocated disk count
+    shell: "az vm show -d -g {{ rg }} -n {{ansible_hostname}} | grep -c Microsoft.Compute/disks"
+    register: diskcount
+    delegate_to: localhost
+
+  - name: Get disk names and stroage account types
+    shell:  az vm show --resource-group {{ rg }} --name {{ansible_hostname}} --query "storageProfile.dataDisks[][{Name:name,StorageAccountType:managedDisk}]"
+    register: disk_info
+    delegate_to: localhost
+
+  - name: Set disk info as a fact
+    set_fact:
+     disk_list: "{{disk_info.stdout}}"
+
+  - name: Get size of each disk
+    shell: az vm show -g {{ rg }} -n {{ansible_hostname}} --query "storageProfile.dataDisks[][{Name:name,DiskSizeGB:diskSizeGb}]" -o table | awk -F, 'NR > 2 {print $2, $4}' | tr -d ')])'
+    register: disk_size_list
+    delegate_to: localhost
+
+  - name: Set fact for disk sizes
+    set_fact: disk_size_lists="{{disk_size_list.stdout_lines}}"
+
+  - name: Get VM disk caching information
+    shell: az vm show -g {{rg}} -n {{ansible_hostname}} --query "storageProfile.dataDisks[][{Name:name,Caching:caching}]" -o table | awk -F, 'NR>2 {print $2, $4}' | tr -d ")])'"
+    register: disk_caching
+    delegate_to: localhost
+
+  - name: Set Disk caching information as a fact
+    set_fact: disk_cache="{{disk_caching.stdout_lines}}"
+
+  - name: Get VM region and Availability zone
+    shell: az vm show -g {{rg}} -n {{ansible_hostname}} --query "[location, zones]" -o tsv | tr '\n' ' '
+    register: az_info
+    delegate_to: localhost
+
+  - name: set fact for region and AZ
+    set_fact: az_region_info="{{az_info.stdout}}"
+
+  - name: Get Default NSG details
+    shell: az network nsg list --resource-group {{rg}} --query "[].defaultSecurityRules[].{Name:name, Accecc:access, Direction:direction, DestAddr:destinationAddressPrefix, SourceAddr:sourceAddressPrefix,DestPort:destinationPortRange, SourcePort:sourcePortRange }" -o tsv
+    register: def_nsg_out
+    delegate_to: localhost
+
+  - name: Set fact for default NSG rules
+    set_fact: def_nsg_out_fact="{{def_nsg_out.stdout}}"
+
+  - name: Get User defined NSG rule details
+    shell: az network nsg list --resource-group {{rg}} --query "[].securityRules[].{Name:name, Accecc:access, Direction:direction, DestAddr:destinationAddressPrefix, SourceAddr:sourceAddressPrefix,DestPort:destinationPortRange, SourcePort:sourcePortRange }" -o tsv
+    register: ud_nsg_out
+    delegate_to: localhost
+
+  - name: Set fact for User defined NSG rules
+    set_fact: ud_nsg_out_fact="{{ud_nsg_out.stdout}}"
+
+  - name: Get VM NIC name
+    shell: "az vm nic list -g {{ rg }}  --vm-name {{ansible_hostname}} --query [].id | grep subscriptions | awk -F/ '{print $NF}'"
+    register: nicname
+    delegate_to: localhost
+
+  - name: Set fact for NIC name
+    set_fact: nic_name="{{nicname.stdout}}"
+
+  - name: Set fact for disk count
+    set_fact: disk_count="{{diskcount.stdout}}"
+
+  - name: Set fact for Public IP
+    set_fact:
+     public_ip: "{{publicip.stdout_lines[0]}}"
+
+  - name: Set fact for Private IP
+    set_fact:
+     private_ip: "{{privateip.stdout_lines[0]}}"
+
+  - name: Set fact for CPU
+    set_fact:
+     num_cpu: "{{ out.stdout_lines[2] | regex_replace(',', '') }}"
+
+  - name: Set fact for Memory
+    set_fact:
+     mem_mb: "{{ out.stdout_lines[0] | regex_replace(',', '') }}"
+
+
+  - name: Populate template file with info
+    template:
+     src: info.j2
+     dest: /root/ansible_azure/info.json
+    delegate_to: localhost
