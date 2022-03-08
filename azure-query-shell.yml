@@ -3,8 +3,8 @@
   hosts: all
   gather_facts: no
   vars:
-   rg: 1-7b72c7b6-playground-sandbox-2
-   region: eastus2
+   rg: "{{ resource_group }}"
+   region: "{{ region }}"
 
   tasks:
   - name: Get VM Size
