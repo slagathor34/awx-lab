@@ -3,5 +3,5 @@ collections:
   - name: community.windows
   - name: google.cloud
   - name: ansible.windows
-  - nane: community.azure
+  - name: community.azure
   - name: chocolatey.chocolatey
