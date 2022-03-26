@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+
+  tasks:
+  - name: "PLAY: Create a Resource Group"
+    azure.azcollection.azure_rm_resourcegroup:
+      name: "test_rg"
+      location: "westus"
+      state: present
+      tags:
+        testing: testing
+        delete: never
