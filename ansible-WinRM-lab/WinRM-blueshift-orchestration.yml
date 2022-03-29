@@ -10,6 +10,9 @@
   tasks:
     - include: Common/tasks/main.yml
       tags: [Common, all]
+    
+    - include: ADIAM/tasks/main.yml
+      tags: [CreateUser, all]
   
   post_tasks:
     - debug:
