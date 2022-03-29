@@ -1,0 +1,18 @@
+---
+- name: Ensure user bob is present with address information
+  community.windows.win_domain_user:
+    name: bob
+    firstname: Bob
+    surname: Smith
+    company: BobCo
+    password: B0bP4ssw0rd
+    state: absent
+    groups:
+      - Domain Admins
+    street: 123 4th St.
+    city: Sactown
+    state_province: IN
+    postal_code: 12345
+    country: US
+    attributes:
+      telephoneNumber: 555-123456
