@@ -1,5 +1,5 @@
 ---
-- name: Ensure user bob is present with address information
+- name: Ensure user bob is absent with address information
   community.windows.win_domain_user:
     name: "{{ username }}"
     firstname: "{{ first_name }}"
