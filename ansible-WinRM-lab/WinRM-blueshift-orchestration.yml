@@ -1,17 +1,17 @@
 ---
 - name: Manage Ansible Windows Modules BlueShift Resource Creation
   hosts: all
-  gather_facts: true
+  gather_facts: yes
    
   pre_tasks:
     - debug:
         msg: "Pre Tasks for Orchestration"
 
   tasks:
-    - include: Common/tasks/main.yml
+    - include_tasks: Common/tasks/main.yml
       tags: [Common, all]
     
-    - include: ADIAM/tasks/main.yml
+    - include_tasks: ADIAM/tasks/main.yml
       tags: [CreateUser, all]
   
   post_tasks:
