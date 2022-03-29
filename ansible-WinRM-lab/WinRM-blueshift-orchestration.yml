@@ -13,6 +13,9 @@
     
     - include: ADIAM/tasks/main.yml
       tags: [CreateUser, all]
+    
+    - include: ADIAM/tasks/main.yml
+      tags: [DeleteUser, all]
   
   post_tasks:
     - debug:
