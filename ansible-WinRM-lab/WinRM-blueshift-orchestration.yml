@@ -12,7 +12,7 @@
       tags: [Common, all]
     
     - include_tasks: ADIAM/tasks/main.yml
-      tags: [CreateUser, all]
+      tags: [CreateUser, DeleteUser, all]
   
   post_tasks:
     - debug:
