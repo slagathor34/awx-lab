@@ -16,3 +16,12 @@
     country: US
     attributes:
       telephoneNumber: "{{ phone_number }}"
+  tags: CreateUser
+
+- name: Delete AD User
+  community.windows.win_domain_user:
+    name: "{{ username }}"
+    firstname: "{{ first_name }}"
+    surname: "{{ last_name }}"
+    state: absent
+  tags: DeleteUser
