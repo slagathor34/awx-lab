@@ -1,18 +1,7 @@
 ---
-- name: Ensure user bob is absent with address information
+- name: Delete AD User
   community.windows.win_domain_user:
     name: "{{ username }}"
     firstname: "{{ first_name }}"
     surname: "{{ last_name }}"
-    company: BSC
-    password: "{{ password }}"
     state: absent
-    groups:
-      - Domain Users
-    street: "{{ street_address }}"
-    city: "{{ city }}"
-    state_province: "{{ state }}"
-    postal_code: "{{ zip_code }}"
-    country: US
-    attributes:
-      telephoneNumber: "{{ phone_number }}"
