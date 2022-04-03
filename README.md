@@ -7,59 +7,36 @@ gantt
     dateFormat  YYYY-MM-DD
     title       BlueShift ICS Conversion
     excludes    weekends
-    %% (`excludes` accepts specific dates in YYYY-MM-DD format, days of the week ("sunday") or "weekends", but not the word "weekdays".)
 
     section Azure Network
-    Resource Group Creation           :done,    des1, 2022-02-01, 14d
-    vNet Creation                     :done,  des2, 3d
+    Resource Group Creation           :done, des1, 2022-02-01, 14d
+    vNet Creation                     :des2, after des1, 3d
     vHub Configurations               :des3, after des2, 5d
     Future task2                      :des4, after des3, 5d
 
     section Azure Storage
-    Completed task            :done,    des1, 2014-01-06,2014-01-08
-    Active task               :active,  des2, 2014-01-09, 3d
-    Future task               :         des3, after des2, 5d
-    Future task2              :         des4, after des3, 5d
+    Resource Group Creation           :done, des1, 2022-02-01, 14d
+    vNet Creation                     :des2, after des1, 3d
+    vHub Configurations               :des3, after des2, 5d
+    Future task2                      :des4, after des3, 5d
 
     section Azure Compute - IaaS
-    Completed task            :done,    des1, 2014-01-06,2014-01-08
-    Active task               :active,  des2, 2014-01-09, 3d
-    Future task               :         des3, after des2, 5d
-    Future task2              :         des4, after des3, 5d
+    Resource Group Creation           :done, des1, 2022-02-01, 14d
+    vNet Creation                     :des2, after des1, 3d
+    vHub Configurations               :des3, after des2, 5d
+    Future task2                      :des4, after des3, 5d
 
     section Azure Compute - PaaS - OpenShift
-    Completed task            :done,    des1, 2014-01-06,2014-01-08
-    Active task               :active,  des2, 2014-01-09, 3d
-    Future task               :         des3, after des2, 5d
-    Future task2              :         des4, after des3, 5d
+    Resource Group Creation           :done, des1, 2022-02-01, 14d
+    vNet Creation                     :des2, after des1, 3d
+    vHub Configurations               :des3, after des2, 5d
+    Future task2                      :des4, after des3, 5d
 
     section Azure Compute - PaaS - AKS
-    Completed task            :done,    des1, 2014-01-06,2014-01-08
-    Active task               :active,  des2, 2014-01-09, 3d
-    Future task               :         des3, after des2, 5d
-    Future task2              :         des4, after des3, 5d
-
-
-
-    section Critical tasks
-    Completed task in the critical line :crit, done, 2014-01-06,24h
-    Implement parser and jison          :crit, done, after des1, 2d
-    Create tests for parser             :crit, active, 3d
-    Future task in critical line        :crit, 5d
-    Create tests for renderer           :2d
-    Add to mermaid                      :1d
-    Functionality added                 :milestone, 2014-01-25, 0d
-
-    section Documentation
-    Describe gantt syntax               :active, a1, after des1, 3d
-    Add gantt diagram to demo page      :after a1  , 20h
-    Add another diagram to demo page    :doc1, after a1  , 48h
-
-    section Last section
-    Describe gantt syntax               :after doc1, 3d
-    Add gantt diagram to demo page      :20h
-    Add another diagram to demo page    :48h
-
+    Resource Group Creation           :done, des1, 2022-02-01, 14d
+    vNet Creation                     :des2, after des1, 3d
+    vHub Configurations               :des3, after des2, 5d
+    Future task2                      :des4, after des3, 5d
 ```
 
 ## SSH Key Exchange Strategy
