@@ -29,13 +29,13 @@ gantt
     Configure Azure Site Recovery     :des5, after des4, 2d
 
     section Azure Compute - PaaS - OpenShift
-    Resource Group Creation           :done, des1, 2022-02-01, 14d
+    Resource Group Creation           :done, des1, 2022-02-01, 1d
     vNet Creation                     :des2, after des1, 3d
     vHub Configurations               :des3, after des2, 5d
     Future task2                      :des4, after des3, 5d
 
     section Azure Compute - PaaS - AKS
-    Resource Group Creation           :done, des1, 2022-02-01, 14d
+    Resource Group Creation           :done, des1, 2022-02-01, 1d
     vNet Creation                     :des2, after des1, 3d
     vHub Configurations               :des3, after des2, 5d
     Future task2                      :des4, after des3, 5d
