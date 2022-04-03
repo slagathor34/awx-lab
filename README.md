@@ -10,21 +10,23 @@ gantt
 
     section Azure Network
     Resource Group Creation           :done, des1, 2022-02-01, 14d
-    vNet Creation                     :des2, after des1, 3d
+    vNet & Subnet Creation            :des2, after des1, 3d
     vHub Configurations               :des3, after des2, 5d
-    Future task2                      :des4, after des3, 5d
+    NSG Configuration                 :des4, after des3, 5d
+    Load Balancer Configuration       :des5, after des4, 2d
 
     section Azure Storage
-    Storage Account Creation          :des1, 2022-02-01, 5d
+    Storage Account Creation          :des1, 2022-02-14, 5d
     Private Endpoint Creation         :des2, after des1, 3d
     Defender for Storage              :des3, after des2, 1d
     Storage Type                      :des4, after des3, 1d
 
     section Azure Compute - IaaS
-    Resource Group Creation           :done, des1, 2022-02-01, 14d
-    vNet Creation                     :des2, after des1, 3d
-    vHub Configurations               :des3, after des2, 5d
-    Future task2                      :des4, after des3, 5d
+    Deploy Windows VM                 :des1, 2022-02-01, 2d
+    Deploy Linux VM                   :dest2, after des1, 2d
+    Create VM Scale Set               :des3, after des2, 3d
+    vHub Configurations               :des4, after des3, 5d
+    Configure Azure Site Recovery     :des5, after des4, 2d
 
     section Azure Compute - PaaS - OpenShift
     Resource Group Creation           :done, des1, 2022-02-01, 14d
