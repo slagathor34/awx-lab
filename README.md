@@ -22,20 +22,20 @@ gantt
     Storage Type                      :des4, after des3, 1d
 
     section Azure Compute - IaaS
-    Deploy Windows VM                 :des1, 2022-02-01, 2d
+    Deploy Windows VM                 :des1, 2022-02-21, 2d
     Deploy Linux VM                   :dest2, after des1, 2d
     Create VM Scale Set               :des3, after des2, 3d
     vHub Configurations               :des4, after des3, 5d
     Configure Azure Site Recovery     :des5, after des4, 2d
 
     section Azure Compute - PaaS - OpenShift
-    Resource Group Creation           :done, des1, 2022-02-01, 1d
+    Resource Group Creation           :done, des1, 2022-03-01, 1d
     vNet Creation                     :des2, after des1, 3d
     vHub Configurations               :des3, after des2, 5d
     Future task2                      :des4, after des3, 5d
 
     section Azure Compute - PaaS - AKS
-    Resource Group Creation           :done, des1, 2022-02-01, 1d
+    Resource Group Creation           :done, des1, 2022-03-14, 1d
     vNet Creation                     :des2, after des1, 3d
     vHub Configurations               :des3, after des2, 5d
     Future task2                      :des4, after des3, 5d
