@@ -9,7 +9,7 @@ gantt
     excludes    weekends
 
     section Azure Network
-    Resource Group Creation           :done, des1, 2022-02-01, 14d
+    Resource Group Creation           :done, des1, 2022-02-01, 1d
     vNet & Subnet Creation            :des2, after des1, 3d
     vHub Configurations               :des3, after des2, 5d
     NSG Configuration                 :des4, after des3, 5d
