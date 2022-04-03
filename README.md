@@ -2,7 +2,7 @@
 
 ## BlueShift Schedule
 
-``` 
+```mermaid
 gantt
     dateFormat  YYYY-MM-DD
     title       BlueShift ICS Conversion
