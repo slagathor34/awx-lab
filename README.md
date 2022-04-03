@@ -16,29 +16,29 @@ gantt
     Load Balancer Configuration       :des5, after des4, 2d
 
     section Azure Storage
-    Storage Account Creation          :des1, 2022-02-14, 5d
-    Private Endpoint Creation         :des2, after des1, 3d
-    Defender for Storage              :des3, after des2, 1d
-    Storage Type                      :des4, after des3, 1d
+    Storage Account Creation          :des6, after des5, 5d
+    Private Endpoint Creation         :des7, after des6, 3d
+    Defender for Storage              :des8, after des7, 1d
+    Storage Type                      :des9, after des8, 1d
 
     section Azure Compute - IaaS
-    Deploy Windows VM                 :des1, 2022-02-21, 2d
-    Deploy Linux VM                   :dest2, after des1, 2d
-    Create VM Scale Set               :des3, after des2, 3d
-    vHub Configurations               :des4, after des3, 5d
-    Configure Azure Site Recovery     :des5, after des4, 2d
+    Deploy Windows VM                 :des10, after des9, 2d
+    Deploy Linux VM                   :dest11, after des10, 2d
+    Create VM Scale Set               :des12, after des11, 3d
+    vHub Configurations               :des13, after des12, 5d
+    Configure Azure Site Recovery     :des14, after des13, 2d
 
     section Azure Compute - PaaS - OpenShift
-    Resource Group Creation           :done, des1, 2022-03-01, 1d
-    vNet Creation                     :des2, after des1, 3d
-    vHub Configurations               :des3, after des2, 5d
-    Future task2                      :des4, after des3, 5d
+    Resource Group Creation           :des15, after des14, 1d
+    vNet Creation                     :des16, after des15, 3d
+    vHub Configurations               :des17, after des16, 5d
+    Future task2                      :des18, after des17, 5d
 
     section Azure Compute - PaaS - AKS
-    Resource Group Creation           :done, des1, 2022-03-14, 1d
-    vNet Creation                     :des2, after des1, 3d
-    vHub Configurations               :des3, after des2, 5d
-    Future task2                      :des4, after des3, 5d
+    Resource Group Creation           :des19, after des18, 1d
+    vNet Creation                     :des20, after des19, 3d
+    vHub Configurations               :des21, after des20, 5d
+    Future task2                      :des22, after des21, 5d
 ```
 
 ## SSH Key Exchange Strategy
