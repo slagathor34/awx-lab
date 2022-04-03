@@ -15,10 +15,10 @@ gantt
     Future task2                      :des4, after des3, 5d
 
     section Azure Storage
-    Resource Group Creation           :done, des1, 2022-02-01, 14d
-    vNet Creation                     :des2, after des1, 3d
-    vHub Configurations               :des3, after des2, 5d
-    Future task2                      :des4, after des3, 5d
+    Storage Account Creation          :des1, 2022-02-01, 5d
+    Private Endpoint Creation         :des2, after des1, 3d
+    Defender for Storage              :des3, after des2, 1d
+    Storage Type                      :des4, after des3, 1d
 
     section Azure Compute - IaaS
     Resource Group Creation           :done, des1, 2022-02-01, 14d
