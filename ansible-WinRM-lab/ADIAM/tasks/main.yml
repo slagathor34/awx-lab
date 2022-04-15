@@ -33,3 +33,11 @@
     path: CN=Builtin,DC=brainstormes,DC=org
     state: present
   tags: CreateGroup
+
+- name: Ensure the group Cow exists using sAMAccountName
+  community.windows.win_domain_group:
+    name: "{{ group_name }}"
+    scope: global
+    path: CN=Builtin,DC=brainstormes,DC=org
+    state: present
+  tags: DeleteGroup
