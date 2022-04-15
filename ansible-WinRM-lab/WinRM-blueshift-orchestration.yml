@@ -22,6 +22,15 @@
     
     - include_tasks: ADIAM/tasks/main.yml
       tags: [DeleteGroup, all]
+    
+    - include_tasks: ADIAM/tasks/main.yml
+      tags: [AddUserToGroup, all]
+    
+    - include_tasks: ADIAM/tasks/main.yml
+      tags: [GetUserProperties, all]
+    
+    - include_tasks: ADIAM/tasks/main.yml
+      tags: [GetGroupProperties, all]
 
   post_tasks:
     - debug:

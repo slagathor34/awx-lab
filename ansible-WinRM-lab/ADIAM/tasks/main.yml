@@ -1,5 +1,5 @@
 ---
-- name: Ensure user bob is present with address information
+- name: Ensure user is present with address information
   community.windows.win_domain_user:
     name: "{{ username }}"
     firstname: "{{ first_name }}"
@@ -26,7 +26,7 @@
     state: absent
   tags: DeleteUser
 
-- name: Ensure the group Cow exists using sAMAccountName
+- name: Ensure the group exists using sAMAccountName
   community.windows.win_domain_group:
     name: "{{ group_name }}"
     scope: global
@@ -34,10 +34,38 @@
     state: present
   tags: CreateGroup
 
-- name: Ensure the group Cow exists using sAMAccountName
+- name: Delete a group using sAMAccountName
   community.windows.win_domain_group:
     name: "{{ group_name }}"
     scope: global
     path: CN=Builtin,DC=brainstormes,DC=org
     state: absent
   tags: DeleteGroup
+
+- name: Add a domain user/group to a domain group
+  community.windows.win_domain_group_membership:
+    name: "{{ group_name }}"
+    members:
+      - "{{ username }}"
+    state: present
+  tags: AddUserToGroup
+
+- name: Remove a domain user/group to a domain group
+  community.windows.win_domain_group_membership:
+    name: "{{ group_name }}"
+    members:
+      - "{{ username }}"
+    state: absent
+  tags: AddUserToGroup
+
+- name: Get all properties for the specified account using its DistinguishedName
+  community.windows.win_domain_object_info:
+    identity: CN="{{ username }}",CN=Users,DC=brainstormes,DC=org
+    properties: '*'
+  tags: GetUserProperties
+
+- name: Get all properties for the specified account using its DistinguishedName
+  community.windows.win_domain_object_info:
+    identity: CN="{{ group_name }}",CN=Builtin,DC=brainstormes,DC=org
+    properties: '*'
+  tags: GetGroupProperties
