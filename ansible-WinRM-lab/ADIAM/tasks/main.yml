@@ -56,7 +56,7 @@
     members:
       - "{{ username }}"
     state: absent
-  tags: AddUserToGroup
+  tags: RemoveUserFromGroup
 
 - name: Get all properties for the specified account using its DistinguishedName
   community.windows.win_domain_object_info:
