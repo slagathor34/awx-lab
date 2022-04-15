@@ -1,5 +1,6 @@
 ---
 - name: Create Full Foundational Azure BlueShift Resource Group
+  hosts: localhost
   connection: local
 
   tasks:
