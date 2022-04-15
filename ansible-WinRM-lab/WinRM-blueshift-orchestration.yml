@@ -8,16 +8,16 @@
         msg: "Pre Tasks for Orchestration"
 
   tasks:
-    - import_role: Common/tasks/main.yml
+    - include_tasks: Common/tasks/main.yml
       tags: Common
     
-    - import_role: ADIAM/tasks/main.yml
+    - include_tasks: ADIAM/tasks/main.yml
       tags: [CreateUser, all]
     
-    - import_role: ADIAM/tasks/main.yml
+    - include_tasks: ADIAM/tasks/main.yml
       tags: [CreateGroup, all]
 
-    - import_role: ADIAM/tasks/main.yml
+    - include_tasks: ADIAM/tasks/main.yml
       tags: [DeleteUser, all]
 
   post_tasks:
