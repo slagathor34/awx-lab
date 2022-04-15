@@ -27,6 +27,9 @@
       tags: [AddUserToGroup, all]
     
     - include_tasks: ADIAM/tasks/main.yml
+      tags: [RemoveUserFromGroup, all]
+    
+    - include_tasks: ADIAM/tasks/main.yml
       tags: [GetUserProperties, all]
     
     - include_tasks: ADIAM/tasks/main.yml
