@@ -60,12 +60,12 @@
 
 - name: Get all properties for the specified account using its DistinguishedName
   community.windows.win_domain_object_info:
-    identity: CN="{{ username }}",CN=Users,DC=brainstormes,DC=org
+    identity: "CN={{ username }},CN=Users,DC=brainstormes,DC=org"
     properties: '*'
   tags: GetUserProperties
 
 - name: Get all properties for the specified account using its DistinguishedName
   community.windows.win_domain_object_info:
-    identity: CN="{{ group_name }}",CN=Builtin,DC=brainstormes,DC=org
+    identity: "CN={{ group_name }},CN=Builtin,DC=brainstormes,DC=org"
     properties: '*'
   tags: GetGroupProperties
