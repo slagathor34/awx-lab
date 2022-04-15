@@ -1,40 +1,39 @@
 ---
 - name: Create Full Foundational Azure BlueShift Resource Group
-  hosts: localhost
   connection: local
 
   tasks:
-  - name: Ensure user bob is present with address information
-    community.windows.win_domain_user:
-      name: "{{ username }}"
-      firstname: "{{ first_name }}"
-      surname: "{{ last_name }}"
-      company: BSC
-      password: "{{ password }}"
-      state: present
-      groups:
-        - Domain Users
-      street: "{{ street_address }}"
-      city: "{{ city }}"
-      state_province: "{{ state }}"
-      postal_code: "{{ zip_code }}"
-      country: US
-      attributes:
-        telephoneNumber: "{{ phone_number }}"
-    tags: CreateUser
+    - name: Ensure user bob is present with address information
+      community.windows.win_domain_user:
+        name: "{{ username }}"
+        firstname: "{{ first_name }}"
+        surname: "{{ last_name }}"
+        company: BSC
+        password: "{{ password }}"
+        state: present
+        groups:
+          - Domain Users
+        street: "{{ street_address }}"
+        city: "{{ city }}"
+        state_province: "{{ state }}"
+        postal_code: "{{ zip_code }}"
+        country: US
+        attributes:
+          telephoneNumber: "{{ phone_number }}"
+      tags: CreateUser
 
-  - name: Delete AD User
-    community.windows.win_domain_user:
-      name: "{{ username }}"
-      firstname: "{{ first_name }}"
-      surname: "{{ last_name }}"
-      state: absent
-    tags: DeleteUser
+    - name: Delete AD User
+      community.windows.win_domain_user:
+        name: "{{ username }}"
+        firstname: "{{ first_name }}"
+        surname: "{{ last_name }}"
+        state: absent
+      tags: DeleteUser
 
-  - name: Ensure the group Cow exists using sAMAccountName
-    community.windows.win_domain_group:
-      name: "{{ group_name }}"
-      scope: global
-      path: OU=groups,DC=brainstormes,DC=org
-      state: present
-    tags: CreateGroup
+    - name: Ensure the group Cow exists using sAMAccountName
+      community.windows.win_domain_group:
+        name: "{{ group_name }}"
+        scope: global
+        path: OU=groups,DC=brainstormes,DC=org
+        state: present
+      tags: CreateGroup
