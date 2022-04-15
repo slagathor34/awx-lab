@@ -31,3 +31,4 @@
     name: "{{ group_name }}"
     scope: global
     path: OU=groups,DC=brainstormes,DC=org
+  tags: CreateGroup
