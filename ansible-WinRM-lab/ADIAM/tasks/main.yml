@@ -39,5 +39,5 @@
     name: "{{ group_name }}"
     scope: global
     path: CN=Builtin,DC=brainstormes,DC=org
-    state: present
+    state: absent
   tags: DeleteGroup
