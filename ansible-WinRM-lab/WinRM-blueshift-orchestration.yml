@@ -19,8 +19,6 @@
     
     - include_tasks: ADIAM/tasks/main.yml
       tags: [CreateGroup, all]
-    
-
   
   post_tasks:
     - debug:
