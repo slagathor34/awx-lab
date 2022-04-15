@@ -1,7 +1,0 @@
----
-- name: Delete AD User
-  community.windows.win_domain_user:
-    name: "{{ username }}"
-    firstname: "{{ first_name }}"
-    surname: "{{ last_name }}"
-    state: absent

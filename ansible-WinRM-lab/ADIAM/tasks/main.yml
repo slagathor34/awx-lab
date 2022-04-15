@@ -25,3 +25,9 @@
     surname: "{{ last_name }}"
     state: absent
   tags: DeleteUser
+
+- name: Ensure the group Cow exists using sAMAccountName
+  community.windows.win_domain_group:
+    name: "{{ group_name }}"
+    scope: global
+    path: OU=groups,DC=brainstormes,DC=org

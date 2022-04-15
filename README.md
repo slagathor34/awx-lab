@@ -18,7 +18,7 @@ gantt
     Load Balancer Configuration       :des5, after des4, 2d
 
     section Azure Storage
-    Storage Account Creation          :des6, after des5, 5d
+    Storage Account Creation          :des6, after des5, 1d
     Private Endpoint Creation         :des7, after des6, 3d
     Defender for Storage              :des8, after des7, 1d
     Storage Type                      :des9, after des8, 1d
