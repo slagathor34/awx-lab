@@ -9,24 +9,10 @@
 
   tasks:
     - include_tasks: Common/tasks/main.yml
-      tags: 
-      - Common
-      - all
+      tags: Common
     
     - include_tasks: ADIAM/tasks/main.yml
-      tags: 
-      - CreateUser
-      - all
-    
-    - include_tasks: ADIAM/tasks/main.yml
-      tags: 
-      - DeleteUser
-      - all
-    
-    - include_tasks: ADIAM/tasks/main.yml
-      tags: 
-      - CreateGroup
-      - all
+      tags: [CreateUser, CreateGroup, DeleteUser]
   
   post_tasks:
     - debug:
