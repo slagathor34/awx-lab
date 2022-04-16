@@ -104,7 +104,7 @@
 
 - name: Print out Info
   ansible.builtin.debug:
-    var: username_object.ad_users
+    var: username_object.ad_users.object_id
   tags: TestUserObjectName
 
 - name: Ensure a User is a Member of a Group using display_name and mail_nickname
