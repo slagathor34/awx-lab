@@ -62,12 +62,24 @@
   community.windows.win_domain_object_info:
     identity: "CN={{ username }},CN=Users,DC=brainstormes,DC=org"
     properties: '*'
+  register: user_output
+  tags: GetUserProperties
+
+- name: Print out Active Directory User Info
+  ansible.builtin.debug:
+    msg: "{{ user_output }}"
   tags: GetUserProperties
 
 - name: Get all properties for the specified account using its DistinguishedName
   community.windows.win_domain_object_info:
     identity: "CN={{ group_name }},CN=Builtin,DC=brainstormes,DC=org"
     properties: '*'
+  register: group_output
+  tags: GetGroupProperties
+
+- name: Print out Active Directory Group Info
+  ansible.builtin.debug:
+    msg: "{{ group_output }}"
   tags: GetGroupProperties
 
 - name: Add or Delete Azure AD Groups
