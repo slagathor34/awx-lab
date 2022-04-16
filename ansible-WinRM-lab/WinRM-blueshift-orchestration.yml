@@ -43,6 +43,9 @@
     
     - include_tasks: ADIAM/tasks/main.yml
       tags: [TestUserObjectName, all]
+    
+    - include_tasks: ADIAM/tasks/main.yml
+      tags: [MoveAADUserToGroup, all]
 
   post_tasks:
     - debug:
