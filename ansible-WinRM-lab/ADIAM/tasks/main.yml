@@ -50,7 +50,7 @@
     state: present
   tags: AddUserToGroup
 
-- name: Remove a domain user/group to a domain group
+- name: Remove a domain user from a domain group
   community.windows.win_domain_group_membership:
     name: "{{ group_name }}"
     members:
