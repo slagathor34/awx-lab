@@ -70,10 +70,26 @@
     properties: '*'
   tags: GetGroupProperties
 
-- name: Create Azure AD Group
+- name: Manage Azure AD Group
   azure.azcollection.azure_rm_adgroup:
     tenant: "{{ aad_tenant_id }}"
     display_name: "{{ aad_group_name }}"
     mail_nickname: "{{ aad_mail_group_nickname }}"
-    state: present
-  tags: CreateAADGroup
+    state: "{{ aad_action }}"
+  tags: ManageAADGroup
+
+- name: Create user
+  azure.azcollection.azure_rm_aduser:
+    user_principal_name: "{{ user_id }}"
+    tenant: "{{ tenant_id }}"
+    state: "present"
+    account_enabled: "True"
+    display_name: "{{ user_principal_name }}"
+    password_profile: "password"
+    mail_nickname: "{{ user_principal_name }}_mail_nickname"
+    immutable_id: "{{ object_id }}"
+    given_name: "{{ first_name }}"
+    surname: "{{ last_name }}"
+    user_type: "Member"
+    usage_location: "US"
+    mail: "{{ user_principal_name }}@stormesfamily.org"

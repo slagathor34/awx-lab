@@ -36,7 +36,7 @@
       tags: [GetGroupProperties, all]
     
     - include_tasks: ADIAM/tasks/main.yml
-      tags: [CreateAADGroup, all]
+      tags: [ManageAADGroup, all]
 
   post_tasks:
     - debug:
