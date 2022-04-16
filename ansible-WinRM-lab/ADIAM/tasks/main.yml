@@ -124,5 +124,5 @@
     mail_nickname: "{{ aad_mail_group_nickname }}"
     state: 'present'
     absent_members:
-      - "https://graph.windows.net/{{ tenant_id }}/directoryObjects/{{ username_object['ad_users'][0].object_id }}"
+      - "{{ username_object['ad_users'][0].object_id }}"
   tags: MoveAADUserFromGroup
