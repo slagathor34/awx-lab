@@ -109,7 +109,7 @@
 - name: Get Azure AD User Info
   azure.azcollection.azure_rm_aduser_info:
     user_principal_name: "{{ username }}@stormesfamily.org"
-    tenant: "{{ tenant_id }}"
+    tenant: "{{ aad_tenant_id }}"
   register: username_object
   tags: [MoveAADUserToGroup, MoveAADUserFromGroup, TestUserObjectName]
 
