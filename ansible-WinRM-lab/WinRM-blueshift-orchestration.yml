@@ -40,6 +40,9 @@
     
     - include_tasks: ADIAM/tasks/main.yml
       tags: [ManageAADUser, all]
+    
+    - include_tasks: ADIAM/tasks/main.yml
+      tags: [TestUserObjectName, all]
 
   post_tasks:
     - debug:
