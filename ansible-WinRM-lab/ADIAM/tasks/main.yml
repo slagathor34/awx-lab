@@ -78,11 +78,11 @@
     state: "{{ aad_action }}"
   tags: ManageAADGroup
 
-- name: Create user
+- name: Manage Azure AD User
   azure.azcollection.azure_rm_aduser:
     user_principal_name: "{{ user_id }}"
     tenant: "{{ tenant_id }}"
-    state: "present"
+    state: "{{ aad_action }}"
     account_enabled: "True"
     display_name: "{{ user_principal_name }}"
     password_profile: "password"
@@ -93,3 +93,4 @@
     user_type: "Member"
     usage_location: "US"
     mail: "{{ user_principal_name }}@stormesfamily.org"
+  tags: ManageAADUser
