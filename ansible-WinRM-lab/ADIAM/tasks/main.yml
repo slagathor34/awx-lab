@@ -97,7 +97,7 @@
 
 - name: Get user_principal_name
   azure.azcollection.azure_rm_aduser_info:
-    user_principal_name: "{{ username }}@brainstormes.org"
+    user_principal_name: "{{ username }}@stormesfamily.org"
     tenant: "{{ tenant_id }}"
   register: username_object
   debug: msg="username_object"
