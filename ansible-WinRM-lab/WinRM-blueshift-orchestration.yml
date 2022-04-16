@@ -1,5 +1,5 @@
 ---
-- name: Manage Ansible Windows Modules BlueShift Resource Creation
+- name: Manage Active Directory and Azure AD
   hosts: all
   gather_facts: yes
    

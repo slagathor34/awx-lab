@@ -92,19 +92,18 @@
 
 - name: Add or Delete Azure AD User
   azure.azcollection.azure_rm_aduser:
-    user_principal_name: "{{ user_id }}"
+    user_principal_name: "{{ username }}"
     tenant: "{{ tenant_id }}"
     state: "{{ aad_action }}"
     account_enabled: "True"
-    display_name: "{{ user_principal_name }}"
+    display_name: "{{ username }}"
     password_profile: "password"
-    mail_nickname: "{{ user_principal_name }}_mail_nickname"
-    immutable_id: "{{ object_id }}"
+    mail_nickname: "{{ aad_mail_nickname }}"
     given_name: "{{ first_name }}"
     surname: "{{ last_name }}"
     user_type: "Member"
     usage_location: "US"
-    mail: "{{ user_principal_name }}@stormesfamily.org"
+    mail: "{{ username }}@stormesfamily.org"
   tags: ManageAADUser
 
 - name: Get Azure AD User Info
