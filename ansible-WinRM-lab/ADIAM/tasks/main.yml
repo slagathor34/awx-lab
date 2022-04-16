@@ -1,5 +1,5 @@
 ---
-- name: Ensure user is present with address information
+- name: Create Active Directory User
   community.windows.win_domain_user:
     name: "{{ username }}"
     firstname: "{{ first_name }}"
@@ -70,7 +70,7 @@
     properties: '*'
   tags: GetGroupProperties
 
-- name: Manage Azure AD Group
+- name: Add or Delete Azure AD Groups
   azure.azcollection.azure_rm_adgroup:
     tenant: "{{ aad_tenant_id }}"
     display_name: "{{ aad_group_name }}"
@@ -78,7 +78,7 @@
     state: "{{ aad_action }}"
   tags: ManageAADGroup
 
-- name: Manage Azure AD User
+- name: Add or Delete Azure AD User
   azure.azcollection.azure_rm_aduser:
     user_principal_name: "{{ user_id }}"
     tenant: "{{ tenant_id }}"
@@ -95,7 +95,7 @@
     mail: "{{ user_principal_name }}@stormesfamily.org"
   tags: ManageAADUser
 
-- name: Get user_principal_name
+- name: Get Azure AD User Info
   azure.azcollection.azure_rm_aduser_info:
     user_principal_name: "{{ username }}@stormesfamily.org"
     tenant: "{{ tenant_id }}"
