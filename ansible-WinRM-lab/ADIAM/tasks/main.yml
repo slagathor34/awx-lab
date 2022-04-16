@@ -100,7 +100,11 @@
     user_principal_name: "{{ username }}@stormesfamily.org"
     tenant: "{{ tenant_id }}"
   register: username_object
-  debug: msg="username_object"
+  tags: TestUserObjectName
+
+- name: Print out Info
+  ansible.builtin.debug:
+    var: username_object
   tags: TestUserObjectName
 
 - name: Ensure a User is a Member of a Group using display_name and mail_nickname
