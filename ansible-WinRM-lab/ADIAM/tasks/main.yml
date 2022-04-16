@@ -100,7 +100,7 @@
     user_principal_name: "{{ username }}@stormesfamily.org"
     tenant: "{{ tenant_id }}"
   register: username_object
-  tags: [MoveAADUserToGroup, TestUserObjectName]
+  tags: [MoveAADUserToGroup, MoveAADUserFromGroup, TestUserObjectName]
 
 - name: Print out Info
   ansible.builtin.debug:
