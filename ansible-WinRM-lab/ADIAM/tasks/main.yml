@@ -125,12 +125,12 @@
     mail_nickname: "{{ aad_mail_group_nickname }}"
     state: 'present'
     present_members:
-      - "https://graph.windows.net/{{ tenant_id }}/directoryObjects/{{ username_object['ad_users'][0].object_id }}"
+      - "https://graph.windows.net/{{ aad_tenant_id }}/directoryObjects/{{ username_object['ad_users'][0].object_id }}"
   tags: MoveAADUserToGroup
 
 - name: Ensure a User is not a Member of a Group using display_name and mail_nickname
   azure.azcollection.azure_rm_adgroup:
-    tenant: "{{ tenant_id }}"
+    tenant: "{{ aad_tenant_id }}"
     display_name: "{{ aad_group_name }}"
     mail_nickname: "{{ aad_mail_group_nickname }}"
     state: 'present'
