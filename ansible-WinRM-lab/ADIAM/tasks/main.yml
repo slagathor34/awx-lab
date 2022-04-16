@@ -115,4 +115,4 @@
     state: 'present'
     present_members:
       - "https://graph.windows.net/{{ tenant_id }}/directoryObjects/{{ username_object['ad_users'][0].object_id }}"
-  tags: [MoveAADUserToGroup, TestUserObjectName]
+  tags: MoveAADUserToGroup
