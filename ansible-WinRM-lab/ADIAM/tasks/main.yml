@@ -100,7 +100,7 @@
     user_principal_name: "{{ username }}@stormesfamily.org"
     tenant: "{{ tenant_id }}"
   register: username_object
-  tags: TestUserObjectName
+  tags: [MoveAADUserToGroup, TestUserObjectName]
 
 - name: Print out Info
   ansible.builtin.debug:
@@ -115,4 +115,4 @@
     state: 'present'
     present_members:
       - "https://graph.windows.net/{{ tenant_id }}/directoryObjects/{{ username_object['ad_users'][0].object_id }}"
-  tags: MoveAADUserToGroup
+  tags: [MoveAADUserToGroup, TestUserObjectName]
