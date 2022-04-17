@@ -61,7 +61,7 @@
 - name: Get all properties for the specified account using its DistinguishedName
   community.windows.win_domain_object_info:
     identity: "CN={{ username }},CN=Users,DC=brainstormes,DC=org"
-    properties: '*'
+    properties: "*"
   register: user_output
   tags: GetUserProperties
 
@@ -73,7 +73,7 @@
 - name: Get all properties for the specified account using its DistinguishedName
   community.windows.win_domain_object_info:
     identity: "CN={{ group_name }},CN=Builtin,DC=brainstormes,DC=org"
-    properties: '*'
+    properties: "*"
   register: group_output
   tags: GetGroupProperties
 
@@ -123,7 +123,7 @@
     tenant: "{{ aad_tenant_id }}"
     display_name: "{{ aad_group_name }}"
     mail_nickname: "{{ aad_mail_group_nickname }}"
-    state: 'present'
+    state: "present"
     present_members:
       - "https://graph.windows.net/{{ aad_tenant_id }}/directoryObjects/{{ username_object['ad_users'][0].object_id }}"
   tags: MoveAADUserToGroup
@@ -133,7 +133,7 @@
     tenant: "{{ aad_tenant_id }}"
     display_name: "{{ aad_group_name }}"
     mail_nickname: "{{ aad_mail_group_nickname }}"
-    state: 'present'
+    state: "present"
     absent_members:
       - "{{ username_object['ad_users'][0].object_id }}"
   tags: MoveAADUserFromGroup

@@ -2,7 +2,7 @@
 - name: Manage Active Directory and Azure AD
   hosts: all
   gather_facts: yes
-   
+
   pre_tasks:
     - debug:
         msg: "Pre Tasks for Orchestration"
@@ -10,43 +10,43 @@
   tasks:
     - include_tasks: Common/tasks/main.yml
       tags: Common
-    
+
     - include_tasks: ADIAM/tasks/main.yml
       tags: [CreateUser, all]
-    
+
     - include_tasks: ADIAM/tasks/main.yml
       tags: [CreateGroup, all]
 
     - include_tasks: ADIAM/tasks/main.yml
       tags: [DeleteUser, all]
-    
+
     - include_tasks: ADIAM/tasks/main.yml
       tags: [DeleteGroup, all]
-    
+
     - include_tasks: ADIAM/tasks/main.yml
       tags: [AddUserToGroup, all]
-    
+
     - include_tasks: ADIAM/tasks/main.yml
       tags: [RemoveUserFromGroup, all]
-    
+
     - include_tasks: ADIAM/tasks/main.yml
       tags: [GetUserProperties, all]
-    
+
     - include_tasks: ADIAM/tasks/main.yml
       tags: [GetGroupProperties, all]
-    
+
     - include_tasks: ADIAM/tasks/main.yml
       tags: [ManageAADGroup, all]
-    
+
     - include_tasks: ADIAM/tasks/main.yml
       tags: [ManageAADUser, all]
-    
+
     - include_tasks: ADIAM/tasks/main.yml
       tags: [TestUserObjectName, all]
-    
+
     - include_tasks: ADIAM/tasks/main.yml
       tags: [MoveAADUserToGroup, all]
-    
+
     - include_tasks: ADIAM/tasks/main.yml
       tags: [MoveAADUserFromGroup, all]
 
