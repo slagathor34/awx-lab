@@ -75,6 +75,7 @@
     - 'vscode-python-test-adaptor'
     - 'vscode-pylance'
     - 'vscode-intellicode'
+    - 'vscode-ansible'
     - 'microsoft-windows-terminal'
     #- '1password'
     - 'op'
