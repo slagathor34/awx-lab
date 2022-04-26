@@ -1,4 +1,3 @@
----
 - name: Create a managed Azure Container Services (AKS) instance
   azure_rm_aks:
     name: myAKS

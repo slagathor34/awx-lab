@@ -49,6 +49,12 @@
 
     - include_tasks: ADIAM/tasks/main.yml
       tags: [MoveAADUserFromGroup, all]
+    
+    - include_tasks: WinDSC/tasks/main.yml
+      tags: [WinDSC, all]
+
+    - include_tasks: WinModule/tasks/main.yml
+      tags: [WinModule, all]  
 
   post_tasks:
     - debug:
