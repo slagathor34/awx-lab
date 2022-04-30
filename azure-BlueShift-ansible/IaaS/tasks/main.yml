@@ -81,7 +81,7 @@
 - name: create Azure vm extension to enable HTTPS WinRM listener
   azure_rm_virtualmachine_extension:
     name: winrm-extension
-    resource_group: "{{ resource_group }}"
+    resource_group: "{{ rg_name }}"
     virtual_machine_name: myVM
     publisher: Microsoft.Compute
     virtual_machine_extension_type: CustomScriptExtension
