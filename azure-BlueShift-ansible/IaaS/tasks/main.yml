@@ -62,6 +62,7 @@
     network_interfaces: myNIC
     managed_disk_type: Standard_LRS
     vm_identity: SystemAssigned
+    os_type: Windows
     image:
       offer: WindowsServer
       publisher: MicrosoftWindowsServer
