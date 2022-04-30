@@ -57,7 +57,7 @@
   azure_rm_virtualmachine:
     resource_group: "{{ rg_name }}"
     name: myVM
-    vm_size: Standard_D2_v2
+    vm_size: Standard_D2_v1
     admin_username: azureuser
     network_interfaces: myNIC
     managed_disk_type: Standard_LRS
