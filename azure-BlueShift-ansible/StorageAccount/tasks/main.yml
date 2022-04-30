@@ -7,11 +7,11 @@
      location: "{{ region }}"
 
 - name: "SHELL CMD: Create Storage Account"
-    ansible.builtin.shell: | 
+  ansible.builtin.shell: | 
       az storage account create \
       --name {{ storage_account_name }} \
       --resource-group {{ resource_group }} \
       --location {{ location }} \
       --sku Standard_LRS \
       --public-network-access Disabled
-    delegate_to: localhost  
+  delegate_to: localhost  
