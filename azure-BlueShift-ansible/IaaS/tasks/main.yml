@@ -75,7 +75,7 @@
       publisher: MicrosoftWindowsServer
       sku: "2022-datacenter-core-g2"
       version: latest
-    storage_account_name: myVM0985645
+    storage_account_name: myvm0985645
     virtual_network_name: myVnet
 
 - name: create Azure vm extension to enable HTTPS WinRM listener
