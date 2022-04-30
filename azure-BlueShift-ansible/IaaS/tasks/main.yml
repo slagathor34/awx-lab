@@ -44,6 +44,8 @@
             access: Allow
             priority: 1001
             direction: Inbound
+            source_address_prefix: "{{ source_public_ip }}"
+            destination_address_prefix: myPublicIP 
 
     - name: Create virtual network interface card
       azure_rm_networkinterface:
@@ -58,7 +60,7 @@
       azure_rm_virtualmachine:
         resource_group: "{{ rg_name }}"
         name: myVM
-        vm_size: Standard_DS1_v2
+        vm_size: Standard_A4_v2
         admin_username: azureuser
         network_interfaces: myNIC
         image:
