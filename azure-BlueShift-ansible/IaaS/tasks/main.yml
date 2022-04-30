@@ -32,6 +32,7 @@
   azure_rm_securitygroup:
     resource_group: "{{ rg_name }}"
     name: myNetworkSecurityGroup
+    state: "{{ state }}"
     rules:
       - name: WinRM
         protocol: Tcp
