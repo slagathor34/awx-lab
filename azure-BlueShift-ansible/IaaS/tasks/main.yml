@@ -48,6 +48,7 @@
     name: myNIC
     virtual_network: myVnet
     subnet: mySubnet
+    security_group: WinRM
     ip_configurations:
       - public_ip_name: myPublicIP
         name: nicMyVM-IP
