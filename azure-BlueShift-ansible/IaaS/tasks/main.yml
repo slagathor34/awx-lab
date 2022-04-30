@@ -2,6 +2,7 @@
 - name: Create Azure VM
   hosts: localhost
   connection: local
+  gather_facts: yes
   tasks:
     - name: Create resource group
       azure_rm_resourcegroup:
@@ -37,9 +38,9 @@
         resource_group: "{{ rg_name }}"
         name: myNetworkSecurityGroup
         rules:
-          - name: SSH
+          - name: WinRM
             protocol: Tcp
-            destination_port_range: 22
+            destination_port_range: 5896
             access: Allow
             priority: 1001
             direction: Inbound
@@ -59,15 +60,11 @@
         name: myVM
         vm_size: Standard_DS1_v2
         admin_username: azureuser
-        ssh_password_enabled: false
-        ssh_public_keys:
-          - path: /home/azureuser/.ssh/authorized_keys
-            key_data: "<key_data>"
         network_interfaces: myNIC
         image:
-          offer: CentOS
-          publisher: OpenLogic
-          sku: "7.5"
+          offer: WindowsServer
+          publisher: MicrosoftWindowsServer
+          sku: "2022-datacenter-core-g2"
           version: latest
         winrm:
           - certificate_store: winrm_self_service
