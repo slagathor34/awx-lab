@@ -70,8 +70,8 @@
       sku: "2022-datacenter-core-g2"
       version: latest
     winrm:
-      - certificate_store: winrm_self_service
-        certificate_url: "{{ keyvault_certificate_url }}"
+      - certificate_store: My
+        certificate_url: "{{ certificate_url }}"
         protocol: https
 
 - name: Create VM script extension to enable HTTPS WinRM listener
