@@ -1,92 +1,87 @@
 ---
-- name: Create Azure VM
-  hosts: localhost
-  connection: local
-  gather_facts: yes
-  tasks:
-    - name: Create resource group
-      azure_rm_resourcegroup:
-        name: "{{ rg_name }}"
-        location: westus2
+- name: Create resource group
+  azure_rm_resourcegroup:
+    name: "{{ rg_name }}"
+    location: westus2
 
-    - name: Create virtual network
-      azure_rm_virtualnetwork:
-        resource_group: "{{ rg_name }}"
-        name: myVnet
-        address_prefixes: "10.0.0.0/16"
+- name: Create virtual network
+  azure_rm_virtualnetwork:
+    resource_group: "{{ rg_name }}"
+    name: myVnet
+    address_prefixes: "10.0.0.0/16"
 
-    - name: Add subnet
-      azure_rm_subnet:
-        resource_group: "{{ rg_name }}"
-        name: mySubnet
-        address_prefix: "10.0.1.0/24"
-        virtual_network: myVnet
+- name: Add subnet
+  azure_rm_subnet:
+    resource_group: "{{ rg_name }}"
+    name: mySubnet
+    address_prefix: "10.0.1.0/24"
+    virtual_network: myVnet
 
-    - name: Create public IP address
-      azure_rm_publicipaddress:
-        resource_group: "{{ rg_name }}"
-        allocation_method: Static
-        name: myPublicIP
-      register: output_ip_address
+- name: Create public IP address
+  azure_rm_publicipaddress:
+    resource_group: "{{ rg_name }}"
+    allocation_method: Static
+    name: myPublicIP
+  register: output_ip_address
 
-    - name: Public IP of VM
-      debug:
-        msg: "The public IP is {{ output_ip_address.state.ip_address }}."
+- name: Public IP of VM
+  debug:
+    msg: "The public IP is {{ output_ip_address.state.ip_address }}."
 
-    - name: Create Network Security Group that allows SSH
-      azure_rm_securitygroup:
-        resource_group: "{{ rg_name }}"
-        name: myNetworkSecurityGroup
-        rules:
-          - name: WinRM
-            protocol: Tcp
-            destination_port_range: 5896
-            access: Allow
-            priority: 1001
-            direction: Inbound
-            source_address_prefix: "{{ source_public_ip }}"
-            destination_address_prefix: myPublicIP
+- name: Create Network Security Group that allows SSH
+  azure_rm_securitygroup:
+    resource_group: "{{ rg_name }}"
+    name: myNetworkSecurityGroup
+    rules:
+      - name: WinRM
+        protocol: Tcp
+        destination_port_range: 5896
+        access: Allow
+        priority: 1001
+        direction: Inbound
+        source_address_prefix: "{{ source_public_ip }}"
+        destination_address_prefix: myPublicIP
 
-    - name: Create virtual network interface card
-      azure_rm_networkinterface:
-        resource_group: "{{ rg_name }}"
-        name: myNIC
-        virtual_network: myVnet
-        subnet: mySubnet
-        public_ip_name: myPublicIP
-        security_group: myNetworkSecurityGroup
+- name: Create virtual network interface card
+  azure_rm_networkinterface:
+    resource_group: "{{ rg_name }}"
+    name: myNIC
+    virtual_network: myVnet
+    subnet: mySubnet
+    public_ip_name: myPublicIP
+    security_group: myNetworkSecurityGroup
 
-    - name: Create VM
-      azure_rm_virtualmachine:
-        resource_group: "{{ rg_name }}"
-        name: myVM
-        vm_size: Standard_A4_v2
-        admin_username: azureuser
-        network_interfaces: myNIC
-        vm_identity: SystemAssigned
-        image:
-          offer: WindowsServer
-          publisher: MicrosoftWindowsServer
-          sku: "2022-datacenter-core-g2"
-          version: latest
-        winrm:
-          - certificate_store: winrm_self_service
-            certificate_url: "{{ keyvault_certificate_url }}"
-            protocol: https
+- name: Create VM
+  azure_rm_virtualmachine:
+    resource_group: "{{ rg_name }}"
+    name: myVM
+    vm_size: Standard_A4_v2
+    admin_username: azureuser
+    network_interfaces: myNIC
+    vm_identity: SystemAssigned
+    image:
+      offer: WindowsServer
+      publisher: MicrosoftWindowsServer
+      sku: "2022-datacenter-core-g2"
+      version: latest
+    winrm:
+      - certificate_store: winrm_self_service
+        certificate_url: "{{ keyvault_certificate_url }}"
+        protocol: https
 
-    - name: Create VM script extension to enable HTTPS WinRM listener
-      azure_rm_virtualmachineextension:
-        name: winrm-extension
-        resource_group: "{{ rg_name }}"
-        virtual_machine_name: myVM
-        publisher: Microsoft.Compute
-        virtual_machine_extension_type: CustomScriptExtension
-        type_handler_version: "1.9"
-        settings: '{"fileUris": ["https://raw.githubusercontent.com/ansible/ansible/devel/examples/scripts/ConfigureRemotingForAnsible.ps1"],"commandToExecute": "powershell -ExecutionPolicy Unrestricted -File ConfigureRemotingForAnsible.ps1"}'
-        auto_upgrade_minor_version: true
+- name: Create VM script extension to enable HTTPS WinRM listener
+  azure_rm_virtualmachineextension:
+    name: winrm-extension
+    resource_group: "{{ rg_name }}"
+    virtual_machine_name: myVM
+    publisher: Microsoft.Compute
+    virtual_machine_extension_type: CustomScriptExtension
+    type_handler_version: "1.9"
+    settings: '{"fileUris": ["https://raw.githubusercontent.com/ansible/ansible/devel/examples/scripts/ConfigureRemotingForAnsible.ps1"],"commandToExecute": "powershell -ExecutionPolicy Unrestricted -File ConfigureRemotingForAnsible.ps1"}'
+    auto_upgrade_minor_version: true
 
-    - name: wait for the WinRM port to come online
-      wait_for:
-        port: 5986
-        host: "{{ output_ip_address.state.ip_address }}"
-        timeout: 600
+- name: wait for the WinRM port to come online
+  wait_for:
+    port: 5986
+    host: "{{ output_ip_address.state.ip_address }}"
+    timeout: 600
