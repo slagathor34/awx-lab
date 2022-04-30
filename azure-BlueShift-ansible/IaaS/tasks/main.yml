@@ -70,6 +70,7 @@
     managed_disk_type: Standard_LRS
     vm_identity: SystemAssigned
     os_type: Windows
+    state: absent
     image:
       offer: WindowsServer
       publisher: MicrosoftWindowsServer
