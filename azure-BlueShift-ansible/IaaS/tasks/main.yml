@@ -93,5 +93,5 @@
 - name: wait for the WinRM port to come online
   wait_for:
     port: 5986
-    host: "{{ output_ip_address.state.ip_address }}"
+    host: '{{azure_vm.properties.networkProfile.networkInterfaces[0].properties.ipConfigurations[0].properties.publicIPAddress.properties.ipAddress}}'
     timeout: 600
