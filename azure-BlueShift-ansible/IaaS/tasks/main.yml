@@ -55,7 +55,7 @@
 
 - name: create Azure storage account
   azure_rm_storageaccount:
-    name: myVM0985645
+    name: myvm0985645
     resource_group: "{{ rg_name }}"
     account_type: Standard_LRS
 
