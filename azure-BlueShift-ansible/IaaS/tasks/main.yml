@@ -70,7 +70,7 @@
     managed_disk_type: Standard_LRS
     vm_identity: SystemAssigned
     os_type: Windows
-    state: absent
+    state: present
     image:
       offer: WindowsServer
       publisher: MicrosoftWindowsServer
@@ -80,7 +80,7 @@
     virtual_network_name: myVnet
 
 - name: create Azure vm extension to enable HTTPS WinRM listener
-  azure_rm_virtualmachine_extension:
+  azure_rm_virtualmachineextension:
     name: winrm-extension
     resource_group: "{{ rg_name }}"
     virtual_machine_name: myVM
