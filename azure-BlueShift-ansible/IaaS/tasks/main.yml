@@ -108,11 +108,13 @@
     port: 5986
     host: "{{azure_vm.properties.networkProfile.networkInterfaces[0].properties.ipConfigurations[0].properties.publicIPAddress.properties.ipAddress}}"
     timeout: 600
-# - name: Encrypt VM with Azure Disk Encryption
-#   when: state == "present"
-#   shell: az vm encryption enable --resource-group {{ rg_name }} --name myVM --disk-encryption-keyvault {{ keyvault_name }}
-#   register: encryption_output
 
-# - name: Output Encryption Results
-#   debug:
-#     msg: encryption_output
+- name: Encrypt VM with Azure Disk Encryption
+  when: state == "present"
+  shell: az vm encryption enable --resource-group {{ rg_name }} --name myVM --disk-encryption-keyvault {{ keyvault_name }}
+  delegate_to: lab2.brainstormes.org
+  register: encryption_output
+
+- name: Output Encryption Results
+  debug:
+    msg: encryption_output
