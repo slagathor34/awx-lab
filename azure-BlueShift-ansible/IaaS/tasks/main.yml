@@ -30,6 +30,7 @@
   register: output_ip_address
 
 - name: Public IP of VM
+  when: state == "present"
   debug:
     msg: "The public IP is {{ output_ip_address.state.ip_address }}."
 
