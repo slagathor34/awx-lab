@@ -29,6 +29,7 @@
     msg: "The public IP is {{ output_ip_address.state.ip_address }}."
 
 - name: create disk encryption set
+  when: state == "present"
   azure.azcollection.azure_rm_diskencryptionset:
     resource_group: "{{ rg_name }}"
     name: "{{ disk_encypt_set }}"
