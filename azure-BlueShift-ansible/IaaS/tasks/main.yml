@@ -28,6 +28,14 @@
   debug:
     msg: "The public IP is {{ output_ip_address.state.ip_address }}."
 
+- name: create disk encryption set
+  azure_rm_diskencryptionset:
+    resource_group: "{{ rg_name }}"
+    name: "{{ disk_encypt_set }}"
+    source_vault: "{{ keyvault_name }}"
+    key_url: "{{ keyvault_key_url }}"
+    state: "{{ state }}"
+
 - name: Create Network Security Group that allows WinRM
   azure_rm_securitygroup:
     resource_group: "{{ rg_name }}"
@@ -59,6 +67,7 @@
     name: myvm0985645
     resource_group: "{{ rg_name }}"
     account_type: Standard_LRS
+    minimum_tls_version: TLS1_2
 
 - name: Create VM
   azure_rm_virtualmachine:
