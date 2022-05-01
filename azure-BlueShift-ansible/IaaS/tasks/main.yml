@@ -3,14 +3,18 @@
   azure_rm_resourcegroup:
     name: "{{ rg_name }}"
     location: "{{ location }}"
+    state: "{{ state }}"
+    force_delete_nonempty: yes
 
 - name: Create virtual network
+  when: state == "present"
   azure_rm_virtualnetwork:
     resource_group: "{{ rg_name }}"
     name: myVnet
     address_prefixes: "10.0.0.0/16"
 
 - name: Add subnet
+  when: state == "present"
   azure_rm_subnet:
     resource_group: "{{ rg_name }}"
     name: mySubnet
@@ -18,6 +22,7 @@
     virtual_network: myVnet
 
 - name: Create public IP address
+  when: state == "present"
   azure_rm_publicipaddress:
     resource_group: "{{ rg_name }}"
     allocation_method: Static
@@ -38,6 +43,7 @@
     state: "{{ state }}"
 
 - name: Create Network Security Group that allows WinRM
+  when: state == "present"
   azure_rm_securitygroup:
     resource_group: "{{ rg_name }}"
     name: myNetworkSecurityGroup
@@ -52,6 +58,7 @@
         source_address_prefix: "{{ source_public_ip }}"
 
 - name: Create virtual network interface card
+  when: state == "present"
   azure_rm_networkinterface:
     resource_group: "{{ rg_name }}"
     name: myNIC
@@ -64,6 +71,7 @@
         primary: True
 
 - name: create Azure storage account
+  when: state == "present"
   azure_rm_storageaccount:
     name: myvm0985645
     resource_group: "{{ rg_name }}"
@@ -71,6 +79,7 @@
     minimum_tls_version: TLS1_2
 
 - name: Create VM
+  when: state == "present"
   azure_rm_virtualmachine:
     resource_group: "{{ rg_name }}"
     name: myVM
@@ -116,5 +125,6 @@
   register: encryption_output
 
 - name: Output Encryption Results
+  when: state == "present"
   debug:
     msg: encryption_output
