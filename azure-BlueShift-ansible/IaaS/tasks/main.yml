@@ -103,3 +103,7 @@
   when: state == "present"
   shell: az vm encryption enable --resource-group {{ rg_name }} --name myVM --disk-encryption-keyvault {{ keyvault_name }}
   register: encryption_output
+
+- name: Output Encryption Results
+  debug:
+    msg: encryption_output
