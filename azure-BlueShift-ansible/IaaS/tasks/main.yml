@@ -44,7 +44,7 @@
 
 - name: Create instance of Key Vault
   azure_rm_keyvault:
-    resource_group: "{{ rg_group }}"
+    resource_group: "{{ rg_name }}"
     vault_name: "{{ keyvault_name }}"
     vault_tenant: "{{ azure_tenant }}"
     location: "{{ location }}"
