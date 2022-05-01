@@ -42,6 +42,56 @@
         direction: Inbound
         source_address_prefix: "{{ source_public_ip }}"
 
+- name: Create instance of Key Vault
+  azure_rm_keyvault:
+    resource_group: "{{ rg_group }}"
+    vault_name: "{{ keyvault_name }}"
+    vault_tenant: "{{ azure_tenant }}"
+    location: "{{ location }}"
+    enabled_for_disk_encryption: yes
+    enabled_for_deployment: yes
+    enable_soft_delete: yes
+    enable_purge_protection: yes
+    sku:
+      name: standard
+      family: A
+    access_policies:
+      - object_id: "{{ object_id }}"
+        keys:
+          - get
+          - list
+          - update
+          - create
+          - import
+          - delete
+          - recover
+          - backup
+          - restore
+          - purge
+        secrets:
+          - get
+          - list
+          - set
+          - delete
+          - recover
+          - backup
+          - restore
+          - purge
+        certificates:
+          - list
+          - delete
+          - create
+          - import
+          - update
+          - managecontacts
+          - getissuers
+          - listissuers
+          - setissuers
+          - deleteissuers
+          - manageissuers
+          - recover
+          - purge
+
 - name: Create virtual network interface card
   azure_rm_networkinterface:
     resource_group: "{{ rg_name }}"
