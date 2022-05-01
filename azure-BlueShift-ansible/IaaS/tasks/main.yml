@@ -1,4 +1,8 @@
 ---
+- name: set facts
+  set_fact:
+    object_id: "{{ lookup('env', 'AZURE_OBJECT_ID') }}"
+
 - name: Create resource group
   azure_rm_resourcegroup:
     name: "{{ rg_name }}"
@@ -148,7 +152,6 @@
     port: 5986
     host: "{{azure_vm.properties.networkProfile.networkInterfaces[0].properties.ipConfigurations[0].properties.publicIPAddress.properties.ipAddress}}"
     timeout: 600
-
 # - name: Encrypt VM with Azure Disk Encryption
 #   when: state == "present"
 #   shell: az vm encryption enable --resource-group {{ rg_name }} --name myVM --disk-encryption-keyvault {{ keyvault_name }}
