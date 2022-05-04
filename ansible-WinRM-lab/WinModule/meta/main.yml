@@ -1,22 +1,22 @@
 ---
 - name: Install PS Modules
   win_psmodule:
-    name: '{{ item }}'
+    name: "{{ item }}"
     state: Present
   with_items:
-  - xWebAdministration
-  - CISDSC
-  - cChoco
+    - xWebAdministration
+    - CISDSC
+    - cChoco
 
 - name: Enable firewall for Domain, Public and Private profiles
   win_firewall:
     state: enabled
     profiles:
-    - Domain
-    - Private
-    - Public
+      - Domain
+      - Private
+      - Public
   tags: enable_firewall
-  
+
 - name: Firewall rule to allow SMTP on TCP port 25
   win_firewall_rule:
     name: SMTP
@@ -88,7 +88,6 @@
     action: allow
     direction: in
     protocol: icmpv4
-
 
 - name: Disable Domain firewall
   win_firewall:
