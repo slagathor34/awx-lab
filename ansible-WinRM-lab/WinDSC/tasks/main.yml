@@ -5,7 +5,6 @@
     state: Present
   with_items:
   - xWebAdministration
-  - xWebsite
   - CISDSC
   - cChoco
 
