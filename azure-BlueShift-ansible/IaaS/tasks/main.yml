@@ -32,10 +32,15 @@
     - B
   register: output_ip_address
 
-- name: Public IP of VM A & B
+- name: Public IP of VM A
   when: state == "present"
   debug:
-    msg: "The public IP is {{ output_ip_address }}."
+    msg: "The public IP is {{ output_ip_address[0].results.state.ip_address }}."
+
+- name: Public IP of VM B
+  when: state == "present"
+  debug:
+    msg: "The public IP is {{ output_ip_address[1].results.state.ip_address }}."
 
 - name: create disk encryption set
   when: state == "present"
