@@ -32,10 +32,15 @@
     - B
   register: output_ip_address
 
-- name: Public IP of VM
+- name: Public IP of VM A
   when: state == "present"
   debug:
-    msg: "The public IP is {{ output_ip_address.state.ip_address }}."
+    msg: "The public IP is {{ output_ip_address[0].state.ip_address }}."
+
+- name: Public IP of VM B
+  when: state == "present"
+  debug:
+    msg: "The public IP is {{ output_ip_address[1].state.ip_address }}."
 
 - name: create disk encryption set
   when: state == "present"
@@ -70,8 +75,8 @@
     subnet: mySubnet
     security_group: myNetworkSecurityGroup
     ip_configurations:
-      - public_ip_name: myPublicIP
-        name: nicMyVM-IP
+      - public_ip_name: "{{ vm_name }}_{{ item }}-myPublicIP"
+        name: "{{ vm_name }}_{{ item }}-nicMyVM-IP"
         primary: True
   loop:
     - A
@@ -124,12 +129,19 @@
     - A
     - B
 
-#- name: wait for the WinRM port to come online
-#  when: state == "present"
-##  wait_for:
- #   port: 5986
- #   host: "{{azure_vm.properties.networkProfile.networkInterfaces[0].properties.ipConfigurations[0].properties.publicIPAddress.properties.ipAddress}}"
- #   timeout: 600
+- name: "Wait for the WinRM port to come online for {{ vm_name }}_A"
+  when: state == "present"
+  wait_for:
+    port: 5986
+    host: "{{output_ip_address[0].state.ip_address}}"
+    timeout: 600
+
+- name: "Wait for the WinRM port to come online for {{ vm_name }}_B"
+  when: state == "present"
+  wait_for:
+    port: 5986
+    host: "{{output_ip_address[1].state.ip_address}}"
+    timeout: 600
 
 # - name: Encrypt VM with Azure Disk Encryption
 #   when: state == "present"
