@@ -84,7 +84,7 @@
   azure_rm_virtualmachine:
     resource_group: "{{ rg_name }}"
     name: myVM
-    vm_size: Standard_DS2_v2
+    vm_size: "{{ vmsize }}"
     admin_username: azureadmin
     admin_password: "{{ admin_password }}"
     network_interfaces: myNIC
