@@ -99,6 +99,7 @@
       version: latest
     storage_account_name: myvm0985645
     virtual_network_name: myVnet
+    zones: [1]
 
 - name: create Azure vm extension to enable HTTPS WinRM listener
   when: state == "present"
