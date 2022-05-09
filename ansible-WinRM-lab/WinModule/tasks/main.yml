@@ -76,3 +76,5 @@
       - Domain
   tags: disable_firewall
 
+- name: Reboot VM
+  ansible.windows.win_reboot:
