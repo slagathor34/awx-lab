@@ -145,4 +145,5 @@
     state: "{{ state }}"
     groups:
       - Users
+  tags: CreateLocalUser
 
