@@ -26,7 +26,7 @@
   azure_rm_publicipaddress:
     resource_group: "{{ rg_name }}"
     allocation_method: Static
-    name: "{{ vm_name }}_{{ item }}"
+    name: "{{ vm_name }}{{ item }}"
   loop:
     - A
     - B
@@ -65,12 +65,12 @@
   when: state == "present"
   azure_rm_networkinterface:
     resource_group: "{{ rg_name }}"
-    name: "{{ vm_name }}_{{ item }}"
+    name: "{{ vm_name }}{{ item }}"
     virtual_network: myVnet
     subnet: mySubnet
     security_group: myNetworkSecurityGroup
     ip_configurations:
-      - public_ip_name: "{{ vm_name }}_{{ item }}-myPublicIP"
+      - public_ip_name: "{{ vm_name }}{{ item }}-myPublicIP"
         name: "{{ vm_name }}_{{ item }}-nicMyVM-IP"
         primary: True
   loop:
@@ -89,11 +89,11 @@
   when: state == "present"
   azure_rm_virtualmachine:
     resource_group: "{{ rg_name }}"
-    name: "{{ vm_name }}_{{ item }}"
+    name: "{{ vm_name }}{{ item }}"
     vm_size: "{{ vmsize }}"
     admin_username: azureadmin
     admin_password: "{{ admin_password }}"
-    network_interfaces: "{{ vm_name }}_{{ item }}"
+    network_interfaces: "{{ vm_name }}{{ item }}"
     managed_disk_type: Standard_LRS
     vm_identity: SystemAssigned
     os_type: Windows
@@ -114,7 +114,7 @@
   azure_rm_virtualmachineextension:
     name: winrm-extension
     resource_group: "{{ rg_name }}"
-    virtual_machine_name: "{{ vm_name }}_{{ item }}"
+    virtual_machine_name: "{{ vm_name }}{{ item }}"
     publisher: Microsoft.Compute
     virtual_machine_extension_type: CustomScriptExtension
     type_handler_version: "1.9"
@@ -124,18 +124,18 @@
     - A
     - B
 
-- name: "Wait for the WinRM port to come online for {{ vm_name }}_A"
+- name: "Wait for the WinRM port to come online for {{ vm_name }}A"
   when: state == "present"
   wait_for:
     port: 5986
-    host: "{{output_ip_address[0].state.ip_address}}"
+    host: "{{output_ip_address[0].result.state.ip_address}}"
     timeout: 600
 
-- name: "Wait for the WinRM port to come online for {{ vm_name }}_B"
+- name: "Wait for the WinRM port to come online for {{ vm_name }}B"
   when: state == "present"
   wait_for:
     port: 5986
-    host: "{{output_ip_address[1].state.ip_address}}"
+    host: "{{output_ip_address[1].result.state.ip_address}}"
     timeout: 600
 
 # - name: Encrypt VM with Azure Disk Encryption
