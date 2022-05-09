@@ -50,11 +50,13 @@
     - include_tasks: ADIAM/tasks/main.yml
       tags: [MoveAADUserFromGroup, all]
     
-    - include_role: 
+    - name: Importing WinDSC Role
+      import_role: 
         name: WinDSC
       tags: [WinDSC, all]
 
-    - include_role: 
+    - name: Importing WinModule Role
+      import_role: 
         name: WinModule
       tags: [WinModule, all]  
 
