@@ -147,3 +147,17 @@
       - Users
   tags: CreateLocalUser
 
+- name: "Ensure local group {{ new_group }} is {{ state }}"
+  ansible.windows.win_group:
+    name: "{{ new_group }}"
+    description: "{{ new_group_desc}}"
+    state: "{{ state }}"
+  tags: CreateLocalGroup
+
+- name: "Add user {{ username }} to local group {{ new_group }}"
+  ansible.windows.win_group_membership:
+    name: "{{ new_group }}"
+    members:
+      - "{{ username }}"
+    state: "{{ state }}"
+  tags: LocalUserGroupMembership
