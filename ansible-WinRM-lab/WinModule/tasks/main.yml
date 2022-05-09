@@ -24,7 +24,7 @@
     action: allow
     direction: in
     protocol: tcp
-    state: present
+    state: absent
     enabled: yes
 
 - name: Firewall rule to allow WinRM HTTP on TCP 5985
@@ -34,7 +34,7 @@
     action: allow
     direction: in
     protocol: tcp
-    state: present
+    state: absent
     enabled: yes
 
 - name: Firewall rule to allow WinRM HTTPS on TCP 5986
@@ -55,28 +55,7 @@
     direction: in
     protocol: tcp
     profiles: private
-    state: present
-    enabled: yes
-
-- name: Firewall rule to be created for application group
-  win_firewall_rule:
-    name: SMTP
-    group: application
-    localport: 25
-    action: allow
-    direction: in
-    protocol: tcp
-    state: present
-    enabled: yes
-
-- name: Firewall rule to allow port range
-  win_firewall_rule:
-    name: Sample port range
-    localport: 5000-5010
-    action: allow
-    direction: in
-    protocol: tcp
-    state: present
+    state: absent
     enabled: yes
 
 - name: Firewall rule to allow ICMP v4 (ping)
