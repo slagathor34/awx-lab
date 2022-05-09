@@ -58,7 +58,12 @@
     - name: Importing WinModule Role
       import_role: 
         name: WinModule
-      tags: [WinModule, all]  
+      tags: [WinModule, all]
+    
+    - name: Importing ADIAM Role
+      import_role:
+        name: ADIAM
+      tags: [ADIAM, all]
 
   post_tasks:
     - debug:
