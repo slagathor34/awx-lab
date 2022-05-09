@@ -1,4 +1,14 @@
 ---
+- name: Install PS Modules
+  win_psmodule:
+    name: '{{ item }}'
+    state: Present
+  with_items:
+  - xWebAdministration
+  - xWebsite
+  - CISDSC
+  - cChoco
+
 - name: cChoco cChocoInstaller
   win_dsc:
     resource_name: cChocoInstaller
