@@ -137,3 +137,12 @@
     absent_members:
       - "{{ username_object['ad_users'][0].object_id }}"
   tags: MoveAADUserFromGroup
+
+- name: "Ensure local user {{ username }} is {{ state }}"
+  ansible.windows.win_user:
+    name: "{{ username }}"
+    password: "{{ user_pass }}"
+    state: "{{ state }}"
+    groups:
+      - Users
+
