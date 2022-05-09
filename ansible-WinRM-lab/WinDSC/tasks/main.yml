@@ -2,7 +2,7 @@
 - name: Install PS Modules
   win_psmodule:
     name: '{{ item }}'
-    state: Present
+    state: present
   with_items:
   - xWebAdministration
   - CISDSC
@@ -34,7 +34,7 @@
 
 - name: Delete IIS Default Website
   win_dsc:
-    resource_name: xWebsite
+    resource_name: xWebSite
     Ensure: Absent
     Name: Default Web Site
     
