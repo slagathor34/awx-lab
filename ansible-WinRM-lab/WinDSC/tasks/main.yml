@@ -23,23 +23,23 @@
     Name: Web-Ftp-Server
     Ensure: Absent
 
-- name: Delete IIS Default Website
-  win_dsc:
-    resource_name: xWebsite
-    Ensure: Absent
-    Name: Default Web Site
-    
-- name: Ensure DNS is installed
-  win_dsc:
-    resource_name: WindowsFeature
-    Name: DNS
-    Ensure: Present
-
-- name: Ensure RSAT DNS Tools are installed
-  win_dsc:
-    resource_name: WindowsFeature
-    Name: RSAT-DNS-Server
-    Ensure: Present
+#- name: Delete IIS Default Website
+#  win_dsc:
+#    resource_name: xWebsite
+#    Ensure: Absent
+#    Name: Default Web Site
+#    
+#- name: Ensure DNS is installed
+#  win_dsc:
+#    resource_name: WindowsFeature
+#    Name: DNS
+#    Ensure: Present#
+#
+#- name: Ensure RSAT DNS Tools are installed
+#  win_dsc:
+#    resource_name: WindowsFeature
+#    Name: RSAT-DNS-Server
+#    Ensure: Present
 
 #- name: Create IIS Website with Binding and Authentication options
 #  win_dsc:
