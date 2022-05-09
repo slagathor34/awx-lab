@@ -41,22 +41,22 @@
     Name: RSAT-DNS-Server
     Ensure: Present
 
-- name: Create IIS Website with Binding and Authentication options
-  win_dsc:
-    resource_name: xWebsite
-    Ensure: Present
-    Name: DSC Website
-    State: Started
-    PhysicalPath: C:\inetpub\wwwroot
-    BindingInfo: # Example of a CimInstance[] DSC parameter (list of dicts)
-    - Protocol: http
-      Port: 80
-      IPAddress: '*'
-    AuthenticationInfo: # Example of a CimInstance DSC parameter (dict)
-      Anonymous: no
-      Basic: true
-      Digest: false
-      Windows: yes
+#- name: Create IIS Website with Binding and Authentication options
+#  win_dsc:
+#    resource_name: xWebsite
+#    Ensure: Present
+#    Name: DSC Website
+#    State: Started
+#    PhysicalPath: C:\inetpub\wwwroot
+#    BindingInfo: # Example of a CimInstance[] DSC parameter (list of dicts)
+#    - Protocol: http
+#      Port: 80
+#      IPAddress: '*'
+#    AuthenticationInfo: # Example of a CimInstance DSC parameter (dict)
+#      Anonymous: no
+#      Basic: true
+#      Digest: false
+#      Windows: yes
 
 - name: Install Software
   win_dsc:
