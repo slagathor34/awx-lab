@@ -71,7 +71,7 @@
     security_group: myNetworkSecurityGroup
     ip_configurations:
       - public_ip_name: "{{ vm_name }}{{ item }}-myPublicIP"
-        name: "{{ vm_name }}_{{ item }}-nicMyVM-IP"
+        name: "{{ vm_name }}{{ item }}-nicMyVM-IP"
         primary: True
   loop:
     - A
@@ -128,14 +128,14 @@
   when: state == "present"
   wait_for:
     port: 5986
-    host: "{{output_ip_address[0].result.state.ip_address}}"
+    host: "{{output_ip_address[0].results.state.ip_address}}"
     timeout: 600
 
 - name: "Wait for the WinRM port to come online for {{ vm_name }}B"
   when: state == "present"
   wait_for:
     port: 5986
-    host: "{{output_ip_address[1].result.state.ip_address}}"
+    host: "{{output_ip_address[1].results.state.ip_address}}"
     timeout: 600
 
 # - name: Encrypt VM with Azure Disk Encryption
