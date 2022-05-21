@@ -5,9 +5,15 @@
     state: present
   with_items:
   - xWebAdministration
-  - xWebsite
   - CISDSC
   - cChoco
+
+- name: Install Windows Features
+  ansible.windows.win_feature:
+    name:
+    - Server-GUI-Mgmt-Infra
+    - Server-GUI-Shell
+    state: present
 
 - name: Reboot VM
   ansible.windows.win_reboot:
