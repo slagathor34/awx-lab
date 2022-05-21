@@ -5,8 +5,12 @@
     state: present
   with_items:
   - xWebAdministration
+  - xWebsite
   - CISDSC
   - cChoco
+
+- name: Reboot VM
+  ansible.windows.win_reboot:
 
 - name: cChoco cChocoInstaller
   win_dsc:
