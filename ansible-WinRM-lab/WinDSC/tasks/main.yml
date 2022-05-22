@@ -6,6 +6,7 @@
   with_items:
   - xWebAdministration
   - CISDSC
+  - xWebsite
   - cChoco
 
 - name: cChoco cChocoInstaller
