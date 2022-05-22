@@ -6,7 +6,6 @@
   with_items:
   - xWebAdministration
   - CISDSC
-  - xWebsite
   - cChoco
 
 - name: cChoco cChocoInstaller
@@ -33,11 +32,11 @@
     Name: Web-Ftp-Server
     Ensure: Absent
 
-- name: Delete IIS Default Website
-  win_dsc:
-    resource_name: xWebSite
-    Ensure: Absent
-    Name: Default Web Site
+# - name: Delete IIS Default Website
+#   win_dsc:
+#     resource_name: xWebSite
+#     Ensure: Absent
+#     Name: Default Web Site
     
 #- name: Ensure DNS is installed
 #  win_dsc:
