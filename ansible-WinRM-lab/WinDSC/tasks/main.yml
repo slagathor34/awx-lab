@@ -8,16 +8,6 @@
   - CISDSC
   - cChoco
 
-- name: Install Windows Features
-  ansible.windows.win_feature:
-    name:
-    - Server-GUI-Mgmt-Infra
-    - Server-GUI-Shell
-    state: present
-
-- name: Reboot VM
-  ansible.windows.win_reboot:
-
 - name: cChoco cChocoInstaller
   win_dsc:
     resource_name: cChocoInstaller
@@ -102,3 +92,7 @@
     - 'python3'
     - 'pip'
     - 'winget'
+
+
+- name: Reboot VM
+  ansible.windows.win_reboot:
