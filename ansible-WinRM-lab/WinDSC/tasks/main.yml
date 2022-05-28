@@ -25,17 +25,17 @@
     resource_name: WindowsFeature
     Name: "{{ item }}"
     Ensure: Present
-  with_item:
+  with_items:
     - 'Web-Server'
     - 'DNS'
     - 'RSAT-DNS-Server'
 
-- name: Ensure SMB1 is not deployed
+- name: Remove Feature Sets
   win_dsc:
     resource_name: WindowsFeature
     Name: "{{ item }}"
     Ensure: Absent
-  with_item:
+  with_items:
     - 'FS-SMB1'
     - 'Web-Ftp-Server'
 
