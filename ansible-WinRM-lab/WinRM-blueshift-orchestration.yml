@@ -1,5 +1,5 @@
 ---
-- name: Manage Active Directory and Azure AD
+- name: Manage Windows Server, Active Directory and Azure AD
   hosts: all
   gather_facts: yes
 

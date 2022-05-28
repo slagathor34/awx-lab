@@ -62,6 +62,16 @@
       Digest: false
       Windows: yes
 
+- name: Firewall rule to allow WinRM HTTPS on TCP 5986
+  win_firewall_rule:
+    name: WinRM HTTPS
+    localport: 5986
+    action: allow
+    direction: in
+    protocol: tcp
+    state: present
+    enabled: yes
+    
 - name: Install Software
   win_dsc:
     resource_name: cChocoPackageInstaller
