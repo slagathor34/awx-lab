@@ -82,7 +82,7 @@
   tags: RebootServer
 
 - name: Ensure primary zone is present
-  community.windows.win_dns_zone:
+  win_dns_zone:
     name: "{{ dns_zone_primary }}"
     type: primary
     replication: none
