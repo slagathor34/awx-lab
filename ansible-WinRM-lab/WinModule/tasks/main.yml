@@ -86,5 +86,5 @@
     name: "{{ dns_zone_primary }}"
     type: primary
     replication: domain
-    state: present
+    state: Present
   tags: CreateZone
