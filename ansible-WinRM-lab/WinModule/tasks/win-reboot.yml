@@ -1,3 +1,7 @@
 ---
-- name: Reboot VM
-  ansible.windows.win_reboot:
+- name: Reboot Windows Servers
+  hosts: all
+  tasks:
+  - name: Reboot VM
+    ansible.windows.win_reboot:
+      msg: "Taking you down, now!"
