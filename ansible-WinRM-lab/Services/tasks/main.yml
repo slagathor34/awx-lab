@@ -7,10 +7,56 @@
     state: present
   tags: CreateDNSZone
 
-- name: Create static record
+- name: Create static A record
   community.windows.win_dns_record:
     name: '{{ A_record_name }}'
-    type: '{{ record_type }}'
+    type: 'A'
     value: '{{ ip_address }}'
     zone: '{{ dns_zone_primary }}'
   tags: CreateARecord
+
+- name: Create matching PTR record
+  community.windows.win_dns_record:
+    name: "1.1.168"
+    type: 'PTR'
+    value: "{{ PTR_value }}"
+    zone: "10.in-addr.arpa"
+  tags: CreatePTRRecord
+
+- name: Create static CNAME record
+  community.windows.win_dns_record:
+    name: '{{ host_record_name }}'
+    type: 'CNAME'
+    value: '{{ alias_address }}'
+    zone: '{{ dns_zone_primary }}'
+  tags: CreateCNAMERecord
+
+- name: Create static SRV record
+  community.windows.win_dns_record:
+    name: '{{ host_record_name }}'
+    type: 'SRV'
+    value: '{{ alias_address }}'
+    priority: '{{ priority_value }}'
+    weight: '{{ weight }}'
+    port: '{{ port_value }}'
+    state: present
+    zone: '{{ dns_zone_primary }}'
+  tags: CreateSRVRecord
+
+- name: Create static TXT record
+  community.windows.win_dns_record:
+    name: '{{ host_record_name }}'
+    type: 'TXT'
+    value: '{{ txt_value }}'
+    zone: '{{ dns_zone_primary }}'
+  tags: CreateTXTRecord
+
+- name: Create static NS record
+  community.windows.win_dns_record:
+    name: '{{ host_record_name }}'
+    type: 'NS'
+    state: present
+    value: 
+      - '{{ ns_address }}'
+    zone: '{{ dns_zone_primary }}'
+  tags: CreateNSRecord

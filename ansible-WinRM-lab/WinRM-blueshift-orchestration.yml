@@ -57,7 +57,7 @@
       tags: [CreateDNSZone, all]
     
     - include_tasks: Services/tasks/main.yml
-      tags: [CreateARecord, all]
+      tags: [CreateARecord, CreatePTRRecord, CreateCNAMERecord, CreateSRVRecord, CreateNSRecord, CreateTXTRecord, all]
     
     - name: Importing WinDSC Role
       import_role: 
