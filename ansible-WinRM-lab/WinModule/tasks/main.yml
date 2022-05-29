@@ -85,6 +85,6 @@
   community.windows.win_dns_zone:
     name: "{{ dns_zone_primary }}"
     type: primary
-    replication: domain
+    replication: none
     state: Present
   tags: CreateDNSZone
