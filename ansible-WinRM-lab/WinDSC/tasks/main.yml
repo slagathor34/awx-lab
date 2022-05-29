@@ -19,7 +19,7 @@
   win_dsc:
     resource_name: File
     DestinationPath: C:\ansible\dsc
-    Ensure: Present
+    Ensure: Absent
     Type: Directory
   tags: CreateAnsibleDir
 
@@ -27,7 +27,7 @@
   win_dsc:
     resource_name: WindowsFeature
     Name: "{{ item }}"
-    Ensure: Present
+    Ensure: Absent
   with_items:
     - 'Web-Server'
     - 'DNS'
