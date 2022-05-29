@@ -54,7 +54,7 @@
       tags: [RebootServer, all]
     
     - include_tasks: WinModule/tasks/main.yml
-      tags: [CreateZone, all]
+      tags: [CreateDNSZone, all]
     
     - include_tasks: Services/tasks/main.yml
       tags: [CreateARecord, all]

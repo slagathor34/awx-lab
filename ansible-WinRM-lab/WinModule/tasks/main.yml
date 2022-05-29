@@ -87,4 +87,4 @@
     type: primary
     replication: domain
     state: Present
-  tags: CreateZone
+  tags: CreateDNSZone
