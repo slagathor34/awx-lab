@@ -4,15 +4,12 @@
 - debug:
     msg: "Common layer for set up of actions to be used in the role."
 
-- name: Example from an Ansible Playbook
-  win_ping:
-
 - name: Ensure primary zone is present
   community.windows.win_dns_zone:
     name: "{{ dns_zone_primary }}"
     type: primary
     replication: domain
-    state: Present
+    state: present
   tags: CreateZone
 
 - name: Create static record
