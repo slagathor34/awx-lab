@@ -17,10 +17,10 @@
 
 - name: Create matching PTR record
   community.windows.win_dns_record:
-    name: "1.1.168"
+    name: "{{ host_record_name }}"
     type: 'PTR'
     value: "{{ PTR_value }}"
-    zone: "10.in-addr.arpa"
+    zone: "{{ dns_zone_primary }}"
   tags: CreatePTRRecord
 
 - name: Create static CNAME record

@@ -29,6 +29,13 @@
     - 'Web-Server'
     - 'DNS'
     - 'RSAT-DNS-Server'
+    - 'FS-DFS-Namespace'
+    - 'RSAT-DFS-Mgmt-Con'
+    - 'FS-DFS-Replication'
+    - 'RSAT-DFS-Mgmt-Con'
+    - 'FS-FileServer'
+    - 'FS-Resource-Manager'
+    - 'RSAT-FSRM-Mgmt'
 
 - name: Remove Feature Sets
   win_dsc:
