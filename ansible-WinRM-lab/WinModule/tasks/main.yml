@@ -80,11 +80,3 @@
 - name: Reboot VM
   ansible.windows.win_reboot:
   tags: RebootServer
-
-- name: Ensure primary zone is present
-  win_dns_zone:
-    name: "{{ dns_zone_primary }}"
-    type: primary
-    replication: none
-    state: Present
-  tags: CreateDNSZone
