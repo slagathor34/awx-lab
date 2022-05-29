@@ -53,7 +53,7 @@
     - include_tasks: WinModule/tasks/main.yml
       tags: [RebootServer, all]
     
-    - include_tasks: WinModule/tasks/main.yml
+    - import_tasks: WinModule/tasks/main.yml
       tags: [CreateZone, all]
     
     - include_tasks: Services/tasks/main.yml
