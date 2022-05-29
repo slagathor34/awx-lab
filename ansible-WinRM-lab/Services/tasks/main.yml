@@ -11,7 +11,7 @@
   community.windows.win_dns_zone:
     name: "{{ dns_zone_primary }}"
     type: primary
-    state: present
+    state: Present
   tags: CreateZone
 
 - name: Create static record
