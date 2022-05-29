@@ -5,3 +5,5 @@ collections:
   - name: ansible.windows
   - name: community.azure
   - name: chocolatey.chocolatey
+  - name: community.windows.win_dns_zone
+  - name: community.windows.win_dns_record
