@@ -101,6 +101,7 @@
     #- '1password'
     #- 'op'
     #- 'Atom'
+    - 'prometheus-windows-exporter.install'
     - 'python3'
     - 'pip'
     - 'winget'
