@@ -71,7 +71,7 @@
     protocol: tcp
     state: present
     enabled: yes
-    
+
 - name: Install Software
   win_dsc:
     resource_name: cChocoPackageInstaller
@@ -98,5 +98,5 @@
     - 'pip'
     - 'winget'
 
-- name: Reboot VM
-  ansible.windows.win_reboot:
+#- name: Reboot VM
+#  ansible.windows.win_reboot:
