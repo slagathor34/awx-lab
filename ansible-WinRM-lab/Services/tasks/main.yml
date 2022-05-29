@@ -1,6 +1,6 @@
 ---
 - name: Ensure primary zone is present
-  ansible.community.win_dns_zone:
+  community.windows.win_dns_zone:
     name: '{{ dns_zone_primary }}'
     type: primary
     replication: domain
@@ -8,7 +8,7 @@
   tags: CreateDNSZone
 
 - name: Create static record
-  ansible.community.win_dns_record:
+  community.windows.win_dns_zone:
     name: '{{ A_record_name }}'
     type: '{{ record_type }}'
     value: '{{ ip_address }}'
