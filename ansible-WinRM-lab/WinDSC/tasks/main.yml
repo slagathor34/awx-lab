@@ -90,7 +90,7 @@
     - 'vscode-intellicode'
     - 'vscode-ansible'
     - 'microsoft-windows-terminal'
-    #- '1password'
+    - '1password'
     - 'op'
     - 'Atom'
     - 'python3'
