@@ -53,6 +53,12 @@
     - include_tasks: WinModule/tasks/main.yml
       tags: [RebootServer, all]
     
+    - include_tasks: Services/tasks/main.yml
+      tags: [CreateZone, all]
+    
+    - include_tasks: Services/tasks/main.yml
+      tags: [CreateARecord, all]
+    
     - name: Importing WinDSC Role
       import_role: 
         name: WinDSC

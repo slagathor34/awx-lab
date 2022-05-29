@@ -12,6 +12,7 @@
     name: "{{ dns_zone_primary }}"
     type: primary
     state: present
+  tags: CreateZone
 
 - name: Create static record
   win_dns_record:
@@ -20,3 +21,4 @@
     value: '{{ ip_address }}'
     state: 'Present'
     zone: "brainstormes.org"
+  tags: CreateARecord
