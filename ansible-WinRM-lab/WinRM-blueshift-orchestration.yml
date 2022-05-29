@@ -51,7 +51,7 @@
       tags: [MoveAADUserFromGroup, all]
     
     - include_tasks: WinModule/tasks/win-reboot.yml
-      tags: [RebootServer]
+      tags: [RebootServer, all]
     
     - name: Importing WinDSC Role
       import_role: 
