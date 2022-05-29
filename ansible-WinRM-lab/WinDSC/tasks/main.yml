@@ -36,6 +36,8 @@
     - 'FS-FileServer'
     - 'FS-Resource-Manager'
     - 'RSAT-FSRM-Mgmt'
+    - 'Web-Mgmt-Console'
+    - 'Web-Asp-Net45'
 
 - name: Remove Feature Sets
   win_dsc:
