@@ -1,9 +1,4 @@
 ---
-# KeyVault Retrieval
-# Add variables where no good common place exists
-- debug:
-    msg: "Common layer for set up of actions to be used in the role."
-
 - name: Ensure primary zone is present
   win_dns_zone:
     name: "{{ dns_zone_primary }}"
