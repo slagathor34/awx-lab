@@ -79,6 +79,7 @@
     DependsOn: '[cChocoInstaller]installChoco'
   with_items:
     - 'Git'
+    - 'qemu-guest-agent'
     - 'notepadplusplus'
     - 'microsoft-edge'
     - 'sysinternals'
