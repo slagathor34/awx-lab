@@ -7,11 +7,13 @@
   - xWebAdministration
   - CISDSC
   - cChoco
+  tags: InstallPSModule
 
 - name: cChoco cChocoInstaller
   win_dsc:
     resource_name: cChocoInstaller
     InstallDir: 'C:\choco'
+  tags: InstallChocoInstaller
 
 - name: Create file with multiple attributes
   win_dsc:
@@ -19,6 +21,7 @@
     DestinationPath: C:\ansible\dsc
     Ensure: Present
     Type: Directory
+  tags: CreateAnsibleDir
 
 - name: Install Windows Feature Set
   win_dsc:
@@ -38,6 +41,7 @@
     - 'RSAT-FSRM-Mgmt'
     - 'Web-Mgmt-Console'
     - 'Web-Asp-Net45'
+  tags: InstallDSCWinFeature
 
 - name: Remove Feature Sets
   win_dsc:
@@ -47,12 +51,14 @@
   with_items:
     - 'FS-SMB1'
     - 'Web-Ftp-Server'
+  tags: RemoveFeatureSet
 
 - name: Delete IIS Default Website
   win_dsc:
     resource_name: xWebSite
     Ensure: Absent
     Name: Default Web Site
+  tags: ConfigureIISServer
 
 - name: Create IIS Website with Binding and Authentication options
   win_dsc:
@@ -70,6 +76,7 @@
       Basic: true
       Digest: false
       Windows: yes
+  tags: ConfigureIISServer
 
 - name: Install Software
   win_dsc:
@@ -97,3 +104,4 @@
     - 'python3'
     - 'pip'
     - 'winget'
+  tags: InstallChocoPkg
