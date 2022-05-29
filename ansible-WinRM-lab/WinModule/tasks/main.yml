@@ -79,3 +79,4 @@
 
 - name: Reboot VM
   ansible.windows.win_reboot:
+  tags: RebootServer
