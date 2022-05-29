@@ -10,7 +10,7 @@
     type: primary
     replication: domain
     state: present
-  tags: CreateZone
+  tags: CreateDNSZone
 
 - name: Create static record
   win_dns_record:
