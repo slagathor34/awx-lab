@@ -75,7 +75,14 @@
     state: disabled
     profiles:
       - Domain
-  tags: disable_firewall
+  tags: disable_domain_firewall
+
+- name: Disable Public firewall
+  win_firewall:
+    state: disabled
+    profiles:
+      - Public
+  tags: disable_public_firewall
 
 - name: Reboot VM
   ansible.windows.win_reboot:
