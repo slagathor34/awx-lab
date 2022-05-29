@@ -7,6 +7,12 @@
 - name: Example from an Ansible Playbook
   win_ping:
 
+- name: Ensure primary zone is present
+  community.windows.win_dns_zone:
+    name: "{{ dns_zone_primary }}"
+    type: primary
+    state: present
+
 - name: Create static record
   win_dns_record:
     name: '{{ A_record_name }}'
