@@ -8,7 +8,7 @@
   tags: CreateDNSZone
 
 - name: Create static record
-  community.windows.win_dns_zone:
+  community.windows.win_dns_record:
     name: '{{ A_record_name }}'
     type: '{{ record_type }}'
     value: '{{ ip_address }}'
