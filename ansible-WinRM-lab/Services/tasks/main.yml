@@ -1,7 +1,7 @@
 ---
 - name: Ensure primary zone is present
   ansible.community.win_dns_zone:
-    name: "{{ dns_zone_primary }}"
+    name: '{{ dns_zone_primary }}'
     type: primary
     replication: domain
     state: present
