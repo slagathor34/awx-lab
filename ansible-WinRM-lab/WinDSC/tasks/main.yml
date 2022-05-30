@@ -116,3 +116,8 @@
     name: windows_exporter
     start_mode: auto
     state: started
+
+- name: Create a mapped drive under Z
+  community.windows.win_mapped_drive:
+    letter: Z
+    path: //storage.brainstormes.org/Users
