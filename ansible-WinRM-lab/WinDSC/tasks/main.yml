@@ -120,4 +120,4 @@
 - name: Create a mapped drive under Z
   community.windows.win_mapped_drive:
     letter: Z
-    path: //storage.brainstormes.org/Users
+    path: \\storage.brainstormes.org\Users
