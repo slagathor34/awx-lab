@@ -116,6 +116,16 @@
     name: windows_exporter
     start_mode: auto
     state: started
+  
+- name: Firewall rule to allow Windows Exporter on TCP 9182
+  win_firewall_rule:
+    name: Prometheus Windows Exporter
+    localport: 9182
+    action: allow
+    direction: in
+    protocol: tcp
+    state: present
+    enabled: yes
 
 - name: Create a mapped drive under Z
   community.windows.win_mapped_drive:
