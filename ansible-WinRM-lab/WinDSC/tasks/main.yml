@@ -44,6 +44,7 @@
     - 'FS-Resource-Manager'
     - 'RSAT-FSRM-Mgmt'
     - 'Web-Mgmt-Console'
+    - 'Windows-Server-Backup'
     - 'Web-Asp-Net45'
   tags: InstallDSCWinFeature
 
