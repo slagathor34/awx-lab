@@ -92,6 +92,7 @@
   with_items:
     - 'Git'
     - 'dotnetfx'
+    - 'sql-server-2019'
     #- 'qemu-guest-agent'
     #- 'notepadplusplus'
     #- 'microsoft-edge'
