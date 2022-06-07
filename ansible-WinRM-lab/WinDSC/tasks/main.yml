@@ -91,6 +91,7 @@
     DependsOn: '[cChocoInstaller]installChoco'
   with_items:
     - 'Git'
+    - 'dotnetfx'
     #- 'qemu-guest-agent'
     #- 'notepadplusplus'
     #- 'microsoft-edge'
