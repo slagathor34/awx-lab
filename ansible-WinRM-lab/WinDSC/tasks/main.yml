@@ -136,8 +136,3 @@
   community.windows.win_mapped_drive:
     letter: Z
     path: \\storage.brainstormes.org\Users
-
-- name: Install all updates and reboot as many times as needed
-  ansible.windows.win_updates:
-    category_names: '*'
-    reboot: yes
