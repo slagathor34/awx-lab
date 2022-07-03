@@ -59,10 +59,10 @@
     - include_tasks: Services/tasks/main.yml
       tags: [CreateARecord, CreatePTRRecord, CreateCNAMERecord, CreateSRVRecord, CreateNSRecord, CreateTXTRecord, all]
     
-    #- name: Importing WinDSC Role
-    #  import_role: 
-    #    name: WinDSC
-    #  tags: [WinDSC, all]
+    - name: Importing WinDSC Role
+      import_role: 
+        name: WinDSC
+      tags: [WinDSC, all]
 
     #- name: Importing WinModule Role
     #  import_role: 
