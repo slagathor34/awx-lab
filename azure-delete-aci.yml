@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  connection: local
+
+  tasks:
+  - name: Delete container group
+    azure_rm_containerinstance:
+      resource_group: "{{ rg_name }}"
+      name: "{{ container_group }}"
+      state: absent
