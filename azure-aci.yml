@@ -26,3 +26,8 @@
             storage_account_name: "{{ mystorageaccount }}"
             share_name: "{{ file_share_name }}"
             storage_account_key: "{{ storageaccountkey }}"
+  
+  - name: Get specific Container Instance facts
+    azure_rm_containerinstance_info:
+      resource_group: "{{ rg_name }}"
+      name: "{{ container_group }}"
