@@ -15,13 +15,13 @@
           memory: "{{ memory_amount }}"
           cpu: "{{ cpu_count }}"
           volume_mounts:
-            - name: "{{ filesharevolume }}"
+            - name: filesharevolume
               mount_path: "{{ mount_path }}"
           ports:
             - 80
             - 81
       volumes:
-        - name: filesharevolume
+        - name: "{{ filesharevolume }}"
           azure_file:
             storage_account_name: "{{ mystorageaccount }}"
             share_name: "{{ file_share_name }}"
