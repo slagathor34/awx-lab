@@ -18,8 +18,7 @@
             - name: "{{ filesharevolume }}"
               mount_path: "{{ mount_path }}"
           ports:
-            - 80
-            - 81
+            - "{{ external_port }}":"{{ internal_port }}"
       volumes:
         - name: "{{ filesharevolume }}"
           azure_file:
