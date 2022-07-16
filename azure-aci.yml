@@ -1,0 +1,27 @@
+---
+- hosts: localhost
+  connection: local
+
+  tasks:
+  - name: Create sample container group with azure file share volume
+    azure_rm_containerinstance:
+      resource_group: myResourceGroup
+      name: myContainerInstanceGroupz
+      os_type: linux
+      ip_address: public
+      containers:
+        - name: mycontainer1
+          image: httpd
+          memory: 1
+          volume_mounts:
+            - name: filesharevolume
+              mount_path: "/data/files"
+          ports:
+            - 80
+            - 81
+      volumes:
+        - name: filesharevolume
+          azure_file:
+            storage_account_name: mystorageaccount
+            share_name: acishare
+            storage_account_key: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
