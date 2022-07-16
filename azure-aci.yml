@@ -15,7 +15,7 @@
           memory: "{{ memory_amount }}"
           cpu: "{{ cpu_count }}"
           volume_mounts:
-            - name: filesharevolume
+            - name: "{{ filesharevolume }}"
               mount_path: "{{ mount_path }}"
           ports:
             - 80
