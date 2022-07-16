@@ -3,25 +3,26 @@
   connection: local
 
   tasks:
-  - name: Create sample container group with azure file share volume
+  - name: Create Public Azure ACI 
     azure_rm_containerinstance:
-      resource_group: myResourceGroup
-      name: myContainerInstanceGroupz
-      os_type: linux
+      resource_group: "{{ rg_name }}"
+      name: "{{ container_group }}"
+      os_type: "{{ os_type }}"
       ip_address: public
       containers:
-        - name: mycontainer1
-          image: httpd
-          memory: 1
+        - name: "{{ container_name }}"
+          image: "{{ image_name }}"
+          memory: "{{ memory_amount }}"
+          cpu: "{{ cpu_count }}"
           volume_mounts:
-            - name: filesharevolume
-              mount_path: "/data/files"
+            - name: "{{ filesharevolume }}"
+              mount_path: "{{ mount_path }}"
           ports:
             - 80
             - 81
       volumes:
         - name: filesharevolume
           azure_file:
-            storage_account_name: mystorageaccount
-            share_name: acishare
-            storage_account_key: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            storage_account_name: "{{ mystorageaccount }}"
+            share_name: "{{ file_share_name }}"
+            storage_account_key: "{{ storageaccountkey }}"
