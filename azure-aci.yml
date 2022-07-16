@@ -19,6 +19,7 @@
               mount_path: "{{ mount_path }}"
           ports:
             - "{{ port }}"
+          dns_name_label: "{{ dnsnamelabel }}"
       volumes:
         - name: "{{ filesharevolume }}"
           azure_file:
