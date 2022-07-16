@@ -9,6 +9,7 @@
       name: "{{ container_group }}"
       os_type: "{{ os_type }}"
       ip_address: public
+      dns_name_label: "{{ dnsnamelabel }}"
       containers:
         - name: "{{ container_name }}"
           image: "{{ image_name }}"
@@ -19,7 +20,6 @@
               mount_path: "{{ mount_path }}"
           ports:
             - "{{ port }}"
-          dns_name_label: "{{ dnsnamelabel }}"
       volumes:
         - name: "{{ filesharevolume }}"
           azure_file:
