@@ -8,7 +8,7 @@
       resource_group: "{{ rg_name }}"
       name: "{{ container_group }}"
       os_type: "{{ os_type }}"
-      ip_address: public
+      ip_address: none
       dns_name_label: "{{ dnsnamelabel }}"
       containers:
         - name: "{{ container_name1 }}"
