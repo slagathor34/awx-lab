@@ -11,15 +11,24 @@
       ip_address: public
       dns_name_label: "{{ dnsnamelabel }}"
       containers:
-        - name: "{{ container_name }}"
-          image: "{{ image_name }}"
-          memory: "{{ memory_amount }}"
-          cpu: "{{ cpu_count }}"
+        - name: "{{ container_name1 }}"
+          image: "{{ image_name1 }}"
+          memory: "{{ memory_amount1 }}"
+          cpu: "{{ cpu_count1 }}"
           volume_mounts:
             - name: "{{ filesharevolume }}"
               mount_path: "{{ mount_path }}"
           ports:
-            - "{{ port }}"
+            - "{{ port1 }}"
+        - name: "{{ container_name2 }}"
+          image: "{{ image_name2 }}"
+          memory: "{{ memory_amount2 }}"
+          cpu: "{{ cpu_count2 }}"
+          volume_mounts:
+            - name: "{{ filesharevolume }}"
+              mount_path: "{{ mount_path }}"
+          ports:
+            - "{{ port2 }}"
       volumes:
         - name: "{{ filesharevolume }}"
           azure_file:
