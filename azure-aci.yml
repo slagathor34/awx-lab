@@ -16,8 +16,8 @@
           memory: "{{ memory_amount1 }}"
           cpu: "{{ cpu_count1 }}"
           volume_mounts:
-            - name: "{{ filesharevolume }}"
-              mount_path: "{{ mount_path }}"
+            - name: "{{ filesharevolume1 }}"
+              mount_path: "{{ mount_path1 }}"
           ports:
             - "{{ port1 }}"
         - name: "{{ container_name2 }}"
@@ -25,15 +25,20 @@
           memory: "{{ memory_amount2 }}"
           cpu: "{{ cpu_count2 }}"
           volume_mounts:
-            - name: "{{ filesharevolume }}"
-              mount_path: "{{ mount_path }}"
+            - name: "{{ filesharevolume2 }}"
+              mount_path: "{{ mount_path2 }}"
           ports:
             - "{{ port2 }}"
       volumes:
-        - name: "{{ filesharevolume }}"
+        - name: "{{ filesharevolume1 }}"
           azure_file:
             storage_account_name: "{{ mystorageaccount }}"
-            share_name: "{{ file_share_name }}"
+            share_name: "{{ file_share_name1 }}"
+            storage_account_key: "{{ storageaccountkey }}"
+        - name: "{{ filesharevolume2 }}"
+          azure_file:
+            storage_account_name: "{{ mystorageaccount }}"
+            share_name: "{{ file_share_name2 }}"
             storage_account_key: "{{ storageaccountkey }}"
   
   - name: Get specific Container Instance facts
