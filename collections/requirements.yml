@@ -5,3 +5,4 @@ collections:
   - name: ansible.windows
   - name: community.azure
   - name: chocolatey.chocolatey
+  - name: netbox.netbox
