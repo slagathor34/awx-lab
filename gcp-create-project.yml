@@ -1,9 +1,13 @@
 - name: Create a GCP project
-  gcp_resourcemanager_project:
-    name: "{{ project_name }}"
-    id: brainstormestest-{{ 1000000 | random }}
-    auth_kind: serviceaccount
-    parent:
-      type: organization
-      id: "{{ org_id }}"
-    state: present
+  hosts: localhost
+  
+  tasks:
+  - name: Create a GCP project
+    gcp_resourcemanager_project:
+      name: "{{ project_name }}"
+      id: brainstormestest-{{ 1000000 | random }}
+      auth_kind: serviceaccount
+      parent:
+        type: organization
+        id: "{{ org_id }}"
+      state: present
