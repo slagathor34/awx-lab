@@ -1,4 +1,4 @@
-- name: Create a GCP instance
+- name: Create a GCP project
   gcp_resourcemanager_project:
     name: "{{ project_name }}"
     id: brainstormestest-{{ 1000000 | random }}
