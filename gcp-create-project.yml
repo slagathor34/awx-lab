@@ -1,12 +1,14 @@
 - name: Create a GCP project
   hosts: localhost
-  
+  vars:
+     gcp_cred_kind: serviceaccount
+
   tasks:
   - name: Create a GCP project
     gcp_resourcemanager_project:
       name: "{{ project_name }}"
       id: brainstormestest-{{ 1000000 | random }}
-      auth_kind: serviceaccount
+      auth_kind: "{{ gcp_cred_kind }}"
       parent:
         type: organization
         id: "{{ org_id }}"
