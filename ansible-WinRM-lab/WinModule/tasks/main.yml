@@ -99,3 +99,9 @@
     script: |
       echo "Hello World"
   tags: PowerShellExample
+  register: pwsh_output
+
+- name: Output PowerShell Example
+  debug:
+    var: pwsh_ouput
+  tags: PowerShellExample
