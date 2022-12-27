@@ -93,3 +93,9 @@
     category_names: '*'
     reboot: yes
   tags: WeeklyUpdate
+
+- name: Run PowerShell Script
+  ansible.windows.win_powershell:
+    script: |
+      echo "Hello World"
+  tags: PowerShellExample
