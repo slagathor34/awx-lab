@@ -105,8 +105,3 @@
   debug:
     var: pwsh_output.output[0]
   tags: PowerShellExample
-
-- name: Output PowerShell Example 2nd host
-  debug:
-    var: pwsh_output.output[1]
-  tags: PowerShellExample
