@@ -103,5 +103,5 @@
 
 - name: Output PowerShell Example
   debug:
-    var: pwsh_ouput
+    var: pwsh_output
   tags: PowerShellExample
