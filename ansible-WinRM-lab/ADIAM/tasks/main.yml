@@ -9,13 +9,13 @@
     state: present
     groups:
       - Domain Users
-    street: "{{ street_address }}"
-    city: "{{ city }}"
-    state_province: "{{ state }}"
-    postal_code: "{{ zip_code }}"
-    country: US
-    attributes:
-      telephoneNumber: "{{ phone_number }}"
+    #street: "{{ street_address }}"
+    #city: "{{ city }}"
+    #state_province: "{{ state }}"
+    #postal_code: "{{ zip_code }}"
+    #country: US
+    #attributes:
+    #  telephoneNumber: "{{ phone_number }}"
   tags: CreateUser
 
 - name: Delete AD User
