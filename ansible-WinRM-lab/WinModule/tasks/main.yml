@@ -103,5 +103,5 @@
 
 - name: Output PowerShell Example
   debug:
-    var: pwsh_output.stdout
+    var: pwsh_output.output[0]
   tags: PowerShellExample
