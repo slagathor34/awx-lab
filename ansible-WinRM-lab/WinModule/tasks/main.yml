@@ -97,7 +97,7 @@
 - name: Run PowerShell Script
   ansible.windows.win_powershell:
     script: |
-      echo "Hello World"
+      echo "Hello World from $env:computername"
   tags: PowerShellExample
   register: pwsh_output
 
