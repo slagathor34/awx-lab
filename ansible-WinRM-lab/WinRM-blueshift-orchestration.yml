@@ -51,7 +51,7 @@
       tags: [MoveAADUserFromGroup, all]
     
     - include_tasks: WinModule/tasks/main.yml
-      tags: [RebootServer, WeeklyUpdate, all]
+      tags: [RebootServer, WeeklyUpdate, PowerShellExample, all]
     
     - include_tasks: Services/tasks/main.yml
       tags: [CreateDNSZone, all]
