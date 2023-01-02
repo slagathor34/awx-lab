@@ -16,8 +16,8 @@
 
 .NOTES
   Version:        1.0
-  Author:         <Name>
-  Creation Date:  <Date>
+  Author:         Sonny Stormes
+  Creation Date:  <1/1/2023
   Purpose/Change: Initial script development
   
 .EXAMPLE
@@ -27,7 +27,7 @@
 #---------------------------------------------------------[Initialisations]--------------------------------------------------------
 
 #Set Error Action to Silently Continue
-$ErrorActionPreference = "SilentlyContinue"
+ErrorActionPreference = "SilentlyContinue"
 
 #Dot Source required Function Libraries
 . "C:\Scripts\Functions\Logging_Functions.ps1"
@@ -50,7 +50,7 @@ Function Invoke-RestApiGet {
         [string]$Uri
     )
     Begin{
-        Log-Write -LogPath $sLogFile -LineValue "<description of what is going on>..."
+        Log-Write -LogPath $sLogFile -LineValue "Getting the URL requested"
       }
       
       Process{
