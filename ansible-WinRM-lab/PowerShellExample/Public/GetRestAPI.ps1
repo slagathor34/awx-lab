@@ -17,7 +17,7 @@
 .NOTES
   Version:        1.0
   Author:         Sonny Stormes
-  Creation Date:  <1/1/2023
+  Creation Date:  1/1/2023
   Purpose/Change: Initial script development
   
 .EXAMPLE
@@ -52,9 +52,7 @@ Function Invoke-RestApiGet {
     Begin{
         Log-Write -LogPath $sLogFile -LineValue "Getting the URL requested"
       }
-      
-      Process{
-        
+    Process{    
         Try{
           # Send the GET request
           $response = Invoke-WebRequest -Method Get -Uri $Uri
@@ -62,13 +60,11 @@ Function Invoke-RestApiGet {
           # Return the response as a string
           return $response.Content
         }
-        
         Catch{
           Log-Error -LogPath $sLogFile -ErrorDesc $_.Exception -ExitGracefully $True
           Break
         }
-        
-        End{
+    End{
             If($?){
               Log-Write -LogPath $sLogFile -LineValue "Completed Successfully."
               Log-Write -LogPath $sLogFile -LineValue " "
