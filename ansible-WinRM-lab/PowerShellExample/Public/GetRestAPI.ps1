@@ -37,11 +37,6 @@ ErrorActionPreference = "SilentlyContinue"
 #Script Version
 $sScriptVersion = "1.0"
 
-#Log File Info
-$sLogPath = "C:\Windows\Temp"
-$sLogName = "Sampletemplate.log"
-$sLogFile = Join-Path -Path $sLogPath -ChildPath $sLogName
-
 #-----------------------------------------------------------[Functions]------------------------------------------------------------
 Function Invoke-RestApiGet {
     [CmdletBinding()]
@@ -50,6 +45,11 @@ Function Invoke-RestApiGet {
         [string]$Uri
     )
     Begin{
+        #Log File Info
+        $sLogPath = "C:\Windows\Temp"
+        $sLogName = "Sampletemplate.log"
+        $sLogFile = Join-Path -Path $sLogPath -ChildPath $sLogName
+        #Create Log Entry
         Log-Write -LogPath $sLogFile -LineValue "Getting the URL requested"
       }
     Process{    
