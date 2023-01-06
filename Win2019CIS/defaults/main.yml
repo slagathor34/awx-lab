@@ -536,7 +536,7 @@ sec_maxsize: 196608
 sys_maxsize: 32768
 
 
-legalnoticecaption: "DoD Notice and Consent Banner"
+legalnoticecaption: "Notice and Consent Banner"
 
 # 2.2.33
 # Window Manager\Window Manager Group only exists on non Core installations
