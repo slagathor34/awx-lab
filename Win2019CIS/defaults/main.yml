@@ -30,6 +30,10 @@ section18_patch: true
 # 19.1.x Control Panel, 19.5.x Start Menu and Taskbar, 19.6.x System, 19.7.x Windows Components
 section19_patch: true
 
+# Section Custom Windows 2019 Configuration
+# Windows Custom configuraitons, to be deployed through WinRM into the VM in cloud
+custom_win2019config: true
+
 min_ansible_version: "2.6"
 
 # We've defined complexity-high to mean that we cannot automatically remediate

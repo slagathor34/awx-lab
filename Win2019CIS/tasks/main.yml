@@ -70,3 +70,9 @@
   when: section19_patch | bool
   tags:
       - section19
+
+- name: Execute the custom Windows 2019 DSC configuration tasks
+  import_tasks: custom.yml
+  when: custom_win2019config | bool
+  tags:
+      - custom_win2019
