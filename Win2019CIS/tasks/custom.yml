@@ -1,0 +1,138 @@
+---
+- name: Install PS Modules
+  win_psmodule:
+    name: '{{ item }}'
+    state: present
+  with_items:
+  - xWebAdministration
+  - CISDSC
+  - cChoco
+  - AuditPolicyDSC
+  - SecurityPolicyDSC
+  - NetworkingDsc
+  - PSDesiredStateConfiguration
+  tags: InstallPSModule
+
+- name: cChoco cChocoInstaller
+  win_dsc:
+    resource_name: cChocoInstaller
+    InstallDir: 'C:\choco'
+  tags: InstallChocoInstaller
+
+- name: Create file with multiple attributes
+  win_dsc:
+    resource_name: File
+    DestinationPath: C:\ansible\dsc
+    Ensure: Present
+    Type: Directory
+  tags: CreateAnsibleDir
+
+- name: Install Windows Feature Set
+  win_dsc:
+    resource_name: WindowsFeature
+    Name: "{{ item }}"
+    Ensure: Present
+  with_items:
+    - 'Web-Server'
+    - 'DNS'
+    - 'RSAT-DNS-Server'
+    - 'FS-DFS-Namespace'
+    - 'RSAT-DFS-Mgmt-Con'
+    - 'FS-DFS-Replication'
+    - 'RSAT-DFS-Mgmt-Con'
+    - 'FS-FileServer'
+    - 'FS-Resource-Manager'
+    - 'RSAT-FSRM-Mgmt'
+    - 'Web-Mgmt-Console'
+    - 'Windows-Server-Backup'
+    - 'Web-Asp-Net45'
+  tags: InstallDSCWinFeature
+
+- name: Remove Feature Sets
+  win_dsc:
+    resource_name: WindowsFeature
+    Name: "{{ item }}"
+    Ensure: Absent
+  with_items:
+    - 'FS-SMB1'
+    - 'Web-Ftp-Server'
+  tags: RemoveFeatureSet
+
+- name: Delete IIS Default Website
+  win_dsc:
+    resource_name: xWebSite
+    Ensure: Absent
+    Name: Default Web Site
+  tags: ConfigureIISServer
+
+- name: Create IIS Website with Binding and Authentication options
+  win_dsc:
+    resource_name: xWebsite
+    Ensure: Present
+    Name: DSC Website
+    State: Started
+    PhysicalPath: C:\inetpub\wwwroot
+    BindingInfo: # Example of a CimInstance[] DSC parameter (list of dicts)
+    - Protocol: http
+      Port: 80
+      IPAddress: '*'
+    AuthenticationInfo: # Example of a CimInstance DSC parameter (dict)
+      Anonymous: no
+      Basic: true
+      Digest: false
+      Windows: yes
+  tags: ConfigureIISServer
+
+- name: Install Software
+  win_dsc:
+    resource_name: cChocoPackageInstaller
+    Name: '{{ item }}'
+    Ensure: 'Present'
+    DependsOn: '[cChocoInstaller]installChoco'
+  with_items:
+    - 'Git'
+    - 'dotnetfx'
+    - 'sql-server-2019'
+    - 'mysql-cli'
+    
+    #- 'qemu-guest-agent'
+    #- 'notepadplusplus'
+    #- 'microsoft-edge'
+    #- 'sysinternals'
+    #- 'chocolatey-core.extension'
+    #- 'vscode'
+    #- 'vscode-python'
+    #- 'vscode-python-test-adaptor'
+    #- 'vscode-pylance'
+    #- 'vscode-intellicode'
+    #- 'vscode-ansible'
+    #- 'microsoft-windows-terminal'
+    #- '1password'
+    #- 'op'
+    #- 'Atom'
+    - 'prometheus-windows-exporter.install'
+    - 'python3'
+    - 'pip'
+    - 'winget'
+  tags: InstallChocoPkg
+
+- name: Set Windows Exporter service startup mode to auto and ensure it is started
+  win_service:
+    name: windows_exporter
+    start_mode: auto
+    state: started
+  
+- name: Firewall rule to allow Windows Exporter on TCP 9182
+  win_firewall_rule:
+    name: Prometheus Windows Exporter
+    localport: 9182
+    action: allow
+    direction: in
+    protocol: tcp
+    state: present
+    enabled: yes
+
+- name: Create a mapped drive under Z
+  community.windows.win_mapped_drive:
+    letter: Z
+    path: \\storage.brainstormes.org\Users
